@@ -1,0 +1,14 @@
+# API key scripts (contain hardcoded secrets)
+generate-v2.js
+generate-v2-gemini.js
+generate-images.js
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude
+.claude/

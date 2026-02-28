@@ -1,0 +1,3081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nancy — The Universe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN SYSTEM — NANCY UNIVERSE
+   ═══════════════════════════════════════════════ */
+:root {
+  /* Brand */
+  --pink: #ff30cc;
+  --pink-hover: #e620b5;
+  --pink-light: #fff0fa;
+  --pink-glow: rgba(255, 48, 204, 0.15);
+  --lime: #ccfd28;
+  --lime-dark: #b4e020;
+
+  /* Neutrals */
+  --cream: #faf8f5;
+  --cream-dark: #f3efe9;
+  --black: #111111;
+  --dark: #1a1a1a;
+  --gray-900: #2a2a2a;
+  --gray-700: #555555;
+  --gray-500: #888888;
+  --gray-300: #cccccc;
+  --gray-100: #eeeeee;
+  --white: #ffffff;
+
+  /* Fruit Worlds */
+  --lem: #FFE135;
+  --lem-light: #FFF9D9;
+  --lem-dark: #E6C800;
+  --berri: #FF4B6E;
+  --berri-light: #FFE5EB;
+  --berri-dark: #D93050;
+  --avo: #6BA368;
+  --avo-light: #E6F2E5;
+  --avo-dark: #4D7E4A;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --space-2xl: 8rem;
+
+  /* Layout */
+  --max-width: 1400px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 100px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--dark);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ═══════════════════════════════════════════════
+   NOISE TEXTURE OVERLAY
+   ═══════════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL ANIMATIONS
+   ═══════════════════════════════════════════════ */
+/* Scroll reveal: start hidden, animate in when visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero entrance animation on load */
+.hero .reveal {
+  opacity: 0;
+  animation: hero-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero .reveal-delay-1 { animation-delay: 0.15s; }
+.hero .reveal-delay-2 { animation-delay: 0.3s; }
+.hero .reveal-delay-3 { animation-delay: 0.45s; }
+.hero .reveal-delay-4 { animation-delay: 0.6s; }
+.hero .reveal-delay-5 { animation-delay: 0.75s; }
+
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════ */
+.topbar {
+  background: var(--pink);
+  color: var(--white);
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topbar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 0 2rem;
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nav-logo img {
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+}
+
+.nav-logo span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--pink); }
+
+.nav-links a.active {
+  color: var(--black);
+  font-weight: 600;
+}
+
+.nav-links a .badge {
+  position: absolute;
+  top: -8px;
+  right: -18px;
+  background: var(--lime);
+  color: var(--black);
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.nav-cart {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.nav-cart:hover { background: var(--cream-dark); }
+
+.nav-cart svg { width: 20px; height: 20px; }
+
+.nav-cart .cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--pink);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════ */
+.hero {
+  min-height: min(85vh, 800px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(ellipse, var(--pink-glow) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float-glow 12s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -15%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(ellipse, rgba(204, 253, 40, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float-glow 15s ease-in-out infinite reverse;
+}
+
+@keyframes float-glow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+/* Floating product images in hero */
+.hero-floats {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-float {
+  position: absolute;
+  opacity: 0;
+  animation: float-product 20s ease-in-out infinite;
+}
+
+.hero-float img {
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+/* Lem — top-left, large */
+.hero-float:nth-child(1) { top: 6%; left: 3%; animation-delay: 0s; }
+.hero-float:nth-child(1) img { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; background: linear-gradient(160deg, #FFF9D9, #FFE135); }
+
+/* Berri — top-right */
+.hero-float:nth-child(2) { top: 10%; right: 4%; animation-delay: -4s; }
+.hero-float:nth-child(2) img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; background: linear-gradient(160deg, #FFE5EB, #FF4B6E); }
+
+/* Avo — bottom-left */
+.hero-float:nth-child(3) { bottom: 12%; left: 4%; animation-delay: -8s; }
+.hero-float:nth-child(3) img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; background: linear-gradient(160deg, #E6F2E5, #6BA368); }
+
+/* Pixie — bottom-right */
+.hero-float:nth-child(4) { bottom: 18%; right: 3%; animation-delay: -12s; }
+.hero-float:nth-child(4) img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; background: linear-gradient(160deg, #F3E8FF, #D4B5F0); }
+
+/* Lolly — mid-left, small */
+.hero-float:nth-child(5) { top: 52%; left: 1%; animation-delay: -6s; }
+.hero-float:nth-child(5) img { width: 110px; height: 110px; object-fit: cover; border-radius: 50%; background: linear-gradient(160deg, #FFF0E0, #FF9F64); }
+
+/* Lem small accent — mid-right */
+.hero-float:nth-child(6) { top: 48%; right: 2%; animation-delay: -15s; }
+.hero-float:nth-child(6) img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; background: linear-gradient(160deg, #FFF9D9, #FFE135); }
+
+@keyframes float-product {
+  0%, 100% { opacity: 0; transform: translateY(20px) rotate(0deg) scale(0.85); }
+  10% { opacity: 0.8; }
+  50% { opacity: 0.92; transform: translateY(-12px) rotate(3deg) scale(1); }
+  90% { opacity: 0.8; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+}
+
+.hero-eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pink);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+}
+
+.hero-line-1 {
+  display: block;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--black);
+}
+
+.hero-line-2 {
+  display: block;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  color: var(--pink);
+  position: relative;
+}
+
+.hero-line-3 {
+  display: block;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  -webkit-text-stroke: 2.5px var(--black);
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--gray-700);
+  margin: 1.5rem auto 2.5rem;
+  max-width: 520px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.hero-categories {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-categories span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gray-500);
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-pill);
+  transition: all 0.3s;
+}
+
+.hero-categories span:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  background: var(--pink-light);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.2rem;
+  background: var(--black);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background: var(--pink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--pink-glow);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.2rem;
+  background: transparent;
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1.5px solid var(--gray-300);
+  border-radius: var(--radius-pill);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline:hover {
+  border-color: var(--black);
+  transform: translateY(-2px);
+}
+
+/* Hero Stats Bar */
+.hero-scroll-hint {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero-scroll-hint span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--gray-300), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.4; transform: scaleY(0.6); }
+}
+
+/* ═══════════════════════════════════════════════
+   MARQUEE BANNER
+   ═══════════════════════════════════════════════ */
+.marquee-banner {
+  background: var(--black);
+  color: var(--white);
+  padding: 0.9rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+
+.marquee-track span {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+
+.marquee-track .sep {
+  color: var(--pink);
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════
+   SOCIAL PROOF STRIP
+   ═══════════════════════════════════════════════ */
+.social-proof {
+  padding: 2rem 0;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.social-proof-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sp-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.sp-item .sp-icon {
+  font-size: 1.2rem;
+}
+
+.sp-item strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.sp-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--gray-300);
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION HEADERS
+   ═══════════════════════════════════════════════ */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header--row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.see-all-link {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--pink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: gap 0.3s;
+  padding-bottom: 0.3rem;
+}
+
+.see-all-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--pink);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--black);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--black) 0%, var(--gray-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--gray-500);
+  margin-top: 1rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ═══════════════════════════════════════════════
+   CATEGORY STRIP
+   ═══════════════════════════════════════════════ */
+.categories {
+  padding: var(--space-xl) 0;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.category-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.category-card:first-child {
+  grid-row: span 2;
+  min-height: 700px;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* Full-bleed background image */
+.category-card .cat-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.category-card .cat-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.category-card:hover .cat-bg img {
+  transform: scale(1.05);
+}
+
+/* Gradient overlay for text legibility */
+.category-card .cat-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.category-card.toys .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%); }
+.category-card.fashion .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 50%, transparent 100%); }
+.category-card.plushies .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.05) 50%, transparent 100%); }
+.category-card.drops .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, transparent 100%); }
+.category-card.accessories .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.05) 50%, transparent 100%); }
+
+/* Text content */
+.category-card .cat-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.8rem;
+}
+
+.category-card .cat-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.1;
+}
+.category-card:first-child .cat-name {
+  font-size: 2.6rem;
+}
+
+.category-card .cat-count {
+  font-size: 0.82rem;
+  opacity: 0.8;
+  margin-top: 0.4rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
+
+.category-card .cat-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 2;
+  color: var(--white);
+}
+
+.category-card:hover .cat-arrow {
+  background: rgba(255,255,255,0.35);
+  transform: translate(3px, -3px);
+}
+
+/* ═══════════════════════════════════════════════
+   TRENDING NOW — HORIZONTAL SCROLL
+   ═══════════════════════════════════════════════ */
+.trending {
+  padding: var(--space-xl) 0;
+}
+
+.trending-scroll {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0 2rem 1.5rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.trending-scroll::-webkit-scrollbar { display: none; }
+
+.product-card {
+  flex-shrink: 0;
+  width: 280px;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(255, 48, 204, 0.08);
+  border-color: transparent;
+}
+
+.product-card .card-image {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .card-image .gradient-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .card-image .gradient-bg {
+  transform: scale(1.05);
+}
+
+.product-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.product-card .card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.badge-toy { background: var(--pink); color: white; }
+.badge-fashion { background: var(--black); color: white; }
+.badge-plush { background: var(--lem); color: var(--black); }
+.badge-drop { background: var(--lime); color: var(--black); }
+.badge-new {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--lime);
+  color: var(--black);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+.product-card .card-info {
+  padding: 1.2rem;
+}
+
+.product-card .card-category {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gray-500);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.product-card .card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.product-card .card-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-card .card-price .current {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+.product-card .card-price .original {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  text-decoration: line-through;
+}
+
+.product-card .card-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--gray-500);
+}
+
+.product-card .card-rating .stars {
+  color: #f5a623;
+  letter-spacing: -1px;
+}
+
+/* Hover CTA for trending cards */
+.product-card .card-hover-cta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+  text-align: center;
+}
+
+.product-card .card-hover-cta a {
+  display: inline-block;
+  padding: 0.5rem 1.6rem;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.product-card .card-hover-cta a:hover {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.product-card:hover .card-hover-cta {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════
+   UNIVERSE SECTION — CHARACTER WORLDS
+   ═══════════════════════════════════════════════ */
+.universe {
+  background: var(--black);
+  color: var(--white);
+  padding: var(--space-2xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.universe::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255, 48, 204, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(204, 253, 40, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.universe .section-label { color: var(--lime); }
+.universe .section-title {
+  background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.universe .section-subtitle { color: rgba(255,255,255,0.5); }
+
+.universe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.world-card {
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.world-card:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.world-card.lem-world {
+  background: linear-gradient(160deg, #FFF8D6 0%, var(--lem) 60%, #E6C800 100%);
+  color: var(--black);
+}
+
+.world-card.berri-world {
+  background: linear-gradient(160deg, #FFE5EB 0%, var(--berri) 60%, #D93050 100%);
+  color: var(--white);
+}
+
+.world-card.avo-world {
+  background: linear-gradient(160deg, #E6F2E5 0%, var(--avo) 60%, #4D7E4A 100%);
+  color: var(--white);
+}
+
+.world-card .world-emoji {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 160px;
+  height: 160px;
+  border-radius: 24px;
+  overflow: hidden;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.world-card .world-emoji img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.world-card:hover .world-emoji {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.world-card .world-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.world-card .world-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.world-card .world-tagline {
+  font-size: 1.3rem;
+  font-weight: 300;
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.world-card .world-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.75;
+  max-width: 280px;
+}
+
+.world-card .world-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 0.55rem 1.3rem;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-pill);
+  transition: gap 0.3s, background 0.3s, padding 0.3s;
+}
+
+.world-card:hover .world-cta { gap: 0.8rem; background: rgba(255,255,255,0.12); padding: 0.55rem 1.5rem; }
+
+/* ═══════════════════════════════════════════════
+   NEW DROP SECTION
+   ═══════════════════════════════════════════════ */
+.drop-section {
+  padding: var(--space-xl) 0;
+  background: var(--cream);
+}
+
+.drop-card {
+  background: linear-gradient(135deg, #111 0%, #1e1e1e 100%);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+  position: relative;
+}
+
+.drop-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(204, 253, 40, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.drop-info {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.drop-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--lime);
+  color: var(--black);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+  margin-bottom: 1.5rem;
+}
+
+.drop-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.drop-title em {
+  font-style: normal;
+  color: var(--lime);
+}
+
+.drop-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.drop-countdown {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.countdown-unit {
+  text-align: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  min-width: 70px;
+}
+
+.countdown-unit .num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.countdown-unit .unit-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+.btn-lime {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--lime);
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  transition: all 0.3s;
+  width: fit-content;
+}
+
+.btn-lime:hover {
+  background: var(--lime-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(204, 253, 40, 0.3);
+}
+
+.drop-visual {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.8rem;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.drop-item {
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.drop-item:hover { transform: scale(1.04); }
+
+.drop-item .di-emoji { font-size: 3rem; }
+.drop-item .di-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--white);
+  text-align: center;
+}
+.drop-item .di-price {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.drop-item:nth-child(1) { background: linear-gradient(135deg, rgba(255,225,53,0.15), rgba(255,225,53,0.05)); border: 1px solid rgba(255,225,53,0.2); }
+.drop-item:nth-child(2) { background: linear-gradient(135deg, rgba(255,75,110,0.15), rgba(255,75,110,0.05)); border: 1px solid rgba(255,75,110,0.2); }
+.drop-item:nth-child(3) { background: linear-gradient(135deg, rgba(107,163,104,0.15), rgba(107,163,104,0.05)); border: 1px solid rgba(107,163,104,0.2); }
+.drop-item:nth-child(4) { background: linear-gradient(135deg, rgba(255,48,204,0.15), rgba(255,48,204,0.05)); border: 1px solid rgba(255,48,204,0.2); }
+
+/* ═══════════════════════════════════════════════
+   BEST SELLERS GRID
+   ═══════════════════════════════════════════════ */
+.bestsellers {
+  padding: var(--space-xl) 0 var(--space-lg);
+}
+
+.bs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.bs-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--gray-100);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.bs-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(255, 48, 204, 0.08);
+  border-color: transparent;
+}
+
+.bs-card .bs-image {
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bs-card .bs-image .gradient-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bs-card:hover .bs-image .gradient-bg { transform: scale(1.05); }
+
+.bs-card .bs-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bs-card:hover .bs-image img { transform: scale(1.05); }
+
+.bs-card .bs-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--pink);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+.bs-card .bs-sold {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.bs-card .bs-info { padding: 1.3rem; }
+
+.bs-card .bs-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--black);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.bs-card .bs-subtitle {
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  margin-bottom: 0.6rem;
+}
+
+.bs-card .bs-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bs-card .bs-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bs-card .bs-current {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--black);
+}
+
+.bs-card .bs-original {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  text-decoration: line-through;
+}
+
+.bs-card .bs-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--gray-500);
+}
+
+.bs-card .bs-stars {
+  color: #f5a623;
+  font-size: 0.7rem;
+}
+
+.bs-card .add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 1rem;
+  background: var(--black);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bs-card .add-to-cart:hover {
+  background: var(--pink);
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px var(--pink-glow);
+}
+
+.bs-card .add-to-cart svg {
+  transition: transform 0.3s;
+}
+
+.bs-card .add-to-cart:hover svg {
+  transform: translateX(3px);
+}
+
+/* ═══════════════════════════════════════════════
+   FASHION SECTION
+   ═══════════════════════════════════════════════ */
+.fashion {
+  padding: var(--space-xl) 0;
+  background: var(--cream-dark);
+}
+
+.fashion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.2rem;
+}
+
+.fashion-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.fashion-card:hover { transform: translateY(-6px); }
+
+.fashion-card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+  min-height: 500px;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 48, 204, 0.5) 0%, transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(204, 253, 40, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255, 75, 110, 0.2) 0%, transparent 55%),
+    linear-gradient(160deg, #0d0d1a 0%, #1a1a2e 40%, #1e2a3e 100%);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.fashion-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--lem-light), var(--lem));
+  color: var(--black);
+}
+
+.fashion-card:nth-child(3) {
+  background: linear-gradient(135deg, var(--berri-light), var(--berri));
+  color: white;
+}
+
+.fashion-card:nth-child(4) {
+  background: linear-gradient(135deg, var(--avo-light), var(--avo));
+  color: white;
+}
+
+.fashion-card:nth-child(5) {
+  background: linear-gradient(135deg, #f0e6ff, #d4b5f0);
+  color: var(--dark);
+}
+
+.fashion-card .fashion-coming {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.fashion-card .fashion-emoji {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+}
+
+.fashion-card:nth-child(1) .fashion-emoji { font-size: 5rem; margin-bottom: 1.5rem; }
+
+.fashion-card:nth-child(1) .fashion-name {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.fashion-card:nth-child(1) .fashion-desc {
+  font-size: 1rem;
+  opacity: 0.7;
+  max-width: 320px;
+}
+
+.fashion-card:nth-child(1) .fashion-price {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-pill);
+  display: inline-block;
+}
+
+.fashion-card:nth-child(1)::after {
+  content: 'FRUIT CLUB';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 10rem;
+  letter-spacing: -0.04em;
+  opacity: 0.03;
+  white-space: nowrap;
+  pointer-events: none;
+  color: white;
+}
+
+.fashion-card .fashion-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+
+/* fashion hero name size set at line 1491 */
+
+.fashion-card .fashion-desc {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.fashion-card .fashion-price {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   PLUSH COLLECTION
+   ═══════════════════════════════════════════════ */
+.plush {
+  padding: var(--space-xl) 0;
+}
+
+.plush-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 0 2rem 1.5rem;
+  scrollbar-width: none;
+}
+
+.plush-scroll::-webkit-scrollbar { display: none; }
+
+.plush-card {
+  flex-shrink: 0;
+  width: 320px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.plush-card:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.plush-card .plush-image {
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.plush-card .plush-soon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--lime);
+  color: var(--black);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.plush-card:nth-child(1) .plush-image { background: linear-gradient(180deg, #FFF9D9, #FFEFAA); }
+.plush-card:nth-child(2) .plush-image { background: linear-gradient(180deg, #FFE5EB, #FFD0D9); }
+.plush-card:nth-child(3) .plush-image { background: linear-gradient(180deg, #E6F2E5, #D0E8CE); }
+.plush-card:nth-child(4) .plush-image { background: linear-gradient(180deg, #F3E8FF, #E5D5F5); }
+.plush-card:nth-child(5) .plush-image { background: linear-gradient(180deg, #FFF0E0, #FFE0C0); }
+
+.plush-card .plush-info { padding: 1.3rem; }
+.plush-card .plush-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--black);
+}
+.plush-card .plush-desc {
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  margin-top: 0.3rem;
+}
+.plush-card .plush-price {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--black);
+  margin-top: 0.6rem;
+}
+
+/* ═══════════════════════════════════════════════
+   COMMUNITY / SOCIAL PROOF
+   ═══════════════════════════════════════════════ */
+.community {
+  padding: var(--space-xl) 0;
+  background: var(--cream-dark);
+}
+
+.community-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-100);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover { transform: translateY(-4px); }
+
+.stat-card .stat-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: var(--black);
+  letter-spacing: -0.03em;
+}
+
+.stat-card .stat-label {
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  border: 1px solid var(--gray-100);
+  transition: transform 0.3s;
+}
+
+.review-card:hover { transform: translateY(-4px); }
+
+.review-card .review-stars {
+  color: #f5a623;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+
+.review-card .review-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+  margin-bottom: 1.2rem;
+}
+
+.review-card .review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.review-card .review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--pink-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--pink);
+}
+
+.review-card .review-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--black);
+}
+
+.review-card .review-product {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* ═══════════════════════════════════════════════
+   PRESS LOGOS
+   ═══════════════════════════════════════════════ */
+.press {
+  padding: var(--space-lg) 0;
+  overflow: hidden;
+}
+
+.press-label {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+}
+
+.press-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+}
+
+.press-logos span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.press-logos span img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.3);
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.press-logos span:hover img { opacity: 1 !important; transform: scale(1.08); }
+
+/* ═══════════════════════════════════════════════
+   NEWSLETTER
+   ═══════════════════════════════════════════════ */
+.newsletter {
+  padding: var(--space-xl) 0;
+}
+
+.newsletter-card {
+  background: linear-gradient(135deg, var(--pink), #e620b5, #c010a0);
+  border-radius: var(--radius-lg);
+  padding: 5rem 3rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(204, 253, 40, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.newsletter-content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.8rem;
+}
+
+.newsletter-desc {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.12);
+  color: white;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+.newsletter-form input:focus { border-color: rgba(255,255,255,0.6); }
+
+.newsletter-form button {
+  padding: 1rem 2rem;
+  background: var(--white);
+  color: var(--pink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+  background: var(--lime);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand .footer-logo img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.footer-brand .footer-logo span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0.7rem;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--pink); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  transition: all 0.3s;
+}
+
+.footer-social a:hover {
+  background: var(--pink);
+  color: white;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .category-card:first-child { grid-row: span 2; min-height: 600px; }
+  .universe-grid { grid-template-columns: 1fr; }
+  .bs-grid { grid-template-columns: repeat(2, 1fr); }
+  .drop-card { grid-template-columns: 1fr; }
+  .drop-visual { padding: 1.5rem; }
+  .fashion-grid { grid-template-columns: 1fr 1fr; }
+  .fashion-card:nth-child(1) { grid-column: span 2; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .category-grid { grid-template-columns: 1fr; }
+  .category-card:first-child { grid-row: span 1; min-height: 280px; }
+  .category-card { min-height: 240px; }
+  .community-stats { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .hero-scroll-hint { margin-top: 2rem; }
+  .hero-scroll-hint span { font-size: 0.6rem; }
+  .hero-floats { display: none; }
+  .hero { min-height: auto; padding: 3rem 1.5rem 2rem; }
+  .hero h1 { margin-bottom: 0.5rem; }
+  .hero-line-1 { font-size: 1.6rem; }
+  .hero-line-2 { font-size: 2.4rem; }
+  .hero-line-3 { font-size: 2.4rem; -webkit-text-stroke-width: 1.5px; }
+  .hero-subtitle { font-size: 0.95rem; margin: 1rem auto 1.5rem; }
+  .hero-categories { gap: 0.3rem; margin-bottom: 1.5rem; }
+  .hero-categories span { font-size: 0.65rem; padding: 0.3rem 0.7rem; }
+  .drop-info { padding: 2.5rem; }
+  .fashion-grid { grid-template-columns: 1fr; }
+  .fashion-card:nth-child(1) { grid-column: span 1; grid-row: span 1; min-height: 350px; }
+  .fashion-card:nth-child(1) .fashion-name { font-size: 1.8rem; }
+  .fashion-card:nth-child(1)::after { font-size: 5rem; }
+  .newsletter-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .bs-grid { grid-template-columns: 1fr; }
+  .press-logos { gap: 1.5rem 2rem; }
+  .press-logos span img { height: 18px; }
+  .social-proof-inner { gap: 1.2rem; }
+  .sp-divider { display: none; }
+  .sp-item { font-size: 0.75rem; }
+  .section-title { font-size: 2rem !important; }
+  .section-label { font-size: 0.7rem; }
+  .plush-scroll { flex-wrap: wrap; } .plush-scroll .plush-card { min-width: 45%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     TOPBAR
+     ═══════════════════════════════════════════════ -->
+<div class="topbar">
+  <span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Discreet Packaging &nbsp;•&nbsp; Free Worldwide Shipping &nbsp;•&nbsp; 30-Day Guarantee
+  </span>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="https://cdn.29next.store/media/hellonancy/uploads/Nancy_Round_Logo.svg" alt="Nancy" onerror="this.style.background='var(--pink)';this.style.display='flex';this.alt='N'">
+      <span>nancy</span>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">Shop All</a>
+      <a href="#">Toys</a>
+      <a href="#">Fashion <span class="badge">New</span></a>
+      <a href="#">Plushies <span class="badge">New</span></a>
+      <a href="#">Drops</a>
+      <a href="#">Universe</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count">2</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-floats">
+    <div class="hero-float"><img src="assets/generated/plush-lem.png" alt="The Lem"></div>
+    <div class="hero-float"><img src="assets/generated/plush-berri.png" alt="The Berri"></div>
+    <div class="hero-float"><img src="assets/generated/plush-avo.png" alt="The Avo"></div>
+    <div class="hero-float"><img src="assets/generated/plush-pixie.png" alt="The Pixie"></div>
+    <div class="hero-float"><img src="assets/generated/plush-lolly.png" alt="The Lolly"></div>
+    <div class="hero-float"><img src="assets/generated/trending-card-lem-premium.png" alt="The Lem"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">
+      <span class="dot"></span>
+      500,000+ products sold worldwide
+    </div>
+    <h1>
+      <span class="hero-line-1 reveal reveal-delay-1">This is not a</span>
+      <span class="hero-line-2 reveal reveal-delay-2">toy company.</span>
+      <span class="hero-line-3 reveal reveal-delay-3">It's a universe.</span>
+    </h1>
+    <p class="hero-subtitle reveal reveal-delay-4">
+      Pleasure. Fashion. Plushies. Culture.<br>
+      Welcome to Nancy — where self-care meets self-expression.
+    </p>
+    <div class="hero-categories reveal reveal-delay-4">
+      <span>Toys</span>
+      <span>Fashion</span>
+      <span>Plushies</span>
+      <span>Limited Drops</span>
+      <span>Accessories</span>
+    </div>
+    <div class="hero-ctas reveal reveal-delay-5">
+      <a href="#" class="btn-primary">
+        Shop the Universe
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="btn-outline">
+        New Drops
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+      </a>
+    </div>
+    <div class="hero-scroll-hint reveal reveal-delay-5">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MARQUEE BANNER
+     ═══════════════════════════════════════════════ -->
+<div class="marquee-banner">
+  <div class="marquee-track">
+    <span>Toys</span><span class="sep">✦</span>
+    <span>Fashion</span><span class="sep">✦</span>
+    <span>Plushies</span><span class="sep">✦</span>
+    <span>Limited Drops</span><span class="sep">✦</span>
+    <span>Self-Care</span><span class="sep">✦</span>
+    <span>Culture</span><span class="sep">✦</span>
+    <span>Accessories</span><span class="sep">✦</span>
+    <span>Community</span><span class="sep">✦</span>
+    <span>Toys</span><span class="sep">✦</span>
+    <span>Fashion</span><span class="sep">✦</span>
+    <span>Plushies</span><span class="sep">✦</span>
+    <span>Limited Drops</span><span class="sep">✦</span>
+    <span>Self-Care</span><span class="sep">✦</span>
+    <span>Culture</span><span class="sep">✦</span>
+    <span>Accessories</span><span class="sep">✦</span>
+    <span>Community</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- Social Proof Strip -->
+<div class="social-proof">
+  <div class="social-proof-inner">
+    <div class="sp-item">
+      <span class="sp-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+      <span><strong>50M+</strong> TikTok views</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--pink)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+      <span><strong>15,000+</strong> 5-star reviews</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></span>
+      <span><strong>500K+</strong> products sold</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span>
+      <span>Ships to <strong>50+ countries</strong></span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+      <span><strong>Discreet</strong> packaging</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     CATEGORIES
+     ═══════════════════════════════════════════════ -->
+<section class="categories">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Explore</span>
+      <h2 class="section-title">Shop by World</h2>
+    </div>
+    <div class="category-grid">
+      <div class="category-card toys reveal reveal-delay-1">
+        <div class="cat-bg"><img src="assets/generated/v2/cat-pleasure-toys.png" alt="Pleasure Toys"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
+        <div class="cat-content">
+          <div class="cat-name">Pleasure Toys</div>
+          <div class="cat-count">6 products</div>
+        </div>
+      </div>
+      <div class="category-card fashion reveal reveal-delay-2">
+        <div class="cat-bg"><img src="assets/generated/v2/cat-fashion.png" alt="Fashion"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
+        <div class="cat-content">
+          <div class="cat-name">Fashion</div>
+          <div class="cat-count">Coming Soon</div>
+        </div>
+      </div>
+      <div class="category-card plushies reveal reveal-delay-3">
+        <div class="cat-bg"><img src="assets/generated/v2/cat-plushies.png" alt="Plushies"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
+        <div class="cat-content">
+          <div class="cat-name">Plushies</div>
+          <div class="cat-count">Coming Soon</div>
+        </div>
+      </div>
+      <div class="category-card drops reveal reveal-delay-4">
+        <div class="cat-bg"><img src="assets/generated/v2/cat-drops.png" alt="Drops"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
+        <div class="cat-content">
+          <div class="cat-name">Drops</div>
+          <div class="cat-count">Limited Edition</div>
+        </div>
+      </div>
+      <div class="category-card accessories reveal reveal-delay-5">
+        <div class="cat-bg"><img src="assets/generated/v2/cat-accessories.png" alt="Accessories"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
+        <div class="cat-content">
+          <div class="cat-name">Accessories</div>
+          <div class="cat-count">Guides & More</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TRENDING NOW
+     ═══════════════════════════════════════════════ -->
+<section class="trending">
+  <div class="container">
+    <div class="section-header section-header--row reveal">
+      <div>
+        <span class="section-label">Hot Right Now</span>
+        <h2 class="section-title">Trending</h2>
+      </div>
+      <a href="#" class="see-all-link">See All →</a>
+    </div>
+  </div>
+  <div class="trending-scroll">
+    <!-- Lem -->
+    <div class="product-card reveal">
+      <div class="card-image">
+        <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF9D9, #FFE135)">
+          <img src="assets/generated/trending-card-lem-premium.png" alt="The Lem" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="card-badge badge-toy">Best Seller</span>
+        <div class="card-hover-cta"><a href="#">Shop Now</a></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Pleasure Toys</div>
+        <div class="card-name">The Lem</div>
+        <div class="card-price">
+          <span class="current">$89</span>
+          <span class="original">$159</span>
+        </div>
+        <div class="card-rating">
+          <span class="stars">★★★★★</span> 4.7 (15K+ reviews)
+        </div>
+      </div>
+    </div>
+    <!-- Nancy Fruit Tee -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="card-image">
+        <div class="gradient-bg" style="background: linear-gradient(160deg, #1a1a1a, #333)">
+          <img src="assets/generated/fashion-hero-tee.png" alt="Nancy Fruit Club Tee" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="card-badge badge-fashion">Fashion</span>
+        <span class="badge-new">New</span>
+        <div class="card-hover-cta"><a href="#">Shop Now</a></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Fashion</div>
+        <div class="card-name">Nancy Fruit Club Tee</div>
+        <div class="card-price">
+          <span class="current">$38</span>
+        </div>
+      </div>
+    </div>
+    <!-- Berri -->
+    <div class="product-card reveal reveal-delay-2">
+      <div class="card-image">
+        <div class="gradient-bg" style="background: linear-gradient(160deg, #FFE5EB, #FF4B6E)">
+          <img src="assets/generated/v2/product-berri-premium.png" alt="The Berri" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="card-badge badge-toy">New Arrival</span>
+        <div class="card-hover-cta"><a href="#">Shop Now</a></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Pleasure Toys</div>
+        <div class="card-name">The Berri</div>
+        <div class="card-price">
+          <span class="current">$95</span>
+          <span class="original">$189</span>
+        </div>
+        <div class="card-rating">
+          <span class="stars">★★★★★</span> 4.8
+        </div>
+      </div>
+    </div>
+    <!-- Lem Plush -->
+    <div class="product-card reveal reveal-delay-3">
+      <div class="card-image">
+        <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF9D9, #FFEFAA)">
+          <img src="assets/generated/plush-lem.png" alt="Lem Plush Buddy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="card-badge badge-plush">Plush</span>
+        <span class="badge-new">New</span>
+        <div class="card-hover-cta"><a href="#">Shop Now</a></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Plushies</div>
+        <div class="card-name">Lem Plush Buddy</div>
+        <div class="card-price">
+          <span class="current">$29</span>
+        </div>
+      </div>
+    </div>
+    <!-- Avo -->
+    <div class="product-card reveal reveal-delay-4">
+      <div class="card-image">
+        <div class="gradient-bg" style="background: linear-gradient(160deg, #E6F2E5, #6BA368)">
+          <img src="assets/generated/v2/product-avo-premium.png" alt="The Avo" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="card-badge badge-toy">Powerful</span>
+        <div class="card-hover-cta"><a href="#">Shop Now</a></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Pleasure Toys</div>
+        <div class="card-name">The Avo</div>
+        <div class="card-price">
+          <span class="current">$99</span>
+          <span class="original">$199</span>
+        </div>
+        <div class="card-rating">
+          <span class="stars">★★★★★</span> 4.6
+        </div>
+      </div>
+    </div>
+    <!-- Berri Hoodie -->
+    <div class="product-card reveal reveal-delay-5">
+      <div class="card-image">
+        <div class="gradient-bg" style="background: linear-gradient(160deg, #FF4B6E, #D93050)">
+          <img src="assets/generated/fashion-hoodie-cream.png" alt="Berri Club Hoodie" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="card-badge badge-fashion">Fashion</span>
+        <span class="badge-new">New</span>
+        <div class="card-hover-cta"><a href="#">Shop Now</a></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Fashion</div>
+        <div class="card-name">Berri Club Hoodie</div>
+        <div class="card-price">
+          <span class="current">$65</span>
+        </div>
+      </div>
+    </div>
+    <!-- Pixie -->
+    <div class="product-card reveal">
+      <div class="card-image">
+        <div class="gradient-bg" style="background: linear-gradient(160deg, #f0e6ff, #d4b5f0)">
+          <img src="assets/generated/plush-pixie.png" alt="The Pixie" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="card-badge badge-toy">Couples</span>
+        <div class="card-hover-cta"><a href="#">Shop Now</a></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Pleasure Toys</div>
+        <div class="card-name">The Pixie</div>
+        <div class="card-price">
+          <span class="current">$89</span>
+          <span class="original">$140</span>
+        </div>
+        <div class="card-rating">
+          <span class="stars">★★★★★</span> 4.5
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     THE NANCY UNIVERSE
+     ═══════════════════════════════════════════════ -->
+<section class="universe">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">The Nancy Universe</span>
+      <h2 class="section-title">Every Fruit Has a Story</h2>
+      <p class="section-subtitle">Each character is a world. Each world is an experience. Explore yours.</p>
+    </div>
+    <div class="universe-grid">
+      <div class="world-card lem-world reveal reveal-delay-1">
+        <div class="world-emoji"><img src="assets/generated/plush-lem.png" alt="Lem"></div>
+        <div class="world-label">Character 001</div>
+        <div class="world-name">Lem</div>
+        <div class="world-tagline">"The Original"</div>
+        <div class="world-desc">Where it all started. The icon that launched a movement. 500K+ sold and still the one everyone reaches for first.</div>
+        <div class="world-cta">
+          Explore Lem World
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="world-card berri-world reveal reveal-delay-2">
+        <div class="world-emoji"><img src="assets/generated/plush-berri.png" alt="Berri"></div>
+        <div class="world-label">Character 002</div>
+        <div class="world-name">Berri</div>
+        <div class="world-tagline">"The Sensation"</div>
+        <div class="world-desc">New dimensions of feeling. TapSphere technology that redefines what's possible. The future just dropped.</div>
+        <div class="world-cta">
+          Explore Berri World
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <div class="world-card avo-world reveal reveal-delay-3">
+        <div class="world-emoji"><img src="assets/generated/plush-avo.png" alt="Avo"></div>
+        <div class="world-label">Character 003</div>
+        <div class="world-name">Avo</div>
+        <div class="world-tagline">"The Powerhouse"</div>
+        <div class="world-desc">Unapologetically intense. Supercharged motor. For those who know exactly what they want.</div>
+        <div class="world-cta">
+          Explore Avo World
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     NEW DROP
+     ═══════════════════════════════════════════════ -->
+<section class="drop-section">
+  <div class="container">
+    <div class="drop-card reveal">
+      <div class="drop-info">
+        <div class="drop-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3L4 14h7l-2 7 9-11h-7l2-7z"/></svg>
+          Drop 001 — Limited Edition
+        </div>
+        <h2 class="drop-title">Nancy × <em>Summer</em><br>Collection</h2>
+        <p class="drop-desc">The first-ever Nancy lifestyle drop. Limited edition tees, plushies, stickers, and mystery boxes. Once they're gone, they're gone.</p>
+        <div class="drop-countdown">
+          <div class="countdown-unit">
+            <div class="num" id="cd-days">07</div>
+            <div class="unit-label">Days</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="num" id="cd-hours">14</div>
+            <div class="unit-label">Hours</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="num" id="cd-mins">32</div>
+            <div class="unit-label">Mins</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="num" id="cd-secs">08</div>
+            <div class="unit-label">Secs</div>
+          </div>
+        </div>
+        <a href="#" class="btn-lime">
+          Get Notified
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </a>
+      </div>
+      <div class="drop-visual">
+        <div class="drop-item">
+          <div class="di-emoji"><img src="assets/generated/drop-keychain-lem.png" alt="Lem Keychain" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-name">Lem Plush<br>Keychain</div>
+          <div class="di-price">$18</div>
+        </div>
+        <div class="drop-item">
+          <div class="di-emoji"><img src="assets/generated/drop-tee-fruitclub.png" alt="Fruit Club Tee" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-name">Fruit Club<br>Tee</div>
+          <div class="di-price">$38</div>
+        </div>
+        <div class="drop-item">
+          <div class="di-emoji"><img src="assets/generated/drop-mystery-box.png" alt="Mystery Box" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-name">Mystery<br>Box</div>
+          <div class="di-price">$49</div>
+        </div>
+        <div class="drop-item">
+          <div class="di-emoji"><img src="assets/generated/drop-sticker-pack.png" alt="Sticker Pack" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-name">Berri Sticker<br>Pack</div>
+          <div class="di-price">$12</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     BEST SELLERS
+     ═══════════════════════════════════════════════ -->
+<section class="bestsellers">
+  <div class="container">
+    <div class="section-header section-header--row reveal">
+      <div>
+        <span class="section-label">Core Collection</span>
+        <h2 class="section-title">Best Sellers</h2>
+        <p class="section-subtitle">The toys that started it all. Thoughtfully designed for your first time — and every time after.</p>
+      </div>
+      <a href="#" class="see-all-link">Shop All →</a>
+    </div>
+    <div class="bs-grid">
+      <div class="bs-card reveal reveal-delay-1">
+        <div class="bs-image">
+          <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF9D9 0%, #FFE135 100%)">
+            <img src="assets/generated/trending-card-lem-premium.png" alt="The Lem" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <span class="bs-badge">Best Seller</span>
+          <span class="bs-sold">500K+ Sold</span>
+        </div>
+        <div class="bs-info">
+          <div class="bs-name">The Lem</div>
+          <div class="bs-subtitle">12-level lemon magic</div>
+          <div class="bs-price-row">
+            <div class="bs-price">
+              <span class="bs-current">$89</span>
+              <span class="bs-original">$159</span>
+            </div>
+            <div class="bs-rating">
+              <span class="bs-stars">★★★★★</span> 15K+
+            </div>
+          </div>
+          <button class="add-to-cart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="bs-card reveal reveal-delay-2">
+        <div class="bs-image">
+          <div class="gradient-bg" style="background: linear-gradient(160deg, #FFE5EB 0%, #FF4B6E 100%)">
+            <img src="assets/generated/v2/product-berri-premium.png" alt="The Berri" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <span class="bs-badge" style="background: var(--lime); color: var(--black)">New</span>
+        </div>
+        <div class="bs-info">
+          <div class="bs-name">The Berri</div>
+          <div class="bs-subtitle">Next-level TapSphere sensation</div>
+          <div class="bs-price-row">
+            <div class="bs-price">
+              <span class="bs-current">$95</span>
+              <span class="bs-original">$189</span>
+            </div>
+            <div class="bs-rating">
+              <span class="bs-stars">★★★★★</span> 4.8
+            </div>
+          </div>
+          <button class="add-to-cart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="bs-card reveal reveal-delay-3">
+        <div class="bs-image">
+          <div class="gradient-bg" style="background: linear-gradient(160deg, #E6F2E5 0%, #6BA368 100%)">
+            <img src="assets/generated/v2/product-avo-premium.png" alt="The Avo" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <span class="bs-badge">Fan Fave</span>
+        </div>
+        <div class="bs-info">
+          <div class="bs-name">The Avo</div>
+          <div class="bs-subtitle">Supercharged, unapologetic power</div>
+          <div class="bs-price-row">
+            <div class="bs-price">
+              <span class="bs-current">$99</span>
+              <span class="bs-original">$199</span>
+            </div>
+            <div class="bs-rating">
+              <span class="bs-stars">★★★★★</span> 4.6
+            </div>
+          </div>
+          <button class="add-to-cart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="bs-card reveal reveal-delay-4">
+        <div class="bs-image">
+          <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF0FA 0%, #FF30CC 60%, #FFE135 100%); position: relative;">
+            <img src="assets/generated/v2/hero-lifestyle-v2.png" alt="Tutti Frutti Bundle" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <span class="bs-badge">Save 60%</span>
+        </div>
+        <div class="bs-info">
+          <div class="bs-name">Tutti Frutti Bundle</div>
+          <div class="bs-subtitle">Lem + Berri + Avo · The Full Experience</div>
+          <div class="bs-price-row">
+            <div class="bs-price">
+              <span class="bs-current">$179</span>
+              <span class="bs-original">$449</span>
+            </div>
+          </div>
+          <button class="add-to-cart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FASHION COLLECTION
+     ═══════════════════════════════════════════════ -->
+<section class="fashion">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Style</span>
+      <h2 class="section-title">Wear Your Universe</h2>
+      <p class="section-subtitle">Nancy isn't just something you use. It's something you wear.</p>
+    </div>
+    <div class="fashion-grid">
+      <div class="fashion-card reveal reveal-delay-1">
+        <span class="fashion-coming">Coming Soon</span>
+        <div class="fashion-emoji"><img src="assets/generated/v2/cat-fashion.png" alt="Fruit Club Collection" style="width: 220px; height: 160px; object-fit: cover; border-radius: 16px; border: 2px solid rgba(255,255,255,0.12); filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));"></div>
+        <div class="fashion-name">The Fruit Club<br>Collection</div>
+        <div class="fashion-desc">Premium cotton tees, hoodies, and caps featuring the Nancy fruit universe.</div>
+        <div class="fashion-price">Shop from $35 →</div>
+        <a href="#" class="fashion-waitlist" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.8rem; border: 1.5px solid rgba(255,255,255,0.4); border-radius: 50px; color: white; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s;">Join Waitlist</a>
+      </div>
+      <div class="fashion-card reveal reveal-delay-2">
+        <span class="fashion-coming">Soon</span>
+        <div class="fashion-emoji"><img src="assets/generated/fashion-hero-tee.png" alt="Lem Squad Tee" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-name">Lem Squad Tee</div>
+        <div class="fashion-price">$38</div>
+      </div>
+      <div class="fashion-card reveal reveal-delay-3">
+        <span class="fashion-coming">Soon</span>
+        <div class="fashion-emoji"><img src="assets/generated/fashion-hoodie-cream.png" alt="Berri Hoodie" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-name">Berri Hoodie</div>
+        <div class="fashion-price">$35</div>
+      </div>
+      <div class="fashion-card reveal reveal-delay-4">
+        <span class="fashion-coming">Soon</span>
+        <div class="fashion-emoji"><img src="assets/generated/fashion-hoodie-cream.png" alt="Avo Hoodie" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-name">Avo Hoodie</div>
+        <div class="fashion-price">$65</div>
+      </div>
+      <div class="fashion-card reveal reveal-delay-5">
+        <span class="fashion-coming">Soon</span>
+        <div class="fashion-emoji"><img src="assets/generated/fashion-cap-pink.png" alt="Nancy Cap" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-name">Nancy Cap</div>
+        <div class="fashion-price">$28</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PLUSH COLLECTION
+     ═══════════════════════════════════════════════ -->
+<section class="plush">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Collectibles</span>
+      <h2 class="section-title">Collect Them All</h2>
+      <p class="section-subtitle">Your favorite fruits, now huggable. Limited runs. Infinite cuteness.</p>
+    </div>
+  </div>
+  <div class="plush-scroll">
+    <div class="plush-card reveal">
+      <div class="plush-image">
+        <img src="assets/generated/plush-lem.png" alt="Lem Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <span class="plush-soon">Coming Soon</span>
+      </div>
+      <div class="plush-info">
+        <div class="plush-name">Lem Plush</div>
+        <div class="plush-desc">12" huggable lemon buddy</div>
+        <div class="plush-price">$29</div>
+      </div>
+    </div>
+    <div class="plush-card reveal reveal-delay-1">
+      <div class="plush-image">
+        <img src="assets/generated/plush-berri.png" alt="Berri Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <span class="plush-soon">Coming Soon</span>
+      </div>
+      <div class="plush-info">
+        <div class="plush-name">Berri Plush</div>
+        <div class="plush-desc">12" cuddly strawberry</div>
+        <div class="plush-price">$29</div>
+      </div>
+    </div>
+    <div class="plush-card reveal reveal-delay-2">
+      <div class="plush-image">
+        <img src="assets/generated/plush-avo.png" alt="Avo Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <span class="plush-soon">Coming Soon</span>
+      </div>
+      <div class="plush-info">
+        <div class="plush-name">Avo Plush</div>
+        <div class="plush-desc">12" squishy avocado pal</div>
+        <div class="plush-price">$29</div>
+      </div>
+    </div>
+    <div class="plush-card reveal reveal-delay-3">
+      <div class="plush-image">
+        <img src="assets/generated/plush-pixie.png" alt="Pixie Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <span class="plush-soon">Coming Soon</span>
+      </div>
+      <div class="plush-info">
+        <div class="plush-name">Pixie Plush</div>
+        <div class="plush-desc">8" fairy companion</div>
+        <div class="plush-price">$24</div>
+      </div>
+    </div>
+    <div class="plush-card reveal reveal-delay-4">
+      <div class="plush-image">
+        <img src="assets/generated/plush-lolly.png" alt="Lolly Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <span class="plush-soon">Coming Soon</span>
+      </div>
+      <div class="plush-info">
+        <div class="plush-name">Lolly Plush</div>
+        <div class="plush-desc">8" pocket-sized candy</div>
+        <div class="plush-price">$24</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     COMMUNITY
+     ═══════════════════════════════════════════════ -->
+<section class="community">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Our People</span>
+      <h2 class="section-title">The Nancy Community</h2>
+    </div>
+    <div class="community-stats">
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-num" data-count="500000">0</div>
+        <div class="stat-label">Products Sold</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-num" data-count="15000">0</div>
+        <div class="stat-label">5-Star Reviews</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-num" data-count="50">0</div>
+        <div class="stat-label">Countries</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-4">
+        <div class="stat-num" data-count="1000000">0</div>
+        <div class="stat-label">O's Delivered</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I've never owned anything like this. The Lem changed everything for me. The quality is insane and the packaging was so discreet. 10/10."</div>
+        <div class="review-author">
+          <div class="review-avatar">H</div>
+          <div>
+            <div class="review-name">Heidi</div>
+            <div class="review-product">Verified Buyer · The Lem</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Bought it as a birthday gift for my best friend. She hasn't stopped talking about it. Already ordered the Berri for myself."</div>
+        <div class="review-author">
+          <div class="review-avatar">B</div>
+          <div>
+            <div class="review-name">Brie</div>
+            <div class="review-product">Verified Buyer · The Lem</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"The Avo is no joke. Powerful, quiet, and the design is actually beautiful. Finally a brand that gets it."</div>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">Linda</div>
+            <div class="review-product">Verified Buyer · The Avo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PRESS
+     ═══════════════════════════════════════════════ -->
+<section class="press">
+  <div class="press-label">As Seen In</div>
+  <div class="press-logos">
+    <span><img src="assets/press/guardian.png" alt="The Guardian"></span>
+    <span><img src="assets/press/vice.svg" alt="Vice"></span>
+    <span><img src="assets/press/nbc.svg" alt="NBC"></span>
+    <span><img src="assets/press/cbs.svg" alt="CBS"></span>
+    <span><img src="assets/press/timeout.png" alt="Time Out"></span>
+    <span><img src="assets/press/vocal.svg" alt="Vocal"></span>
+    <span><img src="assets/press/girly-juice.png" alt="Girly Juice"></span>
+    <span><img src="assets/press/tatler.webp" alt="Tatler"></span>
+    <span><img src="assets/press/zenify.svg" alt="Zenify"></span>
+    <span><img src="assets/press/weheart.svg" alt="We Heart"></span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     NEWSLETTER
+     ═══════════════════════════════════════════════ -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-card reveal">
+      <div class="newsletter-content">
+        <h2 class="newsletter-title">Join the Universe</h2>
+        <p class="newsletter-desc">Be first to know about new drops, exclusive offers, and stories from the Nancy community.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email">
+          <button type="submit">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="https://cdn.29next.store/media/hellonancy/uploads/Nancy_Round_Logo.svg" alt="Nancy" onerror="this.style.background='var(--pink)';this.style.borderRadius='50%'">
+          <span>nancy</span>
+        </div>
+        <p>More than pleasure. A universe of self-care, self-expression, and unapologetic joy. Designed in Hong Kong, loved worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#">Pleasure Toys</a>
+        <a href="#">Fashion</a>
+        <a href="#">Plushies</a>
+        <a href="#">Drops</a>
+        <a href="#">Accessories</a>
+        <a href="#">Bundles</a>
+      </div>
+      <div class="footer-col">
+        <h4>Universe</h4>
+        <a href="#">Our Story</a>
+        <a href="#">The Journal</a>
+        <a href="#">Guides</a>
+        <a href="#">Community</a>
+        <a href="#">Masterclass</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nancy (Care & Bloom Limited). All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.78a8.18 8.18 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.21z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════ -->
+<script>
+// Intersection Observer for scroll animations
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -60px 0px'
+});
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Number counter animation
+function animateCounter(el, target) {
+  const duration = 2000;
+  const start = performance.now();
+
+  function format(n) {
+    if (target >= 1000000) return Math.floor(n / 1000000).toLocaleString() + 'M+';
+    if (target >= 10000) return Math.floor(n / 1000).toLocaleString() + 'K+';
+    if (target >= 1000) return n.toLocaleString() + '+';
+    return n + '+';
+  }
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    el.textContent = format(current);
+    if (progress < 1) requestAnimationFrame(update);
+  }
+
+  requestAnimationFrame(update);
+}
+
+// Counter Observer — trigger counters once the community section scrolls in
+const counterSection = document.querySelector('.community');
+let countersStarted = false;
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !countersStarted) {
+      countersStarted = true;
+      // Small delay so reveal animation has time to start
+      setTimeout(() => {
+        document.querySelectorAll('[data-count]').forEach(el => {
+          const count = parseInt(el.dataset.count);
+          if (count) animateCounter(el, count);
+        });
+      }, 400);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+if (counterSection) counterObserver.observe(counterSection);
+
+// Countdown Timer
+function updateCountdown() {
+  const now = new Date();
+  const target = new Date('2026-04-15T00:00:00Z');
+  const diff = target - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Subtle parallax on hero (no fade)
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrolled = window.scrollY;
+      const hero = document.querySelector('.hero-content');
+      if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.08}px)`;
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// Nav scroll behavior
+let lastScroll = 0;
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+  if (currentScroll > 100) {
+    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+  lastScroll = currentScroll;
+});
+</script>
+</body>
+</html>
