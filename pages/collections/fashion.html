@@ -90,27 +90,84 @@ fbq('track', 'PageView');
     </div>
 
     <!-- ═══════════════════════════════════════
-         3. SORT BAR
+         3. SHOP BY CATEGORY — 6 categories
+         ═══════════════════════════════════════ -->
+    <h2 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: var(--space-lg) 0 var(--space-md);">Shop by <em style="font-family: var(--font-editorial); font-weight: 400;">Category</em></h2>
+    <div class="collection-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: var(--space-lg);">
+      <a href="tees-tops.html" class="product-card reveal" data-tilt style="text-align: center;">
+        <div class="product-card-image" style="background: #FFE0E0;">
+          <span style="font-size: 3rem; display: block; padding: 2rem 0;">👕</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Tees &amp; Tops</h3>
+          <p class="product-card-tagline">25 items &middot; From US$35</p>
+        </div>
+      </a>
+      <a href="hoodies-sweatshirts.html" class="product-card reveal" data-tilt style="text-align: center;">
+        <div class="product-card-image" style="background: #EDE9FE;">
+          <span style="font-size: 3rem; display: block; padding: 2rem 0;">🧥</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Hoodies &amp; Sweatshirts</h3>
+          <p class="product-card-tagline">20 items &middot; From US$75</p>
+        </div>
+      </a>
+      <a href="bottoms.html" class="product-card reveal" data-tilt style="text-align: center;">
+        <div class="product-card-image" style="background: #D1FAE5;">
+          <span style="font-size: 3rem; display: block; padding: 2rem 0;">👖</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Bottoms</h3>
+          <p class="product-card-tagline">10 items &middot; From US$42</p>
+        </div>
+      </a>
+      <a href="headwear.html" class="product-card reveal" data-tilt style="text-align: center;">
+        <div class="product-card-image" style="background: #FEF3C7;">
+          <span style="font-size: 3rem; display: block; padding: 2rem 0;">🧢</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Headwear</h3>
+          <p class="product-card-tagline">10 items &middot; From US$22</p>
+        </div>
+      </a>
+      <a href="accessories.html" class="product-card reveal" data-tilt style="text-align: center;">
+        <div class="product-card-image" style="background: #FCE7F3;">
+          <span style="font-size: 3rem; display: block; padding: 2rem 0;">🎒</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Accessories</h3>
+          <p class="product-card-tagline">20 items &middot; From US$12</p>
+        </div>
+      </a>
+      <a href="home-lifestyle.html" class="product-card reveal" data-tilt style="text-align: center;">
+        <div class="product-card-image" style="background: #E0F2FE;">
+          <span style="font-size: 3rem; display: block; padding: 2rem 0;">🏠</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Home &amp; Lifestyle</h3>
+          <p class="product-card-tagline">15 items &middot; From US$15</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         4. FEATURED PRODUCTS — bestsellers from across categories
          ═══════════════════════════════════════ -->
     <div class="collection-bar">
-      <span class="collection-count">Showing 10 products</span>
+      <span class="collection-count">100 products across 6 categories</span>
       <div class="collection-sort">
-        <label for="sort-select">Sort by:</label>
+        <label for="sort-select">Featured:</label>
         <select id="sort-select">
+          <option>Staff Picks</option>
+          <option>New Arrivals</option>
           <option>Bestselling</option>
-          <option>Price: Low to High</option>
-          <option>Price: High to Low</option>
-          <option>Newest</option>
         </select>
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         4. PRODUCT GRID — 10 products (3-col)
-         ═══════════════════════════════════════ -->
     <div class="collection-grid">
 
-      <!-- 1. Fruit Club Tee -->
+      <!-- Tees -->
       <a href="../products/fashion-fruit-club-tee.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
           <img src="../../assets/fashion/fruit-club-tee/fruit-club-tee-hero.png" alt="Fruit Club Tee">
@@ -119,43 +176,35 @@ fbq('track', 'PageView');
         <div class="product-card-info">
           <h3>Fruit Club Tee</h3>
           <p class="product-card-tagline">The everyday essential</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$45</span>
-          </div>
+          <div class="product-card-price"><span class="product-card-current">US$45</span></div>
         </div>
       </a>
 
-      <!-- 2. Lem Graphic Tee -->
-      <a href="../products/fashion-lem-graphic-tee.html" class="product-card reveal" data-tilt>
+      <a href="../products/fashion-chaos-fairy-tee.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/fashion/lem-graphic-tee/lem-graphic-tee-hero.png" alt="Lem Graphic Tee">
-          <span class="product-card-tag" style="background: var(--lem-light); color: var(--lem-dark);">Lem</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Lem Graphic Tee</h3>
-          <p class="product-card-tagline">Bold lemon energy</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$45</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 3. Berri Crop Top -->
-      <a href="../products/fashion-berri-crop-top.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img src="../../assets/fashion/berri-crop-top/berri-crop-top-hero.png" alt="Berri Crop Top">
+          <img src="../../assets/fashion/chaos-fairy-tee/chaos-fairy-tee-hero.png" alt="Chaos Fairy Tee">
           <span class="product-card-tag" style="background: #F3E8FF; color: #7C3AED;">New</span>
         </div>
         <div class="product-card-info">
-          <h3>Berri Crop Top</h3>
-          <p class="product-card-tagline">Sweet & cropped</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$38</span>
-          </div>
+          <h3>Chaos Fairy Tee</h3>
+          <p class="product-card-tagline">Tiny but terrifying</p>
+          <div class="product-card-price"><span class="product-card-current">US$45</span></div>
         </div>
       </a>
 
-      <!-- 4. Avo Hoodie -->
+      <a href="../products/fashion-cryptid-club-tee.html" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/fashion/cryptid-club-tee/cryptid-club-tee-hero.png" alt="Cryptid Club Tee">
+          <span class="product-card-tag" style="background: #D1FAE5; color: #064E3B;">New</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Cryptid Club Tee</h3>
+          <p class="product-card-tagline">Believe</p>
+          <div class="product-card-price"><span class="product-card-current">US$48</span></div>
+        </div>
+      </a>
+
+      <!-- Hoodies -->
       <a href="../products/fashion-avo-hoodie.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
           <img src="../../assets/fashion/avo-hoodie/avo-hoodie-hero.png" alt="Avo Hoodie">
@@ -164,96 +213,106 @@ fbq('track', 'PageView');
         <div class="product-card-info">
           <h3>Avo Hoodie</h3>
           <p class="product-card-tagline">Cozy avocado vibes</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$85</span>
-          </div>
+          <div class="product-card-price"><span class="product-card-current">US$85</span></div>
         </div>
       </a>
 
-      <!-- 5. Squad Goals Sweatshirt -->
-      <a href="../products/fashion-squad-sweatshirt.html" class="product-card reveal" data-tilt>
+      <a href="../products/fashion-void-hoodie.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/fashion/squad-sweatshirt/squad-sweatshirt-hero.png" alt="Squad Goals Sweatshirt">
+          <img src="../../assets/fashion/void-hoodie/void-hoodie-hero.png" alt="Void Hoodie">
+          <span class="product-card-tag" style="background: #1a1a1a; color: #fff;">Dark</span>
         </div>
         <div class="product-card-info">
-          <h3>Squad Goals Sweatshirt</h3>
-          <p class="product-card-tagline">The whole crew on your chest</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$75</span>
-          </div>
+          <h3>Void Hoodie</h3>
+          <p class="product-card-tagline">Disappear into it</p>
+          <div class="product-card-price"><span class="product-card-current">US$89</span></div>
         </div>
       </a>
 
-      <!-- 6. Pixie Bucket Hat -->
-      <a href="../products/fashion-pixie-bucket-hat.html" class="product-card reveal" data-tilt>
+      <a href="../products/fashion-rizz-academy-hoodie.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/fashion/pixie-bucket-hat/pixie-bucket-hat-hero.png" alt="Pixie Bucket Hat">
+          <img src="../../assets/fashion/rizz-academy-hoodie/rizz-academy-hoodie-hero.png" alt="Rizz Academy Hoodie">
           <span class="product-card-tag" style="background: #F3E8FF; color: #7C3AED;">New</span>
         </div>
         <div class="product-card-info">
-          <h3>Pixie Bucket Hat</h3>
-          <p class="product-card-tagline">Grape shade</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$35</span>
-          </div>
+          <h3>Rizz Academy Hoodie</h3>
+          <p class="product-card-tagline">Enrolled</p>
+          <div class="product-card-price"><span class="product-card-current">US$95</span></div>
         </div>
       </a>
 
-      <!-- 7. Lolly Socks Set -->
-      <a href="../products/fashion-lolly-socks-set.html" class="product-card reveal" data-tilt>
+      <!-- Bottoms & Headwear -->
+      <a href="../products/fashion-npc-cargo-pants.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/fashion/lolly-socks-set/lolly-socks-set-hero.png" alt="Lolly Socks Set">
-          <span class="product-card-tag" style="background: var(--pink-light); color: var(--pink);">3-Pack</span>
+          <img src="../../assets/fashion/npc-cargo-pants/npc-cargo-pants-hero.png" alt="NPC Cargo Pants">
+          <span class="product-card-tag" style="background: #D1FAE5; color: #064E3B;">New</span>
         </div>
         <div class="product-card-info">
-          <h3>Lolly Socks Set</h3>
-          <p class="product-card-tagline">Sweet feet trio</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$22</span>
-          </div>
+          <h3>NPC Cargo Pants</h3>
+          <p class="product-card-tagline">Quest accepted</p>
+          <div class="product-card-price"><span class="product-card-current">US$72</span></div>
         </div>
       </a>
 
-      <!-- 8. Nancy Logo Cap -->
-      <a href="../products/fashion-nancy-logo-cap.html" class="product-card reveal" data-tilt>
+      <a href="../products/fashion-mushroom-beret.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/fashion/nancy-logo-cap/nancy-logo-cap-hero.png" alt="Nancy Logo Cap">
+          <img src="../../assets/fashion/mushroom-beret/mushroom-beret-hero.png" alt="Mushroom Beret">
+          <span class="product-card-tag" style="background: #FEF3C7; color: #92400E;">New</span>
         </div>
         <div class="product-card-info">
-          <h3>Nancy Logo Cap</h3>
-          <p class="product-card-tagline">Classic Nancy</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$32</span>
-          </div>
+          <h3>Mushroom Beret</h3>
+          <p class="product-card-tagline">Fungi fashion</p>
+          <div class="product-card-price"><span class="product-card-current">US$38</span></div>
         </div>
       </a>
 
-      <!-- 9. Tropical Shorts -->
-      <a href="../products/fashion-tropical-shorts.html" class="product-card reveal" data-tilt>
+      <a href="../products/fashion-dragon-horns-beanie.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/fashion/tropical-shorts/tropical-shorts-hero.png" alt="Tropical Shorts">
+          <img src="../../assets/fashion/dragon-horns-beanie/dragon-horns-beanie-hero.png" alt="Dragon Horns Beanie">
           <span class="product-card-tag" style="background: #F3E8FF; color: #7C3AED;">New</span>
         </div>
         <div class="product-card-info">
-          <h3>Tropical Shorts</h3>
-          <p class="product-card-tagline">Fruit print paradise</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$45</span>
-          </div>
+          <h3>Dragon Horns Beanie</h3>
+          <p class="product-card-tagline">Horns up</p>
+          <div class="product-card-price"><span class="product-card-current">US$35</span></div>
         </div>
       </a>
 
-      <!-- 10. Fruit Tote Bag -->
-      <a href="../products/fashion-fruit-tote-bag.html" class="product-card reveal" data-tilt>
+      <!-- Accessories -->
+      <a href="../products/fashion-jellyfish-phone-case.html" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/fashion/fruit-tote-bag/fruit-tote-bag-hero.png" alt="Fruit Tote Bag">
+          <img src="../../assets/fashion/jellyfish-phone-case/jellyfish-phone-case-hero.png" alt="Jellyfish Phone Case">
+          <span class="product-card-tag" style="background: #FCE7F3; color: #9D174D;">New</span>
         </div>
         <div class="product-card-info">
-          <h3>Fruit Tote Bag</h3>
-          <p class="product-card-tagline">Carry the squad</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$28</span>
-          </div>
+          <h3>Jellyfish Phone Case</h3>
+          <p class="product-card-tagline">Glow up your phone</p>
+          <div class="product-card-price"><span class="product-card-current">US$28</span></div>
+        </div>
+      </a>
+
+      <a href="../products/fashion-capybara-sleep-mask.html" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/fashion/capybara-sleep-mask/capybara-sleep-mask-hero.png" alt="Capybara Sleep Mask">
+          <span class="product-card-tag" style="background: #FCE7F3; color: #9D174D;">New</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Capybara Sleep Mask</h3>
+          <p class="product-card-tagline">Sleep unbothered</p>
+          <div class="product-card-price"><span class="product-card-current">US$18</span></div>
+        </div>
+      </a>
+
+      <!-- Home -->
+      <a href="../products/fashion-full-nancy-box.html" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/fashion/full-nancy-box/full-nancy-box-hero.png" alt="The Full Nancy Box">
+          <span class="product-card-tag" style="background: #FEF3C7; color: #92400E;">Gift Set</span>
+        </div>
+        <div class="product-card-info">
+          <h3>The Full Nancy Box</h3>
+          <p class="product-card-tagline">The ultimate starter kit</p>
+          <div class="product-card-price"><span class="product-card-current">US$149</span></div>
         </div>
       </a>
 

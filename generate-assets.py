@@ -16,7 +16,7 @@ ssl_ctx = ssl.create_default_context()
 ssl_ctx.check_hostname = False
 ssl_ctx.verify_mode = ssl.CERT_NONE
 
-API_KEY = "AIzaSyDcR_C3UnyyEUedRbHDNNE_S_h8GjYlsOM"
+API_KEY = "AIzaSyCrUHz0oQ8V9EAMiqA6KMXzTMA_IFjiKP8"
 MODEL = "gemini-2.0-flash-exp-image-generation"
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={API_KEY}"
 

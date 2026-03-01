@@ -15,7 +15,7 @@ ssl_ctx = ssl.create_default_context()
 ssl_ctx.check_hostname = False
 ssl_ctx.verify_mode = ssl.CERT_NONE
 
-API_KEY = "AIzaSyDcR_C3UnyyEUedRbHDNNE_S_h8GjYlsOM"
+API_KEY = "AIzaSyCrUHz0oQ8V9EAMiqA6KMXzTMA_IFjiKP8"
 MODEL = "gemini-2.0-flash-exp-image-generation"
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={API_KEY}"
 
@@ -237,63 +237,112 @@ CHARACTERS = [
 ]
 
 
+SHOT_TYPES = ["hero", "angle", "lifestyle-bed", "lifestyle-desk", "in-hand", "flatlay"]
+
+
 def make_slug(name):
     """Convert character name to URL-safe slug."""
     return name.lower().replace(" ", "-")
 
 
-def build_prompt(char):
-    """Build the hero image prompt for a character."""
-    return (
-        f"Create a professional e-commerce product photograph of a kawaii {char['concept']} "
-        f"plush toy on a pure white background. The plush is {char['color']}, about {char['size']}, "
+def build_prompt(char, shot):
+    """Build prompt for a specific shot type."""
+    name = char["name"]
+    concept = char["concept"]
+    color = char["color"]
+    size = char["size"]
+    vibe = char["vibe"]
+
+    base = (
+        f"kawaii {concept} plush toy. The plush is {color}, about {size}, "
         f"with a cute round shape, tiny arms and legs, and an adorable embroidered smiling face "
-        f"with rosy cheeks. It's made of super-soft plush fabric with visible soft texture. "
-        f"The character's name is {char['name']} and has a {char['vibe']} personality — the expression "
-        f"should reflect this. Clean, centered composition with soft even studio lighting and a subtle "
-        f"shadow underneath. High-resolution, sharp focus on fabric texture. Premium toy brand product "
-        f"photography style."
+        f"with rosy cheeks. Super-soft plush fabric with visible texture. "
+        f"Named {name} with {vibe} personality."
     )
+
+    if shot == "hero":
+        return (
+            f"Create a professional e-commerce product photograph of a {base} "
+            f"Pure white background. Clean, centered composition with soft even studio lighting "
+            f"and a subtle shadow underneath. High-resolution, sharp focus on fabric texture. "
+            f"Premium toy brand product photography style."
+        )
+    elif shot == "angle":
+        return (
+            f"Create a product photograph of a {base} "
+            f"Turned 45 degrees to the right showing the side profile and roundness of the body. "
+            f"White background, soft studio lighting. Clean e-commerce product photography."
+        )
+    elif shot == "lifestyle-bed":
+        return (
+            f"Create a cozy lifestyle photograph of a {base} "
+            f"Sitting on a neatly made bed with white linen sheets and cream pillows. "
+            f"Morning sunlight streaming through a window. Warm, aspirational bedroom setting. "
+            f"Editorial lifestyle photography, warm tones, soft focus background."
+        )
+    elif shot == "lifestyle-desk":
+        return (
+            f"Create a lifestyle photograph of a {base} "
+            f"Sitting on a clean modern desk surrounded by a small plant, a candle, and a coffee mug. "
+            f"Scandinavian minimal aesthetic. Soft natural side lighting. Warm tones, shallow depth of field."
+        )
+    elif shot == "in-hand":
+        return (
+            f"Create a lifestyle photograph of feminine hands gently holding a {base} "
+            f"Soft neutral background. Warm natural lighting. The scale looks realistic — "
+            f"the plush fits comfortably in two hands. Cozy, inviting feel."
+        )
+    elif shot == "flatlay":
+        return (
+            f"Create an overhead flat lay photograph with a {base} "
+            f"As the centerpiece, arranged with dried flowers, a cute greeting card, colorful candies, "
+            f"and tissue paper — as if someone just received it as a gift. Soft pink background. "
+            f"Natural top-down lighting. Premium unboxing moment. Instagram-ready."
+        )
+    return ""
 
 
 def main():
-    total = len(CHARACTERS)
+    total_chars = len(CHARACTERS)
+    total_images = total_chars * len(SHOT_TYPES)
     success = 0
     skipped = 0
     failed = 0
 
     print("=" * 60)
-    print(f"NANCY UNIVERSE — Generating {total} New Plushie Hero Images")
+    print(f"NANCY UNIVERSE — Generating ALL Plushie Assets")
+    print(f"{total_chars} characters × {len(SHOT_TYPES)} shots = {total_images} images")
     print("=" * 60)
 
     for i, char in enumerate(CHARACTERS, 1):
         name = char["name"]
         slug = make_slug(name)
         out_dir = os.path.join(BASE_DIR, "assets", "plushies", slug)
-        out_file = os.path.join(out_dir, f"{slug}-hero.png")
-
-        if os.path.exists(out_file):
-            print(f"[{i}/{total}] [SKIP] {name} — already exists")
-            skipped += 1
-            continue
-
-        prompt = build_prompt(char)
-        print(f"\n[{i}/{total}] [GEN] {name} ({char['concept']})")
-
         os.makedirs(out_dir, exist_ok=True)
-        result = generate_image(prompt, out_file)
 
-        if result:
-            success += 1
-        else:
-            failed += 1
+        for shot in SHOT_TYPES:
+            out_file = os.path.join(out_dir, f"{slug}-{shot}.png")
 
-        # Rate limit spacing — 2 seconds between calls
-        if i < total:
+            if os.path.exists(out_file):
+                print(f"[{i}/{total_chars}] [SKIP] {name} — {shot} already exists")
+                skipped += 1
+                continue
+
+            prompt = build_prompt(char, shot)
+            print(f"\n[{i}/{total_chars}] [GEN] {name} — {shot}")
+
+            result = generate_image(prompt, out_file)
+
+            if result:
+                success += 1
+            else:
+                failed += 1
+
+            # Rate limit spacing
             time.sleep(2)
 
     print("\n" + "=" * 60)
-    print(f"DONE — {success} generated, {skipped} skipped, {failed} failed (of {total} total)")
+    print(f"DONE — {success} generated, {skipped} skipped, {failed} failed (of {total_images} total)")
     print("=" * 60)
 
 
