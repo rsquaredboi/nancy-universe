@@ -17,7 +17,7 @@ ssl_ctx.check_hostname = False
 ssl_ctx.verify_mode = ssl.CERT_NONE
 
 API_KEY = "AIzaSyCrUHz0oQ8V9EAMiqA6KMXzTMA_IFjiKP8"
-MODEL = "gemini-2.0-flash-exp-image-generation"
+MODEL = "gemini-2.5-flash-image"
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={API_KEY}"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
