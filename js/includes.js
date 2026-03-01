@@ -25,17 +25,19 @@
 
   function setActiveNav() {
     const path = window.location.pathname;
+    let matched = false;
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.classList.remove('active');
       const href = link.getAttribute('href');
-      if (href && path.includes(href) && href !== '/') {
+      if (href && href !== '/' && path.includes(href)) {
         link.classList.add('active');
+        matched = true;
       }
     });
-    // Default to Shop All for homepage
-    if (path === '/' || path.endsWith('index.html')) {
-      const first = document.querySelector('.nav-links a');
-      if (first) first.classList.add('active');
+    // Product pages → highlight "Shop All"
+    if (!matched && path.includes('/pages/products/')) {
+      const shopAll = document.querySelector('.nav-links a[href*="shop-all"]');
+      if (shopAll) shopAll.classList.add('active');
     }
 
     // Mobile hamburger toggle
