@@ -203,6 +203,44 @@ def generate_fashion_images(items):
         time.sleep(2)
 
 
+def generate_fashion_lifestyle(items):
+    """Generate lifestyle/detail images for each fashion item."""
+    shot_types = ["flatlay", "model-front", "detail", "lifestyle-street", "lifestyle"]
+
+    for item in items:
+        name = item["name"]
+        slug = item["slug"]
+        item_type = item["type"]
+        color = item["color"]
+        design = item["design"]
+
+        out_dir = os.path.join(BASE_DIR, "assets", "fashion", slug)
+        os.makedirs(out_dir, exist_ok=True)
+
+        for shot in shot_types:
+            out_file = os.path.join(out_dir, f"{slug}-{shot}.png")
+            if os.path.exists(out_file):
+                print(f"  [SKIP] {out_file} already exists")
+                continue
+
+            if shot == "flatlay":
+                prompt = f"""Create a styled flat lay photograph of a {color} {item_type} arranged neatly with accessories — sunglasses, a coffee cup, a phone, and a small plant. The {item_type} has {design}. Shot from directly above on a light wooden surface. Warm natural lighting. Lifestyle editorial for a Gen-Z fashion brand. Instagram-ready styling."""
+            elif shot == "model-front":
+                prompt = f"""Create a fashion editorial photograph of a young woman (mid-20s, natural look) wearing a {color} {item_type} with {design}. She's standing against a simple warm cream studio background, relaxed natural pose. The {item_type} fits oversized/relaxed. Soft warm lighting. Modern streetwear brand photography. Focus on the fit and design."""
+            elif shot == "detail":
+                prompt = f"""Create a macro close-up photograph of the {item_type}'s main design detail — {design}. Tight crop showing fabric texture, any print quality or embroidery stitching. Sharp focus. Warm soft lighting. Premium quality craftsmanship feel. The fabric is {color}."""
+            elif shot == "lifestyle-street":
+                prompt = f"""Create a street-style photograph of a young woman wearing the {color} {item_type} with {design}, paired with casual bottoms and white sneakers. Urban setting — sunny sidewalk, coffee shop, or minimal mural background. Natural daylight. Candid feel, like a real street-style blog photo. Vibrant but natural colors."""
+            elif shot == "lifestyle":
+                prompt = f"""Create a cozy lifestyle photograph of someone wearing the {color} {item_type} with {design} while relaxing at home — sitting on a couch or at a kitchen counter with a coffee. Warm interior with natural window light. Relaxed, aspirational weekend-at-home vibe. Soft focus background."""
+            else:
+                continue
+
+            print(f"\n[GEN] Fashion: {name} — {shot}")
+            generate_image(prompt, out_file)
+            time.sleep(2)
+
+
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "all"
 
@@ -224,5 +262,11 @@ if __name__ == "__main__":
         print("GENERATING FASHION HERO IMAGES")
         print("=" * 60)
         generate_fashion_images(FASHION)
+
+    if mode in ("fashion-lifestyle", "all-lifestyle"):
+        print("\n" + "=" * 60)
+        print("GENERATING FASHION LIFESTYLE IMAGES")
+        print("=" * 60)
+        generate_fashion_lifestyle(FASHION)
 
     print("\n[DONE] Image generation complete.")
