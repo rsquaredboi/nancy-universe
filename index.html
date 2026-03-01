@@ -6,8 +6,40 @@
 <title>Nancy — The Universe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Semibold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Regular.woff?v=1680075897" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <style>
+/* ═══════════════════════════════════════════════
+   BRAND FONTS — ES Rebond Grotesque (Shopify CDN)
+   ═══════════════════════════════════════════════ */
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Regular.woff?v=1680075897') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Semibold.woff?v=1680075897') format('woff');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Light.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+
 /* ═══════════════════════════════════════════════
    DESIGN SYSTEM — NANCY UNIVERSE
    ═══════════════════════════════════════════════ */
@@ -44,8 +76,8 @@
   --avo-dark: #4D7E4A;
 
   /* Typography */
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Outfit', sans-serif;
+  --font-display: 'ESRebondGrotesque', 'DM Sans', sans-serif;
+  --font-body: 'Fraunces', Georgia, serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
