@@ -2110,9 +2110,193 @@ footer {
   .section-label { font-size: 0.7rem; }
   .plush-scroll { flex-wrap: wrap; } .plush-scroll .plush-card { min-width: 45%; }
 }
+
+/* ═══════════════════════════════════════════════
+   PERSONALITY & ANIMATION LAYER
+   ═══════════════════════════════════════════════ */
+
+/* --- Scroll Progress Bar (fruit-colored) --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--lime) 0%, var(--pink) 50%, #FFE135 100%);
+  z-index: 10001;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* --- 3D Tilt on Cards --- */
+.bs-card, .category-card, .product-card, .plush-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99), box-shadow 0.4s ease;
+}
+.bs-card.tilt-active, .product-card.tilt-active, .plush-card.tilt-active {
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* --- Magnetic Buttons --- */
+.btn-primary, .btn-outline, .add-to-cart, .fashion-waitlist {
+  transition: transform 0.3s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+              background 0.3s ease,
+              box-shadow 0.3s ease,
+              letter-spacing 0.3s ease;
+}
+.btn-primary:hover { letter-spacing: 0.04em; }
+.add-to-cart:hover { letter-spacing: 0.03em; }
+
+/* --- Confetti canvas --- */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* --- Floating Fruit Particles (Hero) --- */
+.fruit-particle {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  animation: fruitFloat 8s ease-in-out infinite;
+  z-index: 0;
+}
+@keyframes fruitFloat {
+  0% { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
+  15% { opacity: 0.6; }
+  50% { transform: translateY(-120px) rotate(180deg) scale(1); opacity: 0.4; }
+  85% { opacity: 0.15; }
+  100% { transform: translateY(-250px) rotate(360deg) scale(0.3); opacity: 0; }
+}
+
+/* --- Wiggle on Plush hover --- */
+.plush-card:hover .plush-image img {
+  animation: wiggle 0.5s ease-in-out;
+}
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-5deg) scale(1.02); }
+  40% { transform: rotate(4deg) scale(1.04); }
+  60% { transform: rotate(-3deg) scale(1.02); }
+  80% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* --- Hero text stagger reveal --- */
+.hero-line-1, .hero-line-2, .hero-line-3 {
+  overflow: hidden;
+}
+.hero-line-1.visible, .hero-line-2.visible, .hero-line-3.visible {
+  animation: slideUpReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes slideUpReveal {
+  from { transform: translateY(40px); opacity: 0; filter: blur(4px); }
+  to { transform: translateY(0); opacity: 1; filter: blur(0); }
+}
+
+/* --- Stat counter glow pulse --- */
+.stat-num {
+  transition: text-shadow 0.5s ease;
+}
+.stat-num.counting {
+  text-shadow: 0 0 30px rgba(210, 0, 106, 0.4), 0 0 60px rgba(210, 0, 106, 0.15);
+}
+
+/* --- Marquee speed boost on hover --- */
+.marquee-banner:hover .marquee-track {
+  animation-duration: 8s !important;
+}
+
+/* --- Category card hover zoom on image --- */
+.category-card .cat-bg img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+.category-card:hover .cat-bg img {
+  transform: scale(1.08);
+}
+
+/* --- Product card float on hover --- */
+.product-card:hover {
+  transform: translateY(-6px);
+}
+.product-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.product-card:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* --- Review card subtle parallax tilt --- */
+.review-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.review-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+/* --- World card character peek animation --- */
+.world-card .world-emoji img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.world-card:hover .world-emoji img {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+/* --- Newsletter input focus glow --- */
+.newsletter-form input:focus {
+  box-shadow: 0 0 0 3px rgba(210, 0, 106, 0.2), 0 0 20px rgba(210, 0, 106, 0.1);
+  border-color: var(--pink);
+}
+
+/* --- Emoji cursor zones --- */
+.hero { cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🍋</text></svg>") 16 16, auto; }
+.fashion { cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>👗</text></svg>") 16 16, auto; }
+.plush { cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🧸</text></svg>") 16 16, auto; }
+.community { cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💬</text></svg>") 16 16, auto; }
+.drop-section { cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🔥</text></svg>") 16 16, auto; }
+
+/* --- Easter egg: Konami code reward --- */
+.konami-active .hero-float {
+  animation: konamiSpin 1s ease-in-out !important;
+}
+@keyframes konamiSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.5); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* --- Add to Cart success flash --- */
+.add-to-cart.added {
+  background: var(--lime) !important;
+  color: var(--black) !important;
+  transform: scale(1.05);
+}
+.add-to-cart.added::after {
+  content: ' ✓';
+}
+
+/* --- Parallax depth layers --- */
+.hero-float:nth-child(1) { --parallax-speed: 0.02; }
+.hero-float:nth-child(2) { --parallax-speed: 0.035; }
+.hero-float:nth-child(3) { --parallax-speed: 0.025; }
+.hero-float:nth-child(4) { --parallax-speed: 0.04; }
+.hero-float:nth-child(5) { --parallax-speed: 0.015; }
+.hero-float:nth-child(6) { --parallax-speed: 0.03; }
+
+/* --- Smooth section entry --- */
+section { will-change: transform; }
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scroll-progress"></div>
+<canvas id="confetti-canvas"></canvas>
 
 <!-- ═══════════════════════════════════════════════
      TOPBAR
@@ -2165,16 +2349,16 @@ footer {
   <div class="hero-content">
     <div class="hero-eyebrow reveal">
       <span class="dot"></span>
-      500,000+ products sold worldwide
+      Joined by 500K+ humans worldwide
     </div>
     <h1>
-      <span class="hero-line-1 reveal reveal-delay-1">This is not a</span>
-      <span class="hero-line-2 reveal reveal-delay-2">toy company.</span>
-      <span class="hero-line-3 reveal reveal-delay-3">It's a universe.</span>
+      <span class="hero-line-1 reveal reveal-delay-1">Pleasure deserved</span>
+      <span class="hero-line-2 reveal reveal-delay-2">its own</span>
+      <span class="hero-line-3 reveal reveal-delay-3">universe.</span>
     </h1>
     <p class="hero-subtitle reveal reveal-delay-4">
-      Pleasure. Fashion. Plushies. Culture.<br>
-      Welcome to Nancy — where self-care meets self-expression.
+      Toys. Fashion. Collectibles. Community.<br>
+      For the generation that stopped whispering.
     </p>
     <div class="hero-categories reveal reveal-delay-4">
       <span>Toys</span>
@@ -2189,7 +2373,7 @@ footer {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="#" class="btn-outline">
-        New Drops
+        See What's New
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
       </a>
     </div>
@@ -2239,7 +2423,7 @@ footer {
     <div class="sp-divider"></div>
     <div class="sp-item">
       <span class="sp-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></span>
-      <span><strong>500K+</strong> products sold</span>
+      <span><strong>500K+</strong> sold worldwide</span>
     </div>
     <div class="sp-divider"></div>
     <div class="sp-item">
@@ -2249,7 +2433,7 @@ footer {
     <div class="sp-divider"></div>
     <div class="sp-item">
       <span class="sp-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
-      <span><strong>Discreet</strong> packaging</span>
+      <span><strong>Always</strong> discreet</span>
     </div>
   </div>
 </div>
@@ -2260,8 +2444,8 @@ footer {
 <section class="categories">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Explore</span>
-      <h2 class="section-title">Shop by World</h2>
+      <span class="section-label">Worlds</span>
+      <h2 class="section-title">Enter Your World</h2>
     </div>
     <div class="category-grid">
       <div class="category-card toys reveal reveal-delay-1">
@@ -2320,8 +2504,8 @@ footer {
   <div class="container">
     <div class="section-header section-header--row reveal">
       <div>
-        <span class="section-label">Hot Right Now</span>
-        <h2 class="section-title">Trending</h2>
+        <span class="section-label">What's Moving</span>
+        <h2 class="section-title">Trending Now</h2>
       </div>
       <a href="#" class="see-all-link">See All →</a>
     </div>
@@ -2476,7 +2660,7 @@ footer {
     <div class="section-header reveal">
       <span class="section-label">The Nancy Universe</span>
       <h2 class="section-title">Every Fruit Has a Story</h2>
-      <p class="section-subtitle">Born in the same magical orchard, raised with zero chill. Meet the squad.</p>
+      <p class="section-subtitle">Born in the same orchard. Raised with zero chill. No two alike.</p>
     </div>
     <div class="universe-grid">
       <div class="world-card lem-world reveal reveal-delay-1">
@@ -2528,7 +2712,7 @@ footer {
           Drop 001 — Limited Edition
         </div>
         <h2 class="drop-title">Nancy × <em>Summer</em><br>Collection</h2>
-        <p class="drop-desc">The first-ever Nancy lifestyle drop. Limited edition tees, plushies, stickers, and mystery boxes. Once they're gone, they're gone.</p>
+        <p class="drop-desc">The first Nancy lifestyle drop. Tees, plushies, stickers, mystery boxes. Limited run. No restocks.</p>
         <div class="drop-countdown">
           <div class="countdown-unit">
             <div class="num" id="cd-days">07</div>
@@ -2587,7 +2771,7 @@ footer {
       <div>
         <span class="section-label">Core Collection</span>
         <h2 class="section-title">Best Sellers</h2>
-        <p class="section-subtitle">The toys that started it all. Thoughtfully designed for your first time — and every time after.</p>
+        <p class="section-subtitle">Where it all started. Designed for your first time — and every time after.</p>
       </div>
       <a href="#" class="see-all-link">Shop All →</a>
     </div>
@@ -2602,7 +2786,7 @@ footer {
         </div>
         <div class="bs-info">
           <div class="bs-name">The Lem</div>
-          <div class="bs-subtitle">12-level lemon magic</div>
+          <div class="bs-subtitle">12 intensities. One obsession.</div>
           <div class="bs-price-row">
             <div class="bs-price">
               <span class="bs-current">$89</span>
@@ -2627,7 +2811,7 @@ footer {
         </div>
         <div class="bs-info">
           <div class="bs-name">The Berri</div>
-          <div class="bs-subtitle">Next-level TapSphere sensation</div>
+          <div class="bs-subtitle">Tapping sensation. New territory.</div>
           <div class="bs-price-row">
             <div class="bs-price">
               <span class="bs-current">$95</span>
@@ -2652,7 +2836,7 @@ footer {
         </div>
         <div class="bs-info">
           <div class="bs-name">The Avo</div>
-          <div class="bs-subtitle">Supercharged, unapologetic power</div>
+          <div class="bs-subtitle">Maximum intensity. Zero apologies.</div>
           <div class="bs-price-row">
             <div class="bs-price">
               <span class="bs-current">$99</span>
@@ -2677,7 +2861,7 @@ footer {
         </div>
         <div class="bs-info">
           <div class="bs-name">Tutti Frutti Bundle</div>
-          <div class="bs-subtitle">Lem + Berri + Avo · The Full Experience</div>
+          <div class="bs-subtitle">All three toys. The full experience.</div>
           <div class="bs-price-row">
             <div class="bs-price">
               <span class="bs-current">$179</span>
@@ -2702,14 +2886,14 @@ footer {
     <div class="section-header reveal">
       <span class="section-label">Style</span>
       <h2 class="section-title">Wear Your Universe</h2>
-      <p class="section-subtitle">Nancy isn't just something you use. It's something you wear.</p>
+      <p class="section-subtitle">Pleasure is a lifestyle. Dress like it.</p>
     </div>
     <div class="fashion-grid">
       <div class="fashion-card reveal reveal-delay-1">
         <span class="fashion-coming">Coming Soon</span>
         <div class="fashion-emoji"><img src="assets/generated/v2/cat-fashion.png" alt="Fruit Club Collection" style="width: 220px; height: 160px; object-fit: cover; border-radius: 16px; border: 2px solid rgba(255,255,255,0.12); filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));"></div>
         <div class="fashion-name">The Fruit Club<br>Collection</div>
-        <div class="fashion-desc">Premium cotton tees, hoodies, and caps featuring the Nancy fruit universe.</div>
+        <div class="fashion-desc">Premium cotton. Original prints. The kind of merch people actually ask you about.</div>
         <div class="fashion-price">Shop from $35 →</div>
         <a href="#" class="fashion-waitlist" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.8rem; border: 1.5px solid rgba(255,255,255,0.4); border-radius: 50px; color: white; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s;">Join Waitlist</a>
       </div>
@@ -2817,8 +3001,8 @@ footer {
 <section class="community">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Our People</span>
-      <h2 class="section-title">The Nancy Community</h2>
+      <span class="section-label">Community</span>
+      <h2 class="section-title">Straight From<br>the Group Chat</h2>
     </div>
     <div class="community-stats">
       <div class="stat-card reveal reveal-delay-1">
@@ -2841,33 +3025,33 @@ footer {
     <div class="reviews-grid">
       <div class="review-card reveal reveal-delay-1">
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"I've never owned anything like this. The Lem changed everything for me. The quality is insane and the packaging was so discreet. 10/10."</div>
+        <div class="review-text">"My very first toy. I was nervous. I didn't know what to expect. Then I tried it and — oh. It lives on my nightstand now. Worth every single penny."</div>
         <div class="review-author">
-          <div class="review-avatar">H</div>
+          <div class="review-avatar">D</div>
           <div>
-            <div class="review-name">Heidi</div>
+            <div class="review-name">Diane</div>
             <div class="review-product">Verified Buyer · The Lem</div>
           </div>
         </div>
       </div>
       <div class="review-card reveal reveal-delay-2">
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Bought it as a birthday gift for my best friend. She hasn't stopped talking about it. Already ordered the Berri for myself."</div>
+        <div class="review-text">"Bought this for my wife. Got a text while at work: 🍋💦💥❤️ — that's all she wrote. Already ordered the Berri. Happy would be an understatement."</div>
         <div class="review-author">
-          <div class="review-avatar">B</div>
+          <div class="review-avatar">A</div>
           <div>
-            <div class="review-name">Brie</div>
+            <div class="review-name">Adam</div>
             <div class="review-product">Verified Buyer · The Lem</div>
           </div>
         </div>
       </div>
       <div class="review-card reveal reveal-delay-3">
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"The Avo is no joke. Powerful, quiet, and the design is actually beautiful. Finally a brand that gets it."</div>
+        <div class="review-text">"I genuinely thought the reviews were overhyped. They were not. At all. Already gifted three to friends. This is the real deal."</div>
         <div class="review-author">
-          <div class="review-avatar">L</div>
+          <div class="review-avatar">J</div>
           <div>
-            <div class="review-name">Linda</div>
+            <div class="review-name">Jessica</div>
             <div class="review-product">Verified Buyer · The Avo</div>
           </div>
         </div>
@@ -2903,7 +3087,7 @@ footer {
     <div class="newsletter-card reveal">
       <div class="newsletter-content">
         <h2 class="newsletter-title">Join the Universe</h2>
-        <p class="newsletter-desc">Be first to know about new drops, exclusive offers, and stories from the Nancy community.</p>
+        <p class="newsletter-desc">New drops. Exclusive offers. Community stories. No spam, ever.</p>
         <div class="newsletter-form">
           <input type="email" placeholder="Enter your email">
           <button type="submit">Subscribe</button>
@@ -2924,7 +3108,7 @@ footer {
           <img src="https://cdn.29next.store/media/hellonancy/uploads/Nancy_Round_Logo.svg" alt="Nancy" onerror="this.style.background='var(--pink)';this.style.borderRadius='50%'">
           <span>nancy</span>
         </div>
-        <p>More than pleasure. A universe of self-care, self-expression, and unapologetic joy. Designed in Hong Kong, loved worldwide.</p>
+        <p>Pleasure. Fashion. Community. Designed in Hong Kong. Loved in 50+ countries.</p>
       </div>
       <div class="footer-col">
         <h4>Shop</h4>
@@ -3076,6 +3260,309 @@ window.addEventListener('scroll', () => {
   }
   lastScroll = currentScroll;
 });
+
+/* ═══════════════════════════════════════════════
+   PERSONALITY & ANIMATION ENGINE
+   ═══════════════════════════════════════════════ */
+
+// --- Scroll Progress Bar ---
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  progressBar.style.width = scrollPercent + '%';
+}, { passive: true });
+
+// --- 3D Tilt on Cards ---
+document.querySelectorAll('.bs-card, .product-card, .plush-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    card.classList.add('tilt-active');
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.classList.remove('tilt-active');
+  });
+});
+
+// --- Magnetic Buttons ---
+document.querySelectorAll('.btn-primary, .btn-outline, .add-to-cart').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
+
+// --- Confetti on Add to Cart ---
+const confettiCanvas = document.getElementById('confetti-canvas');
+const confettiCtx = confettiCanvas.getContext('2d');
+confettiCanvas.width = window.innerWidth;
+confettiCanvas.height = window.innerHeight;
+window.addEventListener('resize', () => {
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+});
+
+let confettiPieces = [];
+const confettiColors = ['#D2006A', '#CCFF00', '#FFE135', '#FF4B6E', '#6BA368', '#f0e6ff'];
+const confettiShapes = ['🍋', '🍓', '🥑', '✨', '💛', '🌸'];
+
+function spawnConfetti(x, y) {
+  for (let i = 0; i < 35; i++) {
+    confettiPieces.push({
+      x, y,
+      vx: (Math.random() - 0.5) * 12,
+      vy: (Math.random() - 0.7) * 14,
+      size: Math.random() * 14 + 8,
+      shape: confettiShapes[Math.floor(Math.random() * confettiShapes.length)],
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 10,
+      gravity: 0.25,
+      life: 1,
+      decay: 0.012 + Math.random() * 0.008
+    });
+  }
+  if (confettiPieces.length === 35) requestAnimationFrame(animateConfetti);
+}
+
+function animateConfetti() {
+  confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+  confettiPieces = confettiPieces.filter(p => p.life > 0);
+  confettiPieces.forEach(p => {
+    p.x += p.vx;
+    p.vy += p.gravity;
+    p.y += p.vy;
+    p.vx *= 0.98;
+    p.rotation += p.rotSpeed;
+    p.life -= p.decay;
+    confettiCtx.save();
+    confettiCtx.translate(p.x, p.y);
+    confettiCtx.rotate((p.rotation * Math.PI) / 180);
+    confettiCtx.globalAlpha = p.life;
+    confettiCtx.font = p.size + 'px serif';
+    confettiCtx.textAlign = 'center';
+    confettiCtx.fillText(p.shape, 0, 0);
+    confettiCtx.restore();
+  });
+  if (confettiPieces.length > 0) requestAnimationFrame(animateConfetti);
+}
+
+// Attach to Add to Cart buttons
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const rect = btn.getBoundingClientRect();
+    spawnConfetti(rect.left + rect.width / 2, rect.top);
+
+    // Button success state
+    const origText = btn.innerHTML;
+    btn.classList.add('added');
+    btn.textContent = 'Added';
+    setTimeout(() => {
+      btn.classList.remove('added');
+      btn.innerHTML = origText;
+    }, 1800);
+
+    // Bump cart count
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) {
+      cartCount.textContent = parseInt(cartCount.textContent) + 1;
+      cartCount.style.transform = 'scale(1.4)';
+      setTimeout(() => cartCount.style.transform = '', 300);
+    }
+  });
+});
+
+// --- Floating Fruit Particles in Hero ---
+const hero = document.querySelector('.hero');
+if (hero) {
+  const fruits = ['🍋', '🍓', '🥑', '🍭', '✨', '🌸', '💜', '🫐'];
+  function spawnFruitParticle() {
+    const p = document.createElement('span');
+    p.className = 'fruit-particle';
+    p.textContent = fruits[Math.floor(Math.random() * fruits.length)];
+    p.style.left = Math.random() * 100 + '%';
+    p.style.bottom = '-20px';
+    p.style.fontSize = (Math.random() * 0.8 + 0.8) + 'rem';
+    p.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    p.style.animationDelay = (Math.random() * 2) + 's';
+    hero.appendChild(p);
+    setTimeout(() => p.remove(), 12000);
+  }
+  // Spawn a few on load, then periodically
+  for (let i = 0; i < 6; i++) setTimeout(() => spawnFruitParticle(), i * 800);
+  setInterval(spawnFruitParticle, 2500);
+}
+
+// --- Parallax on Hero Floats ---
+const heroFloats = document.querySelectorAll('.hero-float');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  if (scrollY > 800) return; // Only in hero zone
+  heroFloats.forEach(float => {
+    const speed = parseFloat(getComputedStyle(float).getPropertyValue('--parallax-speed')) || 0.02;
+    float.style.transform = `translateY(${scrollY * speed * -30}px) rotate(${scrollY * speed * 2}deg)`;
+  });
+}, { passive: true });
+
+// --- Enhanced Stat Counter with glow ---
+const origCounterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const num = entry.target;
+    if (num.dataset.counted) return;
+    num.dataset.counted = 'true';
+    num.classList.add('counting');
+    const target = parseInt(num.dataset.count);
+    const duration = 2000;
+    const start = Date.now();
+    const tick = () => {
+      const elapsed = Date.now() - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      if (target >= 1000000) num.textContent = (current / 1000000).toFixed(1) + 'M+';
+      else if (target >= 1000) num.textContent = Math.floor(current / 1000) + 'K+';
+      else num.textContent = current + '+';
+      if (progress < 1) requestAnimationFrame(tick);
+      else setTimeout(() => num.classList.remove('counting'), 500);
+    };
+    requestAnimationFrame(tick);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num[data-count]').forEach(el => origCounterObserver.observe(el));
+
+// --- Konami Code Easter Egg ---
+const konamiCode = [38,38,40,40,37,39,37,39,66,65];
+let konamiIndex = 0;
+document.addEventListener('keydown', (e) => {
+  if (e.keyCode === konamiCode[konamiIndex]) {
+    konamiIndex++;
+    if (konamiIndex === konamiCode.length) {
+      document.body.classList.add('konami-active');
+      // Shower of fruit confetti from top
+      for (let i = 0; i < 60; i++) {
+        setTimeout(() => {
+          spawnConfetti(Math.random() * window.innerWidth, -20);
+        }, i * 50);
+      }
+      // Flash message
+      const msg = document.createElement('div');
+      msg.textContent = '🍋 You found the secret! 🍓';
+      msg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--black);color:var(--lime);padding:1.5rem 3rem;border-radius:20px;font-size:1.5rem;font-weight:800;z-index:100000;animation:fadeInOut 3s forwards;pointer-events:none;';
+      document.body.appendChild(msg);
+      setTimeout(() => {
+        msg.remove();
+        document.body.classList.remove('konami-active');
+      }, 3000);
+      konamiIndex = 0;
+    }
+  } else {
+    konamiIndex = 0;
+  }
+});
+
+// --- Typed/Scramble text effect for hero subtitle ---
+const heroSub = document.querySelector('.hero-subtitle');
+if (heroSub && heroSub.classList.contains('visible')) {
+  // Already visible, skip
+} else if (heroSub) {
+  const subObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      heroSub.style.opacity = '1';
+      subObserver.disconnect();
+    });
+  }, { threshold: 0.5 });
+  subObserver.observe(heroSub);
+}
+
+// --- Lottie-style bounce on plush cards entering view ---
+const plushBounceObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const img = entry.target.querySelector('.plush-image img');
+    if (img) {
+      img.style.animation = 'plushBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      img.addEventListener('animationend', () => img.style.animation = '', { once: true });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.plush-card').forEach(c => plushBounceObserver.observe(c));
+
+// Add the bounceIn keyframes dynamically
+const bounceStyle = document.createElement('style');
+bounceStyle.textContent = `
+  @keyframes plushBounceIn {
+    0% { transform: scale(0.8) translateY(20px); opacity: 0.5; }
+    60% { transform: scale(1.05) translateY(-5px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%,-50%) scale(0.8); }
+    15% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    80% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(0.8); }
+  }
+`;
+document.head.appendChild(bounceStyle);
+
+// --- Section entry animations (staggered) ---
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.style.opacity = '1';
+    entry.target.style.transform = 'translateY(0)';
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section-header').forEach(header => {
+  header.style.opacity = '0';
+  header.style.transform = 'translateY(30px)';
+  header.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+  sectionObserver.observe(header);
+});
+
+// --- Double-tap Easter egg on product images ---
+document.querySelectorAll('.bs-image, .card-image').forEach(img => {
+  let lastTap = 0;
+  img.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTap < 300) {
+      // Double tap! Show heart
+      const heart = document.createElement('div');
+      heart.textContent = '❤️';
+      heart.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:4rem;z-index:100;pointer-events:none;transition:all 0.5s cubic-bezier(0.16, 1, 0.3, 1);';
+      img.style.position = 'relative';
+      img.appendChild(heart);
+      requestAnimationFrame(() => {
+        heart.style.transform = 'translate(-50%,-50%) scale(1)';
+        heart.style.opacity = '1';
+      });
+      setTimeout(() => {
+        heart.style.transform = 'translate(-50%,-50%) scale(1.5)';
+        heart.style.opacity = '0';
+        setTimeout(() => heart.remove(), 500);
+      }, 600);
+    }
+    lastTap = now;
+  });
+});
+
+console.log('%c🍋 Nancy Universe — Pleasure deserved its own universe.', 'font-size: 16px; font-weight: bold; color: #D2006A; background: #111; padding: 8px 16px; border-radius: 8px;');
+console.log('%cBuilt with love, mischief, and zero apologies.', 'font-size: 12px; color: #CCFF00; background: #111; padding: 4px 16px; border-radius: 4px;');
 </script>
 </body>
 </html>
