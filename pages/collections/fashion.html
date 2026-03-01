@@ -6,7 +6,7 @@
 <title>Fashion — Nancy Universe</title>
 <link rel="icon" type="image/svg+xml" href="../../nancy-logo-pink.svg">
 <link rel="icon" type="image/png" href="../../nancy-logo-pink.png">
-<meta name="description" content="Nancy Universe Fashion collection. Oversized tees, hoodies, and more. Wear the universe. Coming Spring 2026.">
+<meta name="description" content="Nancy Universe Fashion. 100% organic cotton tees, hoodies, caps, and accessories. Designed in Hong Kong. Wear the universe.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
@@ -52,33 +52,82 @@ fbq('track', 'PageView');
       <span class="current">Fashion</span>
     </div>
 
-    <!-- Collection Hero -->
+    <!-- ═══════════════════════════════════════
+         1. COLLECTION HERO
+         ═══════════════════════════════════════ -->
     <div class="collection-hero">
       <img src="../../assets/generated/v2/cat-fashion.png" alt="Nancy Fashion collection">
       <div class="collection-hero-overlay">
         <h1><em style="font-family: var(--font-editorial); font-weight: 400;">Fashion</em></h1>
-        <p>Wear the universe. Coming Spring 2026.</p>
+        <p>Wear the universe. 100% organic cotton.</p>
       </div>
     </div>
 
-    <!-- Coming Soon -->
-    <div class="collection-coming-soon">
-      <h2>Coming <em style="font-family: var(--font-editorial); font-weight: 400;">Soon</em></h2>
-      <p>Our first fashion drop lands Spring 2026. Join the waitlist to get early access and exclusive pricing.</p>
-      <form class="waitlist-form" onsubmit="event.preventDefault();">
-        <input type="email" placeholder="Your email" required>
-        <button type="submit">Join Waitlist</button>
-      </form>
+    <!-- ═══════════════════════════════════════
+         2. FEATURE TRUST STRIP
+         ═══════════════════════════════════════ -->
+    <div class="collection-features">
+      <div class="collection-feature-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h4>100% Organic Cotton</h4>
+        <p>GOTS certified</p>
+      </div>
+      <div class="collection-feature-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <h4>Designed in Hong Kong</h4>
+        <p>By the Nancy team</p>
+      </div>
+      <div class="collection-feature-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h4>Unisex Fit</h4>
+        <p>XS&ndash;XXL sizing</p>
+      </div>
+      <div class="collection-feature-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <h4>Free Shipping</h4>
+        <p>On orders over $89</p>
+      </div>
     </div>
 
-    <!-- Preview Grid -->
+    <!-- ═══════════════════════════════════════
+         3. CATEGORY TABS
+         ═══════════════════════════════════════ -->
+    <div class="collection-tabs">
+      <span class="collection-tab active">All <span class="tab-count">12</span></span>
+      <span class="collection-tab">Tops <span class="tab-count">5</span></span>
+      <span class="collection-tab">Bottoms <span class="tab-count">2</span></span>
+      <span class="collection-tab">Headwear <span class="tab-count">2</span></span>
+      <span class="collection-tab">Accessories <span class="tab-count">3</span></span>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         4. SORT BAR
+         ═══════════════════════════════════════ -->
+    <div class="collection-bar">
+      <span class="collection-count">Showing 12 products</span>
+      <div class="collection-sort">
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select">
+          <option>Bestselling</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Newest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         5. PRODUCT GRID — 12 products (3-col)
+         ═══════════════════════════════════════ -->
     <div class="collection-grid">
 
-      <!-- Fashion Tee -->
+      <!-- ——— TOPS ——— -->
+
+      <!-- 1. Fruit Club Tee -->
       <a href="javascript:void(0)" class="product-card reveal" data-tilt>
         <div class="product-card-image">
           <img src="../../assets/generated/fashion-hero-tee.png" alt="Fruit Club Tee">
-          <span class="product-card-tag" style="background: var(--pink-light); color: var(--pink);">Coming Soon</span>
+          <span class="product-card-tag">Bestseller</span>
         </div>
         <div class="product-card-info">
           <h3>Fruit Club Tee</h3>
@@ -86,29 +135,306 @@ fbq('track', 'PageView');
           <div class="product-card-price">
             <span class="product-card-current">US$45</span>
           </div>
+          <div class="product-card-swatches">
+            <span class="product-card-swatch active" style="background: #faf8f5;" title="Cream"></span>
+            <span class="product-card-swatch" style="background: #111111;" title="Black"></span>
+            <span class="product-card-swatch" style="background: #ff30cc;" title="Pink"></span>
+          </div>
         </div>
       </a>
 
-      <!-- Hoodie -->
+      <!-- 2. Nancy Logo Hoodie -->
       <a href="javascript:void(0)" class="product-card reveal" data-tilt>
         <div class="product-card-image">
-          <img src="../../assets/generated/fashion-hoodie-cream.png" alt="Nancy Hoodie">
-          <span class="product-card-tag" style="background: var(--pink-light); color: var(--pink);">Coming Soon</span>
+          <img src="../../assets/generated/fashion-hoodie-cream.png" alt="Nancy Logo Hoodie">
+          <span class="product-card-tag" style="background: #F3E8FF; color: #7C3AED;">New</span>
         </div>
         <div class="product-card-info">
-          <h3>Nancy Hoodie</h3>
-          <p class="product-card-tagline">Cream heavyweight fleece</p>
+          <h3>Nancy Logo Hoodie</h3>
+          <p class="product-card-tagline">Heavyweight 380gsm fleece</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$85</span>
+          </div>
+          <div class="product-card-swatches">
+            <span class="product-card-swatch active" style="background: #faf8f5;" title="Cream"></span>
+            <span class="product-card-swatch" style="background: #111111;" title="Black"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. Lem Character Tank -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-hero-tee.png" alt="Lem Character Tank">
+          <span class="product-card-tag" style="background: var(--lem-light); color: var(--lem-dark);">Lem</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Lem Character Tank</h3>
+          <p class="product-card-tagline">Relaxed fit ribbed tank</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$35</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Berri Character Tank -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-hero-tee.png" alt="Berri Character Tank">
+          <span class="product-card-tag" style="background: var(--berri-light); color: var(--berri-dark);">Berri</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Berri Character Tank</h3>
+          <p class="product-card-tagline">Relaxed fit ribbed tank</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$35</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Fruit Squad Crewneck -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-hoodie-cream.png" alt="Fruit Squad Crewneck">
+        </div>
+        <div class="product-card-info">
+          <h3>Fruit Squad Crewneck</h3>
+          <p class="product-card-tagline">All 5 characters embroidered</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$75</span>
+          </div>
+          <div class="product-card-swatches">
+            <span class="product-card-swatch active" style="background: #faf8f5;" title="Cream"></span>
+            <span class="product-card-swatch" style="background: #2d5a27;" title="Forest Green"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ——— BOTTOMS ——— -->
+
+      <!-- 6. Fruit Club Shorts -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-collection-flatlay.png" alt="Fruit Club Shorts">
+        </div>
+        <div class="product-card-info">
+          <h3>Fruit Club Shorts</h3>
+          <p class="product-card-tagline">French terry drawstring</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$45</span>
+          </div>
+          <div class="product-card-swatches">
+            <span class="product-card-swatch active" style="background: #faf8f5;" title="Cream"></span>
+            <span class="product-card-swatch" style="background: #111111;" title="Black"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 7. Nancy Joggers -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-collection-flatlay.png" alt="Nancy Joggers">
+        </div>
+        <div class="product-card-info">
+          <h3>Nancy Joggers</h3>
+          <p class="product-card-tagline">Tapered leg, embroidered logo</p>
           <div class="product-card-price">
             <span class="product-card-current">US$65</span>
           </div>
         </div>
       </a>
 
+      <!-- ——— HEADWEAR ——— -->
+
+      <!-- 8. Nancy Cap -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-cap-pink.png" alt="Nancy Cap">
+          <span class="product-card-tag" style="background: #F3E8FF; color: #7C3AED;">New</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Nancy Cap</h3>
+          <p class="product-card-tagline">Unstructured 6-panel</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$32</span>
+          </div>
+          <div class="product-card-swatches">
+            <span class="product-card-swatch active" style="background: #ff30cc;" title="Pink"></span>
+            <span class="product-card-swatch" style="background: #faf8f5;" title="Cream"></span>
+            <span class="product-card-swatch" style="background: #111111;" title="Black"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 9. Fruit Bucket Hat -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-cap-pink.png" alt="Fruit Bucket Hat">
+        </div>
+        <div class="product-card-info">
+          <h3>Fruit Bucket Hat</h3>
+          <p class="product-card-tagline">All-over character print</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$35</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ——— ACCESSORIES ——— -->
+
+      <!-- 10. Fruit Club Tote -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-collection-flatlay.png" alt="Fruit Club Tote">
+        </div>
+        <div class="product-card-info">
+          <h3>Fruit Club Tote</h3>
+          <p class="product-card-tagline">Heavy canvas tote bag</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$28</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 11. Nancy Socks 3-Pack -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-collection-flatlay.png" alt="Nancy Socks 3-Pack">
+          <span class="product-card-tag" style="background: var(--pink-light); color: var(--pink);">3-Pack</span>
+        </div>
+        <div class="product-card-info">
+          <h3>Nancy Socks 3-Pack</h3>
+          <p class="product-card-tagline">Crew height, character patterns</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$22</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 12. The Full Fit Bundle -->
+      <a href="javascript:void(0)" class="product-card reveal" data-tilt>
+        <div class="product-card-image">
+          <img src="../../assets/generated/fashion-collection-flatlay.png" alt="The Full Fit Bundle">
+          <span class="product-card-tag">Save 15%</span>
+        </div>
+        <div class="product-card-info">
+          <h3>The Full Fit Bundle</h3>
+          <p class="product-card-tagline">Tee + Hoodie + Cap</p>
+          <div class="product-card-price">
+            <span class="product-card-current">US$165</span>
+            <span class="product-card-compare">US$195</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         6. PRODUCT SPOTLIGHT — The Nancy Hoodie
+         ═══════════════════════════════════════ -->
+    <div class="product-spotlight">
+      <div class="product-spotlight-image">
+        <img src="../../assets/generated/fashion-hoodie-cream.png" alt="Nancy Logo Hoodie — Staff Pick">
+      </div>
+      <div class="product-spotlight-content">
+        <span class="section-label">Staff Pick</span>
+        <h3>The hoodie you'll live in.</h3>
+        <p>380gsm heavyweight organic cotton fleece. Pre-washed for zero shrinkage. Raglan sleeves, kangaroo pocket, and a tiny embroidered Nancy logo on the chest. The kind of hoodie that makes you cancel plans.</p>
+        <div class="product-spotlight-price">
+          <span class="price-main">US$85</span>
+        </div>
+        <a href="javascript:void(0)" class="btn-shop">Shop Hoodie &rarr;</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         7. LOOKBOOK GALLERY
+         ═══════════════════════════════════════ -->
+    <div class="collection-lookbook">
+      <h2>The <em style="font-family: var(--font-editorial); font-weight: 400;">Lookbook</em></h2>
+      <div class="lookbook-grid">
+        <img src="../../assets/generated/fashion-hero-tee.png" alt="Fruit Club Tee lookbook">
+        <img src="../../assets/generated/fashion-collection-flatlay.png" alt="Fashion collection flatlay">
+        <img src="../../assets/lifestyle/brand-shoot-1.jpg" alt="Nancy lifestyle shoot">
+        <img src="../../assets/lifestyle/brand-shoot-2.jpg" alt="Nancy lifestyle shoot">
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         8. SIZE GUIDE
+         ═══════════════════════════════════════ -->
+    <div class="size-guide-section">
+      <h3>Size Guide</h3>
+      <table class="size-guide-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest</th>
+            <th>Length</th>
+            <th>Sleeve</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td>94cm</td>
+            <td>68cm</td>
+            <td>20cm</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>100cm</td>
+            <td>70cm</td>
+            <td>21cm</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>106cm</td>
+            <td>72cm</td>
+            <td>22cm</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>112cm</td>
+            <td>74cm</td>
+            <td>23cm</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>118cm</td>
+            <td>76cm</td>
+            <td>24cm</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td>124cm</td>
+            <td>78cm</td>
+            <td>25cm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         9. STORY SECTION — bg-dark
+         ═══════════════════════════════════════ -->
+    <div class="collection-story">
+      <div class="collection-story-image">
+        <img src="../../assets/lifestyle/brand-shoot-3.jpg" alt="Nancy fashion — made with intention">
+      </div>
+      <div class="collection-story-content bg-dark">
+        <span class="section-label">Made with Intention</span>
+        <h2>Fashion that feels as good as it looks.</h2>
+        <p>Every piece is designed in-house, cut from 100% GOTS-certified organic cotton, and printed with water-based inks. No fast fashion. No compromise.</p>
+        <a href="javascript:void(0)" class="btn-inline">Read Our Story &rarr;</a>
+      </div>
     </div>
 
   </div>
 
-  <!-- Newsletter -->
+  <!-- ═══════════════════════════════════════
+       10. NEWSLETTER CTA
+       ═══════════════════════════════════════ -->
   <section class="pdp-newsletter" style="padding: var(--space-lg) 0 var(--space-xl);">
     <div class="container">
       <div class="newsletter-box">
@@ -118,7 +444,7 @@ fbq('track', 'PageView');
         </div>
         <form class="newsletter-form" onsubmit="event.preventDefault();">
           <input type="email" placeholder="Your email" required>
-          <button type="submit">Join →</button>
+          <button type="submit">Join &rarr;</button>
         </form>
       </div>
     </div>
