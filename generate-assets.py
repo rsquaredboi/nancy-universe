@@ -16,11 +16,24 @@ ssl_ctx = ssl.create_default_context()
 ssl_ctx.check_hostname = False
 ssl_ctx.verify_mode = ssl.CERT_NONE
 
-API_KEY = "AIzaSyCrUHz0oQ8V9EAMiqA6KMXzTMA_IFjiKP8"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load .env file if present
+env_file = os.path.join(BASE_DIR, ".env")
+if os.path.exists(env_file):
+    with open(env_file) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+
+API_KEY = os.environ.get("GEMINI_API_KEY", "")
+if not API_KEY:
+    print("ERROR: Set GEMINI_API_KEY environment variable or add it to .env file")
+    exit(1)
 MODEL = "gemini-2.5-flash-image"
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={API_KEY}"
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def generate_image(prompt, output_path, retries=2):
     """Call Gemini API to generate an image and save it."""

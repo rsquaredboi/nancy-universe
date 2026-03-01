@@ -1,4 +1,5 @@
-# API key scripts (contain hardcoded secrets)
+# API keys and secrets
+.env
 generate-v2.js
 generate-v2-gemini.js
 generate-images.js
