@@ -1,0 +1,449 @@
+/* ═══════════════════════════════════════════════
+   CATEGORY STRIP
+   ═══════════════════════════════════════════════ */
+.categories {
+  padding: var(--space-xl) 0;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.category-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.category-card:first-child {
+  grid-row: span 2;
+  min-height: 700px;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* Full-bleed background image */
+.category-card .cat-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.category-card .cat-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.category-card:hover .cat-bg img {
+  transform: scale(1.05);
+}
+
+/* Gradient overlay for text legibility */
+.category-card .cat-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.category-card.toys .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%); }
+.category-card.fashion .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 50%, transparent 100%); }
+.category-card.plushies .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.05) 50%, transparent 100%); }
+.category-card.drops .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, transparent 100%); }
+.category-card.accessories .cat-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.05) 50%, transparent 100%); }
+
+/* Text content */
+.category-card .cat-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.8rem;
+}
+
+.category-card .cat-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.1;
+}
+.category-card:first-child .cat-name {
+  font-size: 2.6rem;
+}
+
+.category-card .cat-count {
+  font-size: 0.82rem;
+  opacity: 0.8;
+  margin-top: 0.4rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
+
+.category-card .cat-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 2;
+  color: var(--white);
+}
+
+.category-card:hover .cat-arrow {
+  background: rgba(255,255,255,0.35);
+  transform: translate(3px, -3px);
+}
+
+/* ═══════════════════════════════════════════════
+   TRENDING NOW — HORIZONTAL SCROLL
+   ═══════════════════════════════════════════════ */
+.trending {
+  padding: var(--space-xl) 0;
+}
+
+.trending-scroll {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0 2rem 1.5rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.trending-scroll::-webkit-scrollbar { display: none; }
+
+.product-card {
+  flex-shrink: 0;
+  width: 280px;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(255, 48, 204, 0.08);
+  border-color: transparent;
+}
+
+.product-card .card-image {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .card-image .gradient-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .card-image .gradient-bg {
+  transform: scale(1.05);
+}
+
+.product-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.product-card .card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.badge-toy { background: var(--pink); color: white; }
+.badge-fashion { background: var(--black); color: white; }
+.badge-plush { background: var(--lem); color: var(--black); }
+.badge-drop { background: var(--lime); color: var(--black); }
+.badge-new {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--lime);
+  color: var(--black);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+.product-card .card-info {
+  padding: 1.2rem;
+}
+
+.product-card .card-category {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gray-500);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.product-card .card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.product-card .card-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-card .card-price .current {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+.product-card .card-price .original {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  text-decoration: line-through;
+}
+
+.product-card .card-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--gray-500);
+}
+
+.product-card .card-rating .stars {
+  color: #f5a623;
+  letter-spacing: -1px;
+}
+
+/* Hover CTA for trending cards */
+.product-card .card-hover-cta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+  text-align: center;
+}
+
+.product-card .card-hover-cta a {
+  display: inline-block;
+  padding: 0.5rem 1.6rem;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.product-card .card-hover-cta a:hover {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.product-card:hover .card-hover-cta {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════
+   UNIVERSE SECTION — CHARACTER WORLDS
+   ═══════════════════════════════════════════════ */
+.universe {
+  background: var(--black);
+  color: var(--white);
+  padding: var(--space-2xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.universe::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255, 48, 204, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(204, 253, 40, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.universe .section-label { color: var(--lime); }
+.universe .section-title {
+  background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.universe .section-subtitle { color: rgba(255,255,255,0.5); }
+
+.universe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.world-card {
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.world-card:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.world-card.lem-world {
+  background: linear-gradient(160deg, #FFF8D6 0%, var(--lem) 60%, #E6C800 100%);
+  color: var(--black);
+}
+
+.world-card.berri-world {
+  background: linear-gradient(160deg, #FFE5EB 0%, var(--berri) 60%, #D93050 100%);
+  color: var(--white);
+}
+
+.world-card.avo-world {
+  background: linear-gradient(160deg, #E6F2E5 0%, var(--avo) 60%, #4D7E4A 100%);
+  color: var(--white);
+}
+
+.world-card .world-emoji {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 160px;
+  height: 160px;
+  border-radius: 24px;
+  overflow: hidden;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.world-card .world-emoji img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.world-card:hover .world-emoji {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.world-card .world-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.world-card .world-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.world-card .world-tagline {
+  font-size: 1.3rem;
+  font-weight: 300;
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.world-card .world-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.75;
+  max-width: 280px;
+}
+
+.world-card .world-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 0.55rem 1.3rem;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-pill);
+  transition: gap 0.3s, background 0.3s, padding 0.3s;
+}
+
+.world-card:hover .world-cta { gap: 0.8rem; background: rgba(255,255,255,0.12); padding: 0.55rem 1.5rem; }
+

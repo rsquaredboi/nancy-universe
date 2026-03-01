@@ -1,0 +1,107 @@
+/* ═══════════════════════════════════════════════
+   LOADING SCREEN
+   ═══════════════════════════════════════════════ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0, 1), transform 0.6s cubic-bezier(0.4, 0, 0, 1);
+}
+.loader.loader-exit {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* Bouncing fruits */
+.loader-fruits {
+  display: flex;
+  gap: 1.2rem;
+}
+.loader-fruit {
+  font-size: 2.8rem;
+  animation: fruitBounce 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
+}
+.lf-lem { animation-delay: 0s; }
+.lf-berri { animation-delay: 0.15s; }
+.lf-avo { animation-delay: 0.3s; }
+
+@keyframes fruitBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-28px) rotate(-12deg) scale(1.1); }
+  50% { transform: translateY(0) rotate(0deg) scale(1); }
+  75% { transform: translateY(-14px) rotate(8deg) scale(1.05); }
+}
+
+/* Brand */
+.loader-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.loader-logo-img {
+  animation: logoPulse 2s ease-in-out infinite;
+}
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+/* Progress bar */
+.loader-bar-track {
+  width: 180px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--gray-900);
+  overflow: hidden;
+}
+.loader-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--lime), var(--pink), var(--lem));
+  background-size: 200% 100%;
+  animation: barShimmer 1.5s linear infinite;
+  transition: width 0.3s ease-out;
+}
+@keyframes barShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Tagline */
+.loader-tagline {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  letter-spacing: 0.02em;
+}
+.loader-dots::after {
+  content: '';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+@keyframes dots {
+  0% { content: ''; }
+  25% { content: '.'; }
+  50% { content: '..'; }
+  75% { content: '...'; }
+}
+
+/* Hide page content during load */
+body.loading > *:not(.loader) {
+  opacity: 0;
+}
+body.loading {
+  overflow: hidden;
+}

@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════
+   BRAND FONTS — PP Editorial New (Accent Display)
+   ═══════════════════════════════════════════════ */
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('https://db.onlinewebfonts.com/t/926fcaaa8b66e0df67e176f329259711.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/926fcaaa8b66e0df67e176f329259711.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('https://db.onlinewebfonts.com/t/23ed6ab5114b3c4b57abae46cf8a5029.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/23ed6ab5114b3c4b57abae46cf8a5029.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════
+   BRAND FONTS — ES Rebond Grotesque (Shopify CDN)
+   ═══════════════════════════════════════════════ */
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Regular.woff?v=1680075897') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Semibold.woff?v=1680075897') format('woff');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ESRebondGrotesque';
+  src: url('https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Light.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════
+   DESIGN SYSTEM — NANCY UNIVERSE
+   ═══════════════════════════════════════════════ */
+:root {
+  /* Brand */
+  --pink: #ff30cc;
+  --pink-hover: #e620b5;
+  --pink-light: #fff0fa;
+  --pink-glow: rgba(255, 48, 204, 0.15);
+  --lime: #ccfd28;
+  --lime-dark: #b4e020;
+
+  /* Neutrals */
+  --cream: #faf8f5;
+  --cream-dark: #f3efe9;
+  --black: #111111;
+  --dark: #1a1a1a;
+  --gray-900: #2a2a2a;
+  --gray-700: #555555;
+  --gray-500: #888888;
+  --gray-300: #cccccc;
+  --gray-100: #eeeeee;
+  --white: #ffffff;
+
+  /* Fruit Worlds */
+  --lem: #FFE135;
+  --lem-light: #FFF9D9;
+  --lem-dark: #E6C800;
+  --berri: #FF4B6E;
+  --berri-light: #FFE5EB;
+  --berri-dark: #D93050;
+  --avo: #6BA368;
+  --avo-light: #E6F2E5;
+  --avo-dark: #4D7E4A;
+
+  /* Typography */
+  --font-editorial: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  --font-display: 'ESRebondGrotesque', 'DM Sans', sans-serif;
+  --font-body: 'Fraunces', Georgia, serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --space-2xl: 8rem;
+
+  /* Layout */
+  --max-width: 1400px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 100px;
+}
