@@ -13,6 +13,26 @@
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <style>
 /* ═══════════════════════════════════════════════
+   BRAND FONTS — PP Editorial New (Accent Display)
+   ═══════════════════════════════════════════════ */
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('https://db.onlinewebfonts.com/t/926fcaaa8b66e0df67e176f329259711.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/926fcaaa8b66e0df67e176f329259711.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('https://db.onlinewebfonts.com/t/23ed6ab5114b3c4b57abae46cf8a5029.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/23ed6ab5114b3c4b57abae46cf8a5029.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════
    BRAND FONTS — ES Rebond Grotesque (Shopify CDN)
    ═══════════════════════════════════════════════ */
 @font-face {
@@ -76,6 +96,7 @@
   --avo-dark: #4D7E4A;
 
   /* Typography */
+  --font-editorial: 'PP Editorial New', 'Playfair Display', Georgia, serif;
   --font-display: 'ESRebondGrotesque', 'DM Sans', sans-serif;
   --font-body: 'Fraunces', Georgia, serif;
 
@@ -225,21 +246,15 @@ nav {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
 }
 
-.nav-logo img {
-  height: 38px;
-  width: 38px;
-  border-radius: 50%;
+.nav-logo-full {
+  height: 32px;
+  width: auto;
 }
 
-.nav-logo span {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: -0.02em;
-  color: var(--black);
+@media (max-width: 768px) {
+  .nav-logo-full { height: 26px; }
 }
 
 .nav-links {
@@ -464,6 +479,9 @@ nav {
   font-size: clamp(2.5rem, 7vw, 5.5rem);
   color: var(--pink);
   position: relative;
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
 }
 
 .hero-line-3 {
@@ -474,12 +492,14 @@ nav {
 }
 
 .hero-subtitle {
+  font-family: var(--font-editorial);
   font-size: 1.15rem;
   color: var(--gray-700);
   margin: 1.5rem auto 2.5rem;
   max-width: 520px;
-  line-height: 1.7;
+  line-height: 1.8;
   font-weight: 400;
+  font-style: italic;
 }
 
 .hero-categories {
@@ -738,12 +758,15 @@ nav {
 }
 
 .section-subtitle {
-  font-size: 1.05rem;
+  font-family: var(--font-editorial);
+  font-size: 1.1rem;
+  font-style: italic;
   color: var(--gray-500);
   margin-top: 1rem;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: 0.01em;
 }
 
 /* ═══════════════════════════════════════════════
@@ -1258,7 +1281,8 @@ nav {
 }
 
 .drop-title em {
-  font-style: normal;
+  font-family: var(--font-editorial);
+  font-style: italic;
   color: var(--lime);
 }
 
@@ -1823,8 +1847,10 @@ nav {
 }
 
 .review-card .review-text {
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-family: var(--font-editorial);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.75;
   color: var(--gray-700);
   margin-bottom: 1.2rem;
 }
@@ -2017,15 +2043,9 @@ footer {
 }
 
 .footer-brand .footer-logo img {
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
-}
-
-.footer-brand .footer-logo span {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.2rem;
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
@@ -2377,19 +2397,12 @@ section { will-change: transform; }
   align-items: center;
   gap: 0.7rem;
 }
-.loader-logo {
+.loader-logo-img {
   animation: logoPulse 2s ease-in-out infinite;
 }
 @keyframes logoPulse {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px var(--lime)); }
-  50% { transform: scale(1.08); filter: drop-shadow(0 0 18px var(--lime)); }
-}
-.loader-wordmark {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2rem;
-  color: var(--white);
-  letter-spacing: -0.03em;
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.06); opacity: 1; }
 }
 
 /* Progress bar */
@@ -2491,11 +2504,7 @@ body.loading {
       <span class="loader-fruit lf-avo">🥑</span>
     </div>
     <div class="loader-brand">
-      <svg class="loader-logo" width="36" height="36" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" fill="#CCFF00"/>
-        <text x="50" y="68" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="55" fill="#D2006A">N</text>
-      </svg>
-      <span class="loader-wordmark">nancy</span>
+      <img src="nancy-logo-pink.svg" alt="Nancy" class="loader-logo-img" style="height: 36px; width: auto; filter: brightness(0) invert(1);">
     </div>
     <div class="loader-bar-track">
       <div class="loader-bar-fill" id="loader-bar-fill"></div>
@@ -2523,8 +2532,7 @@ body.loading {
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="https://cdn.29next.store/media/hellonancy/uploads/Nancy_Round_Logo.svg" alt="Nancy" onerror="this.style.background='var(--pink)';this.style.display='flex';this.alt='N'">
-      <span>nancy</span>
+      <img src="nancy-logo-pink.svg" alt="Nancy" class="nav-logo-full">
     </a>
     <div class="nav-links">
       <a href="#" class="active">Shop All</a>
@@ -3314,8 +3322,7 @@ body.loading {
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="https://cdn.29next.store/media/hellonancy/uploads/Nancy_Round_Logo.svg" alt="Nancy" onerror="this.style.background='var(--pink)';this.style.borderRadius='50%'">
-          <span>nancy</span>
+          <img src="nancy-logo-pink.svg" alt="Nancy" style="height: 30px; width: auto; border-radius: 0;">
         </div>
         <p>Pleasure. Fashion. Community. Designed in Hong Kong. Loved in 50+ countries.</p>
       </div>
