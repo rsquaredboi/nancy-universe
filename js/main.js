@@ -181,19 +181,33 @@ window.addEventListener('scroll', () => {
       if (e.key === 'Escape' && isOpen) closeNav();
     });
 
-    // Dropdown accordion toggle (mobile only)
-    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (window.innerWidth > 768) return; // Desktop uses hover
+    // Dropdown accordion toggle (mobile only) — bound to the chevron button
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) return;
         e.preventDefault();
         e.stopPropagation();
-        const dropdown = link.closest('.nav-dropdown');
+        const dropdown = btn.closest('.nav-dropdown');
         const wasOpen = dropdown.classList.contains('mobile-open');
         // Close all others
         document.querySelectorAll('.nav-dropdown.mobile-open').forEach(d => {
           if (d !== dropdown) d.classList.remove('mobile-open');
         });
         dropdown.classList.toggle('mobile-open', !wasOpen);
+      });
+    });
+
+    // Dropdown parent links (e.g. "Plushies") — navigate + close drawer
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) closeNav();
+      });
+    });
+
+    // Sub-menu links — close drawer on navigate
+    document.querySelectorAll('.nav-dropdown-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) closeNav();
       });
     });
 

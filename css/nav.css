@@ -148,6 +148,9 @@ body.nav-locked {
   letter-spacing: 0.05em;
 }
 
+/* ── Toggle button — desktop hidden ── */
+.nav-dropdown-toggle { display: none; }
+
 /* ── Desktop dropdown menus ── */
 .nav-dropdown {
   position: relative;
@@ -335,21 +338,49 @@ body.nav-locked {
     font-size: 0.6rem;
   }
 
-  /* ── Mobile dropdown accordion ── */
-  .nav-dropdown { position: relative; }
-  .nav-dropdown > a::after {
-    content: '';
-    width: 8px; height: 8px;
-    border-right: 2px solid var(--gray-400);
-    border-bottom: 2px solid var(--gray-400);
-    transform: rotate(45deg);
-    transition: transform 0.25s ease;
+  /* ── Mobile dropdown: link + toggle side by side ── */
+  .nav-dropdown {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .nav-dropdown > a {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  /* Remove old CSS chevron from the link */
+  .nav-dropdown > a::after { display: none !important; }
+
+  /* ── Chevron toggle button ── */
+  .nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
-    margin-left: 0.5rem;
+    background: none;
+    border: none;
+    border-left: 1px solid rgba(0,0,0,0.06);
+    cursor: pointer;
+    color: var(--gray-400);
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.2s;
   }
-  .nav-dropdown.mobile-open > a::after {
-    transform: rotate(-135deg);
+  .nav-dropdown-toggle svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.25s ease;
   }
+  .nav-dropdown-toggle:active { color: var(--pink); }
+  .nav-dropdown.mobile-open .nav-dropdown-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown menu spans full width below both link + toggle */
+  .nav-dropdown-menu { flex-basis: 100%; }
 
   /* Dropdown panel — hidden by default, no hover on mobile */
   .nav-dropdown-menu {
