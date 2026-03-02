@@ -119,7 +119,7 @@
     /* Items area */
     .cart-drawer-items {
       flex: 1; overflow-y: auto;
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1.5rem;
       scrollbar-width: thin;
     }
     .cart-drawer-items::-webkit-scrollbar { width: 3px; }
@@ -128,35 +128,53 @@
     /* Cart item */
     .cart-item {
       display: grid;
-      grid-template-columns: 76px 1fr 28px;
-      gap: 0.85rem;
-      padding: 0.85rem 0;
+      grid-template-columns: 80px 1fr;
+      gap: 1rem;
+      padding: 1.1rem 0;
       border-bottom: 1px solid #f0ece6;
       align-items: start;
+      position: relative;
     }
     .cart-item:last-child { border-bottom: none; }
     .cart-item-img {
-      width: 76px; height: 76px;
+      width: 80px; height: 80px;
       border-radius: 14px; overflow: hidden;
       background: #f3efe9;
       position: relative;
     }
     .cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
     .cart-item-details { min-width: 0; }
+    .cart-item-top-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 0.5rem;
+    }
     .cart-item-name {
       font-family: 'ESRebondGrotesque', sans-serif;
-      font-weight: 700; font-size: 0.9rem;
+      font-weight: 700; font-size: 0.92rem;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      flex: 1;
     }
+    .cart-item-remove {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: #f5f0ea; border: none; border-radius: 50%;
+      cursor: pointer;
+      color: #999; font-size: 0.75rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+    .cart-item-remove:hover { background: #ffe0f0; color: #ff30cc; transform: scale(1.1); }
+    .cart-item-remove svg { width: 14px; height: 14px; }
     .cart-item-variant {
-      font-size: 0.72rem; color: #888; margin-top: 0.1rem;
+      font-size: 0.72rem; color: #888; margin-top: 0.15rem;
     }
     .cart-item-scarcity {
       display: inline-flex; align-items: center; gap: 0.25rem;
       font-family: 'ESRebondGrotesque', sans-serif;
       font-size: 0.65rem; font-weight: 600;
       color: #d9534f;
-      margin-top: 0.25rem;
+      margin-top: 0.3rem;
       letter-spacing: 0.02em;
     }
     .cart-item-scarcity::before {
@@ -170,23 +188,22 @@
       50% { opacity: 0.3; }
     }
     .cart-item-price-row {
-      display: flex; align-items: center; gap: 0.5rem;
-      margin-top: 0.3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 0.5rem;
     }
     .cart-item-price {
       font-family: 'ESRebondGrotesque', sans-serif;
-      font-weight: 700; font-size: 0.9rem;
+      font-weight: 700; font-size: 0.95rem;
     }
     .cart-item-qty {
       display: flex; align-items: center; gap: 0;
-      margin-top: 0;
       border: 1.5px solid #e5e0d8; border-radius: 100px;
       overflow: hidden;
     }
     .cart-item-qty button {
-      width: 28px; height: 28px;
+      width: 30px; height: 30px;
       border: none; background: transparent; cursor: pointer;
-      font-size: 0.85rem; font-weight: 600; color: #555;
+      font-size: 0.9rem; font-weight: 600; color: #555;
       display: flex; align-items: center; justify-content: center;
       transition: all 0.15s;
     }
@@ -194,16 +211,8 @@
     .cart-item-qty span {
       font-family: 'ESRebondGrotesque', sans-serif;
       font-weight: 700; font-size: 0.8rem;
-      min-width: 1.6rem; text-align: center;
+      min-width: 1.8rem; text-align: center;
     }
-    .cart-item-remove {
-      align-self: center;
-      background: none; border: none; cursor: pointer;
-      color: #ccc; font-size: 1.1rem; padding: 0.2rem;
-      transition: all 0.2s;
-      line-height: 1;
-    }
-    .cart-item-remove:hover { color: #ff4b6e; transform: scale(1.2); }
 
     /* Empty state */
     .cart-empty {
@@ -235,7 +244,7 @@
 
     /* Footer */
     .cart-drawer-footer {
-      padding: 1rem 1.5rem 1.25rem;
+      padding: 1.1rem 1.5rem 1.4rem;
       border-top: 1.5px solid #f0ece6;
       background: white;
     }
@@ -346,8 +355,8 @@
     .soldout-modal {
       background: white;
       border-radius: 28px;
-      padding: 2.5rem 2rem 2rem;
-      max-width: 400px; width: 92%;
+      padding: 2.8rem 2.2rem 2.2rem;
+      max-width: 420px; width: 92%;
       text-align: center;
       transform: scale(0.9) translateY(20px);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -373,48 +382,53 @@
       display: inline-block;
       font-family: 'ESRebondGrotesque', sans-serif;
       font-size: 0.65rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
+      text-transform: uppercase; letter-spacing: 0.12em;
       background: #fff0fa; color: #ff30cc;
-      padding: 0.3rem 0.8rem; border-radius: 100px;
-      margin-bottom: 0.8rem;
+      padding: 0.35rem 1rem; border-radius: 100px;
+      margin-bottom: 1rem;
     }
     .soldout-title {
       font-family: 'PP Editorial New', Georgia, serif;
-      font-size: 1.8rem; font-weight: 400;
-      font-style: italic; margin-bottom: 0.2rem;
+      font-size: 2rem; font-weight: 400;
+      font-style: italic; margin-bottom: 0.35rem;
     }
     .soldout-sub-head {
       font-family: 'ESRebondGrotesque', sans-serif;
       font-size: 0.95rem; font-weight: 700;
-      margin-bottom: 0.6rem;
+      margin-bottom: 1rem;
     }
     .soldout-sub {
       font-family: 'ESRebondGrotesque', sans-serif;
-      font-size: 0.82rem; color: #777;
-      margin-bottom: 1.3rem; line-height: 1.6;
+      font-size: 0.85rem; color: #777;
+      margin-bottom: 1.6rem; line-height: 1.65;
+      max-width: 340px; margin-left: auto; margin-right: auto;
     }
     .soldout-sub strong { color: #ff30cc; font-weight: 600; }
     .soldout-stats {
-      display: flex; justify-content: center; gap: 1.5rem;
-      margin-bottom: 1.3rem;
+      display: flex; justify-content: center; gap: 2rem;
+      margin-bottom: 1.8rem;
+      padding: 1rem 0;
+      border-top: 1px solid #f5f0ea;
+      border-bottom: 1px solid #f5f0ea;
     }
     .soldout-stat {
       text-align: center;
     }
     .soldout-stat-num {
       font-family: 'ESRebondGrotesque', sans-serif;
-      font-weight: 800; font-size: 1.3rem; color: #111;
+      font-weight: 800; font-size: 1.4rem; color: #111;
+      margin-bottom: 0.15rem;
     }
     .soldout-stat-label {
       font-family: 'ESRebondGrotesque', sans-serif;
       font-size: 0.6rem; color: #999;
-      text-transform: uppercase; letter-spacing: 0.06em;
+      text-transform: uppercase; letter-spacing: 0.08em;
     }
     .soldout-email-form {
-      display: flex; gap: 0.5rem; margin-bottom: 0.8rem;
+      display: flex; gap: 0.5rem; margin-bottom: 1rem;
     }
     .soldout-email-input {
-      flex: 1; padding: 0.8rem 1rem;
+      flex: 1; padding: 0.85rem 1.1rem;
       border: 2px solid #f0ece6; border-radius: 100px;
       font-family: 'ESRebondGrotesque', sans-serif;
       font-size: 0.85rem; outline: none;
@@ -424,7 +438,7 @@
     .soldout-email-input:focus { border-color: #ff30cc; background: white; }
     .soldout-email-input::placeholder { color: #bbb; }
     .soldout-notify-btn {
-      padding: 0.8rem 1.5rem;
+      padding: 0.85rem 1.6rem;
       background: #ff30cc; color: white;
       border: none; border-radius: 100px;
       font-family: 'ESRebondGrotesque', sans-serif;
@@ -439,10 +453,11 @@
     }
     .soldout-close-btn {
       background: none; border: none;
-      color: #bbb; font-size: 0.8rem;
-      cursor: pointer; padding: 0.5rem 1rem;
+      color: #bbb; font-size: 0.82rem;
+      cursor: pointer; padding: 0.6rem 1.2rem;
       font-family: 'ESRebondGrotesque', sans-serif;
       transition: color 0.2s;
+      margin-top: 0.3rem;
     }
     .soldout-close-btn:hover { color: #555; }
 
@@ -486,8 +501,10 @@
     @media (max-width: 768px) {
       .cart-drawer { width: 100vw; }
       .cart-toast { right: 0.75rem; left: 0.75rem; max-width: none; justify-content: center; }
+      .soldout-modal { padding: 2.2rem 1.5rem 1.8rem; border-radius: 24px; }
       .soldout-email-form { flex-direction: column; }
-      .soldout-stats { gap: 1rem; }
+      .soldout-stats { gap: 1.2rem; }
+      .soldout-title { font-size: 1.7rem; }
     }
   `;
   document.head.appendChild(style);
@@ -601,7 +618,8 @@
       cart.push({ ...item, qty: 1 });
     }
     saveCart(cart);
-    showToast(item);
+    // Open the cart drawer immediately so user sees what they added
+    openDrawer();
 
     if (typeof fbq === 'function') {
       fbq('track', 'AddToCart', {
@@ -719,6 +737,7 @@
     savedTag.style.display = 'none'; // Savings displayed only if we track compareAt prices
 
     // Render items
+    const TRASH_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
     itemsEl.innerHTML = cart.map(item => {
       const stock = getStockLeft(item.id);
       const viewers = getViewers(item.id);
@@ -728,7 +747,10 @@
             <img src="${item.image}" alt="${item.name}" onerror="this.parentElement.innerHTML='&#127819;'">
           </div>
           <div class="cart-item-details">
-            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-top-row">
+              <div class="cart-item-name">${item.name}</div>
+              <button class="cart-item-remove" aria-label="Remove" title="Remove">${TRASH_SVG}</button>
+            </div>
             ${item.variant ? `<div class="cart-item-variant">${item.variant}</div>` : ''}
             <div class="cart-item-scarcity">Only ${stock} left &middot; ${viewers} people viewing</div>
             <div class="cart-item-price-row">
@@ -740,7 +762,6 @@
               </div>
             </div>
           </div>
-          <button class="cart-item-remove" aria-label="Remove" title="Remove">&times;</button>
         </div>
       `;
     }).join('');
@@ -760,11 +781,17 @@
   // ═══════════════════════════════════════════════
   function openDrawer() {
     renderDrawer();
-    requestAnimationFrame(() => {
-      document.getElementById('cart-overlay').classList.add('open');
-      document.getElementById('cart-drawer').classList.add('open');
+    // Force layout flush before adding open class for smooth animation
+    const overlay = document.getElementById('cart-overlay');
+    const drawer = document.getElementById('cart-drawer');
+    if (!overlay || !drawer) return;
+    // Ensure both exist and are in DOM before opening
+    void drawer.offsetHeight;
+    setTimeout(() => {
+      overlay.classList.add('open');
+      drawer.classList.add('open');
       document.body.style.overflow = 'hidden';
-    });
+    }, 20);
   }
 
   function closeDrawer() {
