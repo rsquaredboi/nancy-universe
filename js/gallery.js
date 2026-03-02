@@ -46,3 +46,18 @@
     }
   });
 })();
+
+// Nancy Universe — PDP Color Picker
+(function() {
+  const options = document.querySelectorAll('.pdp-color-option');
+  const label = document.getElementById('color-name');
+  if (!options.length) return;
+
+  options.forEach(btn => {
+    btn.addEventListener('click', () => {
+      options.forEach(o => o.classList.remove('active'));
+      btn.classList.add('active');
+      if (label) label.textContent = btn.dataset.color || '';
+    });
+  });
+})();

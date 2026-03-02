@@ -171,6 +171,63 @@
   color: var(--pink);
 }
 
+/* Color Picker */
+.pdp-color-picker {
+  margin-bottom: 1.5rem;
+}
+.pdp-color-picker-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-700);
+  margin-bottom: 0.6rem;
+}
+.pdp-color-picker-label span {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--gray-500);
+}
+.pdp-color-options {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.pdp-color-option {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 1.5px var(--gray-300);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.pdp-color-option:hover {
+  box-shadow: 0 0 0 2px var(--gray-500);
+  transform: scale(1.1);
+}
+.pdp-color-option.active {
+  box-shadow: 0 0 0 2.5px var(--pink);
+}
+.pdp-color-option.active::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--white);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.pdp-color-option[data-light="true"].active::after {
+  color: var(--gray-700);
+  text-shadow: none;
+}
+
 /* Add to Cart */
 .pdp-add-to-cart {
   width: 100%;
