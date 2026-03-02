@@ -251,6 +251,11 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 30px var(--pink-glow);
 }
+.pdp-add-to-cart.added {
+  background: var(--lime) !important;
+  color: var(--black) !important;
+  transform: scale(1.02);
+}
 
 /* Trust Badges */
 .pdp-trust {

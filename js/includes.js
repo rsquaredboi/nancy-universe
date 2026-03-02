@@ -9,6 +9,14 @@
   const scriptSrc = currentScript ? currentScript.getAttribute('src') : '';
   const basePath = scriptSrc.replace('js/includes.js', '');
 
+  // Auto-load cart.js on every page
+  if (!document.querySelector('script[src*="cart.js"]')) {
+    const cartScript = document.createElement('script');
+    cartScript.src = basePath + 'js/cart.js';
+    cartScript.defer = true;
+    document.head.appendChild(cartScript);
+  }
+
   const partials = [
     { id: 'loader-placeholder', file: 'includes/loader.html' },
     { id: 'topbar-placeholder', file: 'includes/topbar.html' },
