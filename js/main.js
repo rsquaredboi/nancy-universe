@@ -1,3 +1,7 @@
+// ═══════════════════════════════════════════════
+// Nancy Universe — Main JS
+// ═══════════════════════════════════════════════
+
 // Intersection Observer for scroll animations
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -44,7 +48,6 @@ const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting && !countersStarted) {
       countersStarted = true;
-      // Small delay so reveal animation has time to start
       setTimeout(() => {
         document.querySelectorAll('[data-count]').forEach(el => {
           const count = parseInt(el.dataset.count);
@@ -64,15 +67,18 @@ function updateCountdown() {
   const target = new Date('2026-04-15T00:00:00Z');
   const diff = target - now;
 
+  const el = (id) => document.getElementById(id);
+  if (!el('cd-days')) return;
+
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
-  document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
-  document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+  el('cd-days').textContent = String(days).padStart(2, '0');
+  el('cd-hours').textContent = String(hours).padStart(2, '0');
+  el('cd-mins').textContent = String(mins).padStart(2, '0');
+  el('cd-secs').textContent = String(secs).padStart(2, '0');
 }
 
 updateCountdown();
@@ -94,16 +100,120 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Nav scroll behavior
+// Nav scroll behavior — shadow on scroll
 let lastScroll = 0;
-const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
+  const navEl = document.querySelector('nav');
+  if (!navEl) return;
   const currentScroll = window.scrollY;
   if (currentScroll > 100) {
-    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
+    navEl.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
   } else {
-    nav.style.boxShadow = 'none';
+    navEl.style.boxShadow = 'none';
   }
   lastScroll = currentScroll;
 });
 
+
+// ═══════════════════════════════════════════════
+// MOBILE NAV — Drawer + Accordion + Body Lock
+// ═══════════════════════════════════════════════
+(function initMobileNav() {
+  // Wait for includes.js to inject the nav (or run immediately if nav exists)
+  function setup() {
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (!hamburger || !navLinks) return false;
+
+    // Create scrim overlay at body level (not inside sticky header)
+    let scrim = document.getElementById('nav-scrim');
+    if (!scrim) {
+      scrim = document.createElement('div');
+      scrim.className = 'nav-scrim';
+      scrim.id = 'nav-scrim';
+      document.body.appendChild(scrim);
+    }
+
+    let isOpen = false;
+
+    function openNav() {
+      isOpen = true;
+      navLinks.style.display = 'flex';
+      // Force reflow so transition fires
+      navLinks.offsetHeight;
+      navLinks.classList.add('nav-open');
+      hamburger.classList.add('is-open');
+      if (scrim) scrim.classList.add('visible');
+      document.body.classList.add('nav-locked');
+    }
+
+    function closeNav() {
+      isOpen = false;
+      navLinks.classList.remove('nav-open');
+      hamburger.classList.remove('is-open');
+      if (scrim) scrim.classList.remove('visible');
+      document.body.classList.remove('nav-locked');
+      // Close all accordion dropdowns
+      document.querySelectorAll('.nav-dropdown.mobile-open').forEach(d => {
+        d.classList.remove('mobile-open');
+      });
+      // Wait for transition then hide
+      setTimeout(() => {
+        if (!isOpen && window.innerWidth <= 768) {
+          // Don't set display:none — the CSS transform handles hiding
+        }
+      }, 350);
+    }
+
+    // Hamburger toggle
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isOpen) closeNav(); else openNav();
+    });
+
+    // Scrim click closes nav
+    if (scrim) {
+      scrim.addEventListener('click', closeNav);
+    }
+
+    // Escape key closes nav
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) closeNav();
+    });
+
+    // Dropdown accordion toggle (mobile only)
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) return; // Desktop uses hover
+        e.preventDefault();
+        e.stopPropagation();
+        const dropdown = link.closest('.nav-dropdown');
+        const wasOpen = dropdown.classList.contains('mobile-open');
+        // Close all others
+        document.querySelectorAll('.nav-dropdown.mobile-open').forEach(d => {
+          if (d !== dropdown) d.classList.remove('mobile-open');
+        });
+        dropdown.classList.toggle('mobile-open', !wasOpen);
+      });
+    });
+
+    // Close nav on window resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && isOpen) closeNav();
+    });
+
+    return true;
+  }
+
+  // Try immediately, then retry after includes.js loads partials
+  if (!setup()) {
+    // MutationObserver to catch when nav is injected by includes.js
+    const observer = new MutationObserver(() => {
+      if (document.querySelector('.nav-hamburger')) {
+        observer.disconnect();
+        setup();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+})();
