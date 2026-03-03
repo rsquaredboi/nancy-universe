@@ -220,7 +220,8 @@ def generate_plush_pdp(char, wave_info, all_waves):
     related = random.sample(same_wave, min(4, len(same_wave)))
 
     img_dir = f"../../assets/plushies/{slug}"
-    hero_img = f"{img_dir}/{slug}-hero.png"
+    hero_img_png = f"{img_dir}/{slug}-hero.png"
+    hero_img = f"{img_dir}/{slug}-hero.webp"
 
     html = f'''<!DOCTYPE html>
 <html lang="en">
@@ -241,18 +242,8 @@ def generate_plush_pdp(char, wave_info, all_waves):
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Semibold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Regular.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="../../css/variables.css">
-<link rel="stylesheet" href="../../css/base.css">
-<link rel="stylesheet" href="../../css/animations.css">
-<link rel="stylesheet" href="../../css/nav.css">
-<link rel="stylesheet" href="../../css/components.css">
-<link rel="stylesheet" href="../../css/cards.css">
-<link rel="stylesheet" href="../../css/sections.css">
-<link rel="stylesheet" href="../../css/footer.css">
-<link rel="stylesheet" href="../../css/responsive.css">
-<link rel="stylesheet" href="../../css/personality.css">
-<link rel="stylesheet" href="../../css/loader.css">
-<link rel="stylesheet" href="../../css/page-pdp.css">
+<link rel="preload" href="{hero_img}" as="image" type="image/webp">
+<link rel="stylesheet" href="../../css/style.min.css">
 <script>
 !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;
@@ -290,26 +281,26 @@ fbq('track', 'ViewContent', {{content_name: '{name} Plush', content_type: 'produ
       <!-- Gallery -->
       <div class="pdp-gallery">
         <div class="pdp-gallery-main">
-          <img id="pdp-main-img" src="{hero_img}" alt="{name} Plush — kawaii {concept} plush toy from Nancy Universe" onerror="this.src='../../assets/plushies/lem/lem-hero.png'">
+          <img id="pdp-main-img" src="{hero_img}" alt="{name} Plush — kawaii {concept} plush toy from Nancy Universe" width="1024" height="1024" onerror="this.onerror=null;this.src='{hero_img_png}'">
         </div>
         <div class="pdp-gallery-thumbs">
           <button class="active" aria-label="{name} product view">
-            <img src="{hero_img}" data-full="{hero_img}" alt="{name} hero" onerror="this.src='../../assets/plushies/lem/lem-hero.png'">
+            <img src="{hero_img}" data-full="{hero_img}" alt="{name} hero" onerror="this.onerror=null;this.src='{hero_img_png}'">
           </button>
           <button aria-label="{name} side angle">
-            <img src="{img_dir}/{slug}-angle.png" data-full="{img_dir}/{slug}-angle.png" alt="{name} angle" onerror="this.src='{hero_img}'">
+            <img src="{img_dir}/{slug}-angle.webp" data-full="{img_dir}/{slug}-angle.webp" alt="{name} angle" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-angle.png'">
           </button>
           <button aria-label="{name} bedroom scene">
-            <img src="{img_dir}/{slug}-lifestyle-bed.png" data-full="{img_dir}/{slug}-lifestyle-bed.png" alt="{name} lifestyle" onerror="this.src='{hero_img}'">
+            <img src="{img_dir}/{slug}-lifestyle-bed.webp" data-full="{img_dir}/{slug}-lifestyle-bed.webp" alt="{name} lifestyle" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-lifestyle-bed.png'">
           </button>
           <button aria-label="{name} desk scene">
-            <img src="{img_dir}/{slug}-lifestyle-desk.png" data-full="{img_dir}/{slug}-lifestyle-desk.png" alt="{name} on desk" onerror="this.src='{hero_img}'">
+            <img src="{img_dir}/{slug}-lifestyle-desk.webp" data-full="{img_dir}/{slug}-lifestyle-desk.webp" alt="{name} on desk" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-lifestyle-desk.png'">
           </button>
           <button aria-label="{name} scale view">
-            <img src="{img_dir}/{slug}-in-hand.png" data-full="{img_dir}/{slug}-in-hand.png" alt="{name} in hand" onerror="this.src='{hero_img}'">
+            <img src="{img_dir}/{slug}-in-hand.webp" data-full="{img_dir}/{slug}-in-hand.webp" alt="{name} in hand" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-in-hand.png'">
           </button>
           <button aria-label="{name} gift flatlay">
-            <img src="{img_dir}/{slug}-flatlay.png" data-full="{img_dir}/{slug}-flatlay.png" alt="{name} flatlay" onerror="this.src='{hero_img}'">
+            <img src="{img_dir}/{slug}-flatlay.webp" data-full="{img_dir}/{slug}-flatlay.webp" alt="{name} flatlay" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-flatlay.png'">
           </button>
         </div>
       </div>
@@ -388,7 +379,7 @@ fbq('track', 'ViewContent', {{content_name: '{name} Plush', content_type: 'produ
     <div class="container">
       <div class="pdp-feature-grid">
         <div class="pdp-feature-image reveal">
-          <img src="{img_dir}/{slug}-lifestyle-bed.png" alt="{name} plush lifestyle" onerror="this.src='{hero_img}'">
+          <img src="{img_dir}/{slug}-lifestyle-bed.webp" alt="{name} plush lifestyle" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-lifestyle-bed.png'">
         </div>
         <div class="pdp-feature-text reveal">
           <span class="section-label">Meet {name}</span>
@@ -404,7 +395,7 @@ fbq('track', 'ViewContent', {{content_name: '{name} Plush', content_type: 'produ
     <div class="container">
       <div class="pdp-feature-grid reverse">
         <div class="pdp-feature-image reveal">
-          <img src="{img_dir}/{slug}-in-hand.png" alt="{name} plush in hand showing scale" onerror="this.src='{hero_img}'">
+          <img src="{img_dir}/{slug}-in-hand.webp" alt="{name} plush in hand showing scale" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-in-hand.png'">
         </div>
         <div class="pdp-feature-text reveal">
           <span class="section-label">Quality You Can Feel</span>
@@ -420,7 +411,7 @@ fbq('track', 'ViewContent', {{content_name: '{name} Plush', content_type: 'produ
     <div class="container">
       <div class="pdp-feature-grid">
         <div class="pdp-feature-image reveal">
-          <img src="{img_dir}/{slug}-flatlay.png" alt="{name} plush gift flatlay" onerror="this.src='{hero_img}'">
+          <img src="{img_dir}/{slug}-flatlay.webp" alt="{name} plush gift flatlay" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{img_dir}/{slug}-flatlay.png'">
         </div>
         <div class="pdp-feature-text reveal">
           <span class="section-label">The Perfect Gift</span>
@@ -444,7 +435,7 @@ fbq('track', 'ViewContent', {{content_name: '{name} Plush', content_type: 'produ
         html += f'''
         <a href="plush-{rel_slug}.html" class="product-card" data-tilt>
           <div class="product-card-image">
-            <img src="../../assets/plushies/{rel_slug}/{rel_slug}-hero.png" alt="{rel['name']} Plush" onerror="this.src='../../assets/plushies/lem/lem-hero.png'">
+            <img src="../../assets/plushies/{rel_slug}/{rel_slug}-hero.webp" alt="{rel['name']} Plush" width="1024" height="1024" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='../../assets/plushies/{rel_slug}/{rel_slug}-hero.png'">
           </div>
           <div class="product-card-info">
             <h3>{rel['name']}</h3>
@@ -507,7 +498,7 @@ def generate_wave_collection(wave_info):
         cards_html += f'''
           <a href="../products/plush-{slug}.html" class="product-card" data-tilt>
             <div class="product-card-image">
-              <img src="../../assets/plushies/{slug}/{slug}-hero.png" alt="{char['name']} Plush" loading="lazy" onerror="this.src='../../assets/plushies/lem/lem-hero.png'">
+              <img src="../../assets/plushies/{slug}/{slug}-hero.webp" alt="{char['name']} Plush" width="1024" height="1024" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='../../assets/plushies/{slug}/{slug}-hero.png'">
               <span class="product-card-badge" style="background: {wave_color};">Wave {wave_num}</span>
             </div>
             <div class="product-card-info">
@@ -538,18 +529,7 @@ def generate_wave_collection(wave_info):
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Semibold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Regular.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="../../css/variables.css">
-<link rel="stylesheet" href="../../css/base.css">
-<link rel="stylesheet" href="../../css/animations.css">
-<link rel="stylesheet" href="../../css/nav.css">
-<link rel="stylesheet" href="../../css/components.css">
-<link rel="stylesheet" href="../../css/cards.css">
-<link rel="stylesheet" href="../../css/sections.css">
-<link rel="stylesheet" href="../../css/footer.css">
-<link rel="stylesheet" href="../../css/responsive.css">
-<link rel="stylesheet" href="../../css/personality.css">
-<link rel="stylesheet" href="../../css/loader.css">
-<link rel="stylesheet" href="../../css/page-collection.css">
+<link rel="stylesheet" href="../../css/style.min.css">
 <script>
 !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;

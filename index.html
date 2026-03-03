@@ -13,18 +13,10 @@
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Semibold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Regular.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
-<!-- Nancy Universe CSS -->
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/nav.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/cards.css">
-<link rel="stylesheet" href="css/sections.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/personality.css">
-<link rel="stylesheet" href="css/loader.css">
+<link rel="preload" href="assets/generated/plush-lem.webp" as="image" type="image/webp">
+<link rel="preload" href="nancy-logo-pink.svg" as="image" type="image/svg+xml">
+<!-- Nancy Universe CSS (bundled) -->
+<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body class="loading">
 <script src="js/loader.js"></script>
@@ -34,7 +26,7 @@
      ═══════════════════════════════════════════════ -->
 <div id="loader" class="loader">
   <div class="loader-inner">
-    <img src="nancy-logo-pink.svg" alt="Nancy" class="loader-logo-img">
+    <img width="120" height="32" src="nancy-logo-pink.svg" alt="Nancy" class="loader-logo-img">
     <div class="loader-bar-track">
       <div class="loader-bar-fill" id="loader-bar-fill"></div>
     </div>
@@ -52,12 +44,12 @@
      ═══════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-floats">
-    <div class="hero-float"><img src="assets/generated/plush-lem.png" alt="The Lem"></div>
-    <div class="hero-float"><img src="assets/generated/plush-berri.png" alt="The Berri"></div>
-    <div class="hero-float"><img src="assets/generated/plush-avo.png" alt="The Avo"></div>
-    <div class="hero-float"><img src="assets/generated/plush-pixie.png" alt="The Pixie"></div>
-    <div class="hero-float"><img src="assets/generated/plush-lolly.png" alt="The Lolly"></div>
-    <div class="hero-float"><img src="assets/products/lem-hero.webp" alt="The Lem"></div>
+    <div class="hero-float"><img width="1024" height="1024" fetchpriority="high" src="assets/generated/plush-lem.webp" onerror="this.onerror=null;this.src='assets/generated/plush-lem.png'" alt="The Lem"></div>
+    <div class="hero-float"><img width="1024" height="1024" fetchpriority="high" src="assets/generated/plush-berri.webp" onerror="this.onerror=null;this.src='assets/generated/plush-berri.png'" alt="The Berri"></div>
+    <div class="hero-float"><img width="1024" height="1024" fetchpriority="high" src="assets/generated/plush-avo.webp" onerror="this.onerror=null;this.src='assets/generated/plush-avo.png'" alt="The Avo"></div>
+    <div class="hero-float"><img width="1024" height="1024" src="assets/generated/plush-pixie.webp" onerror="this.onerror=null;this.src='assets/generated/plush-pixie.png'" alt="The Pixie"></div>
+    <div class="hero-float"><img width="1024" height="1024" src="assets/generated/plush-lolly.webp" onerror="this.onerror=null;this.src='assets/generated/plush-lolly.png'" alt="The Lolly"></div>
+    <div class="hero-float"><img width="1024" height="1024" src="assets/products/lem-hero.webp" alt="The Lem"></div>
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow reveal">
@@ -162,7 +154,7 @@
     </div>
     <div class="category-grid">
       <div class="category-card toys reveal reveal-delay-1">
-        <div class="cat-bg"><img src="assets/products/lem-hero.webp" alt="Pleasure Toys"></div>
+        <div class="cat-bg"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/lem-hero.webp" alt="Pleasure Toys"></div>
         <div class="cat-overlay"></div>
         <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
         <div class="cat-content">
@@ -171,7 +163,7 @@
         </div>
       </div>
       <div class="category-card fashion reveal reveal-delay-2">
-        <div class="cat-bg"><img src="assets/generated/v2/cat-fashion.png" alt="Fashion"></div>
+        <div class="cat-bg"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/v2/cat-fashion.webp" onerror="this.onerror=null;this.src='assets/generated/v2/cat-fashion.png'" alt="Fashion"></div>
         <div class="cat-overlay"></div>
         <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
         <div class="cat-content">
@@ -180,7 +172,7 @@
         </div>
       </div>
       <div class="category-card plushies reveal reveal-delay-3">
-        <div class="cat-bg"><img src="assets/generated/v2/cat-plushies.png" alt="Plushies"></div>
+        <div class="cat-bg"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/v2/cat-plushies.webp" onerror="this.onerror=null;this.src='assets/generated/v2/cat-plushies.png'" alt="Plushies"></div>
         <div class="cat-overlay"></div>
         <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
         <div class="cat-content">
@@ -189,7 +181,7 @@
         </div>
       </div>
       <div class="category-card drops reveal reveal-delay-4">
-        <div class="cat-bg"><img src="assets/generated/v2/cat-drops.png" alt="Drops"></div>
+        <div class="cat-bg"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/v2/cat-drops.webp" onerror="this.onerror=null;this.src='assets/generated/v2/cat-drops.png'" alt="Drops"></div>
         <div class="cat-overlay"></div>
         <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
         <div class="cat-content">
@@ -198,7 +190,7 @@
         </div>
       </div>
       <div class="category-card accessories reveal reveal-delay-5">
-        <div class="cat-bg"><img src="assets/generated/v2/cat-accessories.png" alt="Accessories"></div>
+        <div class="cat-bg"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/v2/cat-accessories.webp" onerror="this.onerror=null;this.src='assets/generated/v2/cat-accessories.png'" alt="Accessories"></div>
         <div class="cat-overlay"></div>
         <div class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
         <div class="cat-content">
@@ -228,7 +220,7 @@
     <div class="product-card reveal">
       <div class="card-image">
         <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF9D9, #FFE135)">
-          <img src="assets/products/lem-hero.webp" alt="The Lem" style="width: 100%; height: 100%; object-fit: cover;">
+          <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/lem-hero.webp" alt="The Lem" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <span class="card-badge badge-toy">Best Seller</span>
         <div class="card-hover-cta"><a href="pages/products/lem.html">Shop Now</a></div>
@@ -249,7 +241,7 @@
     <div class="product-card reveal reveal-delay-1">
       <div class="card-image">
         <div class="gradient-bg" style="background: linear-gradient(160deg, #1a1a1a, #333)">
-          <img src="assets/generated/fashion-hero-tee.png" alt="Nancy Fruit Club Tee" style="width: 100%; height: 100%; object-fit: cover;">
+          <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/fashion-hero-tee.webp" onerror="this.onerror=null;this.src='assets/generated/fashion-hero-tee.png'" alt="Nancy Fruit Club Tee" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <span class="card-badge badge-fashion">Fashion</span>
         <span class="badge-new">New</span>
@@ -267,7 +259,7 @@
     <div class="product-card reveal reveal-delay-2">
       <div class="card-image">
         <div class="gradient-bg" style="background: linear-gradient(160deg, #FFE5EB, #FF4B6E)">
-          <img src="assets/products/berri-hero.png" alt="The Berri" style="width: 100%; height: 100%; object-fit: cover;">
+          <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/berri-hero.webp" onerror="this.onerror=null;this.src='assets/products/berri-hero.png'" alt="The Berri" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <span class="card-badge badge-toy">New Arrival</span>
         <div class="card-hover-cta"><a href="pages/products/berri.html">Shop Now</a></div>
@@ -288,7 +280,7 @@
     <div class="product-card reveal reveal-delay-3">
       <div class="card-image">
         <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF9D9, #FFEFAA)">
-          <img src="assets/generated/plush-lem.png" alt="Lem Plush Buddy" style="width: 100%; height: 100%; object-fit: cover;">
+          <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-lem.webp" onerror="this.onerror=null;this.src='assets/generated/plush-lem.png'" alt="Lem Plush Buddy" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <span class="card-badge badge-plush">Plush</span>
         <span class="badge-new">New</span>
@@ -306,7 +298,7 @@
     <div class="product-card reveal reveal-delay-4">
       <div class="card-image">
         <div class="gradient-bg" style="background: linear-gradient(160deg, #E6F2E5, #6BA368)">
-          <img src="assets/products/avo-hero.webp" alt="The Avo" style="width: 100%; height: 100%; object-fit: cover;">
+          <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/avo-hero.webp" alt="The Avo" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <span class="card-badge badge-toy">Powerful</span>
         <div class="card-hover-cta"><a href="pages/products/avo.html">Shop Now</a></div>
@@ -327,7 +319,7 @@
     <div class="product-card reveal reveal-delay-5">
       <div class="card-image">
         <div class="gradient-bg" style="background: linear-gradient(160deg, #FF4B6E, #D93050)">
-          <img src="assets/generated/fashion-hoodie-cream.png" alt="Berri Club Hoodie" style="width: 100%; height: 100%; object-fit: cover;">
+          <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/fashion-hoodie-cream.webp" onerror="this.onerror=null;this.src='assets/generated/fashion-hoodie-cream.png'" alt="Berri Club Hoodie" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <span class="card-badge badge-fashion">Fashion</span>
         <span class="badge-new">New</span>
@@ -345,7 +337,7 @@
     <div class="product-card reveal">
       <div class="card-image">
         <div class="gradient-bg" style="background: linear-gradient(160deg, #f0e6ff, #d4b5f0)">
-          <img src="assets/products/pixie-hero.png" alt="The Pixie" style="width: 100%; height: 100%; object-fit: cover;">
+          <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/pixie-hero.webp" onerror="this.onerror=null;this.src='assets/products/pixie-hero.png'" alt="The Pixie" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <span class="card-badge badge-toy">Couples</span>
         <div class="card-hover-cta"><a href="pages/products/pixie.html">Shop Now</a></div>
@@ -377,7 +369,7 @@
     </div>
     <div class="universe-grid">
       <div class="world-card lem-world reveal reveal-delay-1">
-        <div class="world-emoji"><img src="assets/generated/plush-lem.png" alt="Lem"></div>
+        <div class="world-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-lem.webp" onerror="this.onerror=null;this.src='assets/generated/plush-lem.png'" alt="Lem"></div>
         <div class="world-label">Character 001</div>
         <div class="world-name">Lem</div>
         <div class="world-tagline">"The Zesty One"</div>
@@ -388,7 +380,7 @@
         </div>
       </div>
       <div class="world-card berri-world reveal reveal-delay-2">
-        <div class="world-emoji"><img src="assets/generated/plush-berri.png" alt="Berri"></div>
+        <div class="world-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-berri.webp" onerror="this.onerror=null;this.src='assets/generated/plush-berri.png'" alt="Berri"></div>
         <div class="world-label">Character 002</div>
         <div class="world-name">Berri</div>
         <div class="world-tagline">"The Heartbreaker"</div>
@@ -399,7 +391,7 @@
         </div>
       </div>
       <div class="world-card avo-world reveal reveal-delay-3">
-        <div class="world-emoji"><img src="assets/generated/plush-avo.png" alt="Avo"></div>
+        <div class="world-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-avo.webp" onerror="this.onerror=null;this.src='assets/generated/plush-avo.png'" alt="Avo"></div>
         <div class="world-label">Character 003</div>
         <div class="world-name">Avo</div>
         <div class="world-tagline">"The Overachiever"</div>
@@ -451,22 +443,22 @@
       </div>
       <div class="drop-visual">
         <div class="drop-item">
-          <div class="di-emoji"><img src="assets/generated/drop-keychain-lem.png" alt="Lem Keychain" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/drop-keychain-lem.webp" onerror="this.onerror=null;this.src='assets/generated/drop-keychain-lem.png'" alt="Lem Keychain" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
           <div class="di-name">Lem Plush<br>Keychain</div>
           <div class="di-price">$18</div>
         </div>
         <div class="drop-item">
-          <div class="di-emoji"><img src="assets/generated/drop-tee-fruitclub.png" alt="Fruit Club Tee" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/drop-tee-fruitclub.webp" onerror="this.onerror=null;this.src='assets/generated/drop-tee-fruitclub.png'" alt="Fruit Club Tee" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
           <div class="di-name">Fruit Club<br>Tee</div>
           <div class="di-price">$38</div>
         </div>
         <div class="drop-item">
-          <div class="di-emoji"><img src="assets/generated/drop-mystery-box.png" alt="Mystery Box" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/drop-mystery-box.webp" onerror="this.onerror=null;this.src='assets/generated/drop-mystery-box.png'" alt="Mystery Box" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
           <div class="di-name">Mystery<br>Box</div>
           <div class="di-price">$49</div>
         </div>
         <div class="drop-item">
-          <div class="di-emoji"><img src="assets/generated/drop-sticker-pack.png" alt="Sticker Pack" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
+          <div class="di-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/drop-sticker-pack.webp" onerror="this.onerror=null;this.src='assets/generated/drop-sticker-pack.png'" alt="Sticker Pack" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px;"></div>
           <div class="di-name">Berri Sticker<br>Pack</div>
           <div class="di-price">$12</div>
         </div>
@@ -492,7 +484,7 @@
       <div class="bs-card reveal reveal-delay-1">
         <div class="bs-image">
           <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF9D9 0%, #FFE135 100%)">
-            <img src="assets/products/lem-hero.webp" alt="The Lem" style="width: 100%; height: 100%; object-fit: cover;">
+            <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/lem-hero.webp" alt="The Lem" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <span class="bs-badge">Best Seller</span>
           <span class="bs-sold">500K+ Sold</span>
@@ -518,7 +510,7 @@
       <div class="bs-card reveal reveal-delay-2">
         <div class="bs-image">
           <div class="gradient-bg" style="background: linear-gradient(160deg, #FFE5EB 0%, #FF4B6E 100%)">
-            <img src="assets/products/berri-hero.png" alt="The Berri" style="width: 100%; height: 100%; object-fit: cover;">
+            <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/berri-hero.webp" onerror="this.onerror=null;this.src='assets/products/berri-hero.png'" alt="The Berri" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <span class="bs-badge" style="background: var(--lime); color: var(--black)">New</span>
         </div>
@@ -543,7 +535,7 @@
       <div class="bs-card reveal reveal-delay-3">
         <div class="bs-image">
           <div class="gradient-bg" style="background: linear-gradient(160deg, #E6F2E5 0%, #6BA368 100%)">
-            <img src="assets/products/avo-hero.webp" alt="The Avo" style="width: 100%; height: 100%; object-fit: cover;">
+            <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/products/avo-hero.webp" alt="The Avo" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <span class="bs-badge">Fan Fave</span>
         </div>
@@ -568,7 +560,7 @@
       <div class="bs-card reveal reveal-delay-4">
         <div class="bs-image">
           <div class="gradient-bg" style="background: linear-gradient(160deg, #FFF0FA 0%, #FF30CC 60%, #FFE135 100%); position: relative;">
-            <img src="assets/generated/v2/hero-lifestyle-v2.png" alt="Tutti Frutti Bundle" style="width: 100%; height: 100%; object-fit: cover;">
+            <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/v2/hero-lifestyle-v2.webp" onerror="this.onerror=null;this.src='assets/generated/v2/hero-lifestyle-v2.png'" alt="Tutti Frutti Bundle" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <span class="bs-badge">Save 60%</span>
         </div>
@@ -604,7 +596,7 @@
     <div class="fashion-grid">
       <div class="fashion-card reveal reveal-delay-1">
         <span class="fashion-coming">Coming Soon</span>
-        <div class="fashion-emoji"><img src="assets/generated/v2/cat-fashion.png" alt="Fruit Club Collection" style="width: 220px; height: 160px; object-fit: cover; border-radius: 16px; border: 2px solid rgba(255,255,255,0.12); filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));"></div>
+        <div class="fashion-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/v2/cat-fashion.webp" onerror="this.onerror=null;this.src='assets/generated/v2/cat-fashion.png'" alt="Fruit Club Collection" style="width: 220px; height: 160px; object-fit: cover; border-radius: 16px; border: 2px solid rgba(255,255,255,0.12); filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));"></div>
         <div class="fashion-name">The Fruit Club<br>Collection</div>
         <div class="fashion-desc">Premium cotton. Original prints. The kind of merch people actually ask you about.</div>
         <div class="fashion-price">Shop from $35 →</div>
@@ -612,25 +604,25 @@
       </div>
       <div class="fashion-card reveal reveal-delay-2">
         <span class="fashion-coming">Soon</span>
-        <div class="fashion-emoji"><img src="assets/generated/fashion-hero-tee.png" alt="Lem Squad Tee" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/fashion-hero-tee.webp" onerror="this.onerror=null;this.src='assets/generated/fashion-hero-tee.png'" alt="Lem Squad Tee" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
         <div class="fashion-name">Lem Squad Tee</div>
         <div class="fashion-price">$38</div>
       </div>
       <div class="fashion-card reveal reveal-delay-3">
         <span class="fashion-coming">Soon</span>
-        <div class="fashion-emoji"><img src="assets/generated/fashion-hoodie-cream.png" alt="Berri Hoodie" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/fashion-hoodie-cream.webp" onerror="this.onerror=null;this.src='assets/generated/fashion-hoodie-cream.png'" alt="Berri Hoodie" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
         <div class="fashion-name">Berri Hoodie</div>
         <div class="fashion-price">$35</div>
       </div>
       <div class="fashion-card reveal reveal-delay-4">
         <span class="fashion-coming">Soon</span>
-        <div class="fashion-emoji"><img src="assets/generated/fashion-hoodie-cream.png" alt="Avo Hoodie" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/fashion-hoodie-cream.webp" onerror="this.onerror=null;this.src='assets/generated/fashion-hoodie-cream.png'" alt="Avo Hoodie" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
         <div class="fashion-name">Avo Hoodie</div>
         <div class="fashion-price">$65</div>
       </div>
       <div class="fashion-card reveal reveal-delay-5">
         <span class="fashion-coming">Soon</span>
-        <div class="fashion-emoji"><img src="assets/generated/fashion-cap-pink.png" alt="Nancy Cap" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
+        <div class="fashion-emoji"><img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/fashion-cap-pink.webp" onerror="this.onerror=null;this.src='assets/generated/fashion-cap-pink.png'" alt="Nancy Cap" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></div>
         <div class="fashion-name">Nancy Cap</div>
         <div class="fashion-price">$28</div>
       </div>
@@ -652,7 +644,7 @@
   <div class="plush-scroll">
     <div class="plush-card reveal">
       <div class="plush-image">
-        <img src="assets/generated/plush-lem.png" alt="Lem Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-lem.webp" onerror="this.onerror=null;this.src='assets/generated/plush-lem.png'" alt="Lem Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
         <span class="plush-soon">Coming Soon</span>
       </div>
       <div class="plush-info">
@@ -663,7 +655,7 @@
     </div>
     <div class="plush-card reveal reveal-delay-1">
       <div class="plush-image">
-        <img src="assets/generated/plush-berri.png" alt="Berri Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-berri.webp" onerror="this.onerror=null;this.src='assets/generated/plush-berri.png'" alt="Berri Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
         <span class="plush-soon">Coming Soon</span>
       </div>
       <div class="plush-info">
@@ -674,7 +666,7 @@
     </div>
     <div class="plush-card reveal reveal-delay-2">
       <div class="plush-image">
-        <img src="assets/generated/plush-avo.png" alt="Avo Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-avo.webp" onerror="this.onerror=null;this.src='assets/generated/plush-avo.png'" alt="Avo Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
         <span class="plush-soon">Coming Soon</span>
       </div>
       <div class="plush-info">
@@ -685,7 +677,7 @@
     </div>
     <div class="plush-card reveal reveal-delay-3">
       <div class="plush-image">
-        <img src="assets/generated/plush-pixie.png" alt="Pixie Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-pixie.webp" onerror="this.onerror=null;this.src='assets/generated/plush-pixie.png'" alt="Pixie Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
         <span class="plush-soon">Coming Soon</span>
       </div>
       <div class="plush-info">
@@ -696,7 +688,7 @@
     </div>
     <div class="plush-card reveal reveal-delay-4">
       <div class="plush-image">
-        <img src="assets/generated/plush-lolly.png" alt="Lolly Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+        <img width="1024" height="1024" loading="lazy" decoding="async" src="assets/generated/plush-lolly.webp" onerror="this.onerror=null;this.src='assets/generated/plush-lolly.png'" alt="Lolly Plush" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
         <span class="plush-soon">Coming Soon</span>
       </div>
       <div class="plush-info">
@@ -779,16 +771,16 @@
 <section class="press">
   <div class="press-label">As Seen In</div>
   <div class="press-logos">
-    <span><img src="assets/press/guardian.png" alt="The Guardian"></span>
-    <span><img src="assets/press/vice.svg" alt="Vice"></span>
-    <span><img src="assets/press/nbc.svg" alt="NBC"></span>
-    <span><img src="assets/press/cbs.svg" alt="CBS"></span>
-    <span><img src="assets/press/timeout.png" alt="Time Out"></span>
-    <span><img src="assets/press/vocal.svg" alt="Vocal"></span>
-    <span><img src="assets/press/girly-juice.png" alt="Girly Juice"></span>
-    <span><img src="assets/press/tatler.webp" alt="Tatler"></span>
-    <span><img src="assets/press/zenify.svg" alt="Zenify"></span>
-    <span><img src="assets/press/weheart.svg" alt="We Heart"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/guardian.webp" onerror="this.onerror=null;this.src='assets/press/guardian.png'" alt="The Guardian"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/vice.svg" alt="Vice"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/nbc.svg" alt="NBC"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/cbs.svg" alt="CBS"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/timeout.webp" onerror="this.onerror=null;this.src='assets/press/timeout.png'" alt="Time Out"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/vocal.svg" alt="Vocal"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/girly-juice.webp" onerror="this.onerror=null;this.src='assets/press/girly-juice.png'" alt="Girly Juice"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/tatler.webp" alt="Tatler"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/zenify.svg" alt="Zenify"></span>
+    <span><img width="200" height="60" loading="lazy" decoding="async" src="assets/press/weheart.svg" alt="We Heart"></span>
   </div>
 </section>
 
