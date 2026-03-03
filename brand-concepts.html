@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nancy Brand Expansion — V5 (+ Fruit Stand Family)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,400&family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=Unbounded:wght@300;400;700&family=Caveat:wght@400;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;700&family=Outfit:wght@200;400;700&family=Archivo+Black&family=Rubik:wght@300;400;700&family=Newsreader:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Pacifico&family=Satisfy&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --pink: #ff30cc; --pink-light: #fff0fa; --lime: #ccfd28;
+    --cream: #faf8f5; --black: #111; --dark: #1a1a1a; --gold: #c9a84c;
+    --lem: #FFE135; --berri: #FF4B6E; --avo: #6BA368;
+    --peach: #FFCBA4; --grape: #8B5CF6; --mango: #FF9F43;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); }
+  .nancy-word { font-family: 'Fraunces', serif; font-weight: 300; font-style: italic; letter-spacing: -1px; }
+  .logo-text { text-align: center; line-height: 1.1; }
+
+  .hero { background: var(--black); color: white; padding: 80px 40px; text-align: center; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 300; letter-spacing: -1px; margin-bottom: 12px; }
+  .hero h1 span { color: var(--pink); }
+  .hero p { font-size: 1rem; opacity: 0.5; max-width: 600px; margin: 0 auto; }
+  .hero .new-badge { display: inline-block; background: var(--lime); color: var(--black); font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 2px; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+
+  .ranking { padding: 60px 40px; background: #0a0015; color: white; }
+  .ranking h2 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300; margin-bottom: 8px; }
+  .ranking .sub { opacity: 0.4; margin-bottom: 40px; font-size: 0.85rem; max-width: 700px; }
+  .rank-grid { display: grid; gap: 10px; max-width: 900px; }
+  .rank-card { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center; padding: 14px 18px; border-radius: 10px; }
+  .rank-num { font-family: 'Space Mono', monospace; font-size: 1.2rem; font-weight: 700; }
+  .rank-name { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 2px; }
+  .rank-angle { font-size: 0.78rem; opacity: 0.55; line-height: 1.4; }
+  .rank-tag { font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+  .tier-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; margin: 28px 0 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+  .concept { padding: 56px 40px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .concept:nth-child(even) { background: white; }
+  .concept-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .concept-number { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--pink); letter-spacing: 2px; }
+  .concept-angle { font-size: 0.72rem; color: #888; background: rgba(0,0,0,0.04); padding: 2px 10px; border-radius: 20px; }
+  .risk-tag { font-size: 0.58rem; padding: 2px 8px; border-radius: 20px; font-family: 'Space Mono', monospace; letter-spacing: 1px; }
+  .risk-high { background: #ff2d5520; color: #ff2d55; }
+  .risk-med { background: #ff990020; color: #ff9900; }
+  .risk-safe { background: #00cc6620; color: #00cc66; }
+  .new-tag { background: rgba(204,253,40,0.15); color: #8ab000; }
+  .fruit-tag { background: rgba(255,159,67,0.15); color: #e08530; }
+  .concept-desc { font-family: 'Fraunces', serif; font-size: 0.92rem; color: #666; margin-bottom: 32px; max-width: 700px; font-style: italic; line-height: 1.5; }
+
+  .logos-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .logo-card { border-radius: 14px; padding: 40px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 190px; position: relative; transition: transform 0.2s; }
+  .logo-card:hover { transform: scale(1.02); }
+  .variant-label { position: absolute; top: 10px; right: 12px; font-size: 0.55rem; font-family: 'Space Mono', monospace; letter-spacing: 1px; text-transform: uppercase; opacity: 0.3; }
+
+  .compact-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .compact-card { border-radius: 12px; padding: 28px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; text-align: center; transition: transform 0.2s; }
+  .compact-card:hover { transform: scale(1.03); }
+  .compact-label { font-size: 0.62rem; color: #999; margin-top: 8px; }
+
+  .fruit-callout { background: linear-gradient(135deg, #FFF5E0, #FFF0FA, #F0FFF0); padding: 50px 40px; border-bottom: 3px solid var(--mango); }
+  .fruit-callout h2 { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 300; margin-bottom: 6px; }
+  .fruit-callout .sub { font-size: 0.88rem; color: #888; margin-bottom: 36px; max-width: 700px; line-height: 1.5; }
+
+  @media (max-width: 900px) { .logos-row { grid-template-columns: 1fr; } .compact-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .rank-card { grid-template-columns: 36px 1fr; } .rank-tag { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="new-badge">V5 — NEW FRUIT STAND FAMILY</div>
+  <h1>The <span>Nancy</span> Fruit Stand<br>&amp; 50 More Ideas</h1>
+  <p>You said "Nancy Fruit Stand" and it unlocked a whole vibe. Playful, physical, product-as-character names that lean into the fruit DNA (Lem, Berri, Avo). Plus everything from V4, re-ranked.</p>
+</div>
+
+<!-- =============================================== -->
+<!-- FRUIT STAND FAMILY — THE NEW SECTION            -->
+<!-- =============================================== -->
+
+<div class="fruit-callout">
+  <h2>The Fruit Stand Family</h2>
+  <p class="sub">Nancy's products are literally named after fruit. Lem = lemon. Berri = berry. Avo = avocado. These names lean INTO that metaphor — playful, approachable, physical-space names that make the brand feel like a place you visit, not just a store you buy from.</p>
+</div>
+
+<!-- NANCY FRUIT STAND -->
+<div class="concept" style="background: linear-gradient(180deg, #FFF8EE, var(--cream));">
+  <div class="concept-header">
+    <span class="concept-number">NEW 01</span>
+    <span class="concept-angle">Product Discovery / Marketplace</span>
+    <span class="risk-tag fruit-tag">FRUIT FAMILY</span>
+    <span class="risk-tag risk-high">TIER 1</span>
+  </div>
+  <h2 style="font-family:'Fraunces',serif; font-size:1.8rem; font-weight:400; margin-bottom:4px;">Nancy Fruit Stand</h2>
+  <p class="concept-desc">The products ARE fruit. Lean all the way in. "Welcome to the Nancy Fruit Stand" — browse by character, by vibe, by wave. Every drop = "fresh from the stand." Market-day energy. Colorful, inviting, zero pretension. Makes the whole universe feel like a cheerful outdoor market you stumble into.</p>
+  <div class="logos-row">
+    <div class="logo-card" style="background: linear-gradient(135deg, #FFF5E0, #FFF0FA);">
+      <span class="variant-label" style="color: var(--mango);">A — Sunny</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.6rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Satisfy',cursive; font-size: 1.6rem; color: var(--mango); margin-top: -4px;">Fruit Stand</div>
+        <div style="display: flex; gap: 5px; justify-content: center; margin-top: 8px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--lem);"></div>
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--berri);"></div>
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--avo);"></div>
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--peach);"></div>
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--grape);"></div>
+        </div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--lem);">
+      <span class="variant-label" style="color: rgba(0,0,0,0.2);">B — Bold</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Archivo Black',sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: var(--pink);">FRUIT STAND</div>
+        <div style="font-family:'Space Mono',monospace; font-size: 0.35rem; letter-spacing: 2px; color: rgba(0,0,0,0.3); margin-top: 6px;">FRESH DAILY · ALWAYS IN SEASON</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--black);">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">C — Night Market</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: var(--lem); text-shadow: 0 0 15px rgba(255,225,53,0.3);">Nancy</div>
+        <div style="font-family:'Permanent Marker',cursive; font-size: 1.1rem; color: var(--pink); text-shadow: 0 0 10px rgba(255,48,204,0.3);">FRUIT STAND</div>
+        <div style="font-family:'Space Mono',monospace; font-size: 0.35rem; letter-spacing: 2px; color: rgba(255,255,255,0.25); margin-top: 6px;">OPEN LATE</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NANCY GARDEN -->
+<div class="concept">
+  <div class="concept-header">
+    <span class="concept-number">NEW 02</span>
+    <span class="concept-angle">Growing Collection / Seasonal</span>
+    <span class="risk-tag fruit-tag">FRUIT FAMILY</span>
+    <span class="risk-tag risk-high">TIER 1</span>
+  </div>
+  <h2 style="font-family:'Fraunces',serif; font-size:1.8rem; font-weight:400; margin-bottom:4px;">Nancy Garden</h2>
+  <p class="concept-desc">Characters grow in seasons. Wave drops = "planting season." New arrivals = "what's blooming." Your collection = "your garden." Taps into care, patience, growth metaphors. Pairs beautifully with the wellness angle. "Tend your Nancy Garden."</p>
+  <div class="logos-row">
+    <div class="logo-card" style="background: linear-gradient(180deg, #f0fff0, #e8ffe8);">
+      <span class="variant-label" style="color: var(--avo);">A — Fresh</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.6rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Instrument Serif',serif; font-size: 1.4rem; font-style: italic; color: var(--avo); margin-top: -4px;">Garden</div>
+        <div style="font-family:'Space Mono',monospace; font-size: 0.35rem; letter-spacing: 2px; color: #bbb; margin-top: 6px;">WHAT'S BLOOMING?</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--avo);">
+      <span class="variant-label" style="color: rgba(255,255,255,0.3);">B — Botanical</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: white;">Nancy</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size: 1.3rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: -2px;">GARDEN</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--dark);">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">C — Neon Grow</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: var(--lime); text-shadow: 0 0 15px rgba(204,253,40,0.3);">Nancy</div>
+        <div style="font-family:'Caveat',cursive; font-size: 1.6rem; color: var(--avo); text-shadow: 0 0 10px rgba(107,163,104,0.3); margin-top: -6px;">Garden</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NANCY PANTRY -->
+<div class="concept">
+  <div class="concept-header">
+    <span class="concept-number">NEW 03</span>
+    <span class="concept-angle">Personal Collection / Stocking Up</span>
+    <span class="risk-tag fruit-tag">FRUIT FAMILY</span>
+    <span class="risk-tag risk-med">TIER 2</span>
+  </div>
+  <h2 style="font-family:'Fraunces',serif; font-size:1.8rem; font-weight:400; margin-bottom:4px;">Nancy Pantry</h2>
+  <p class="concept-desc">"What's in your Nancy Pantry?" Your personal collection page. Stock up on favorites. Reorder staples. The cozy, domestic metaphor that makes products feel like essentials, not indulgences. Subscription-friendly. Pantry = always stocked, always ready.</p>
+  <div class="logos-row">
+    <div class="logo-card" style="background: #FAF5EE;">
+      <span class="variant-label" style="color: #c5b08a;">A — Warm</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.6rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Newsreader',serif; font-size: 1.3rem; font-style: italic; color: var(--berri); margin-top: -4px;">Pantry</div>
+        <div style="font-family:'Space Mono',monospace; font-size: 0.35rem; letter-spacing: 2px; color: #bbb; margin-top: 6px;">ALWAYS STOCKED</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--berri);">
+      <span class="variant-label" style="color: rgba(255,255,255,0.3);">B — Pop</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: white;">Nancy</div>
+        <div style="font-family:'Syne',sans-serif; font-size: 0.9rem; font-weight: 800; letter-spacing: 5px; text-transform: uppercase; color: var(--lem);">PANTRY</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--dark);">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">C — Stencil</span>
+      <div class="logo-text">
+        <div style="border: 1.5px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 14px 22px;">
+          <div class="nancy-word" style="font-size: 2rem; color: white;">Nancy</div>
+          <div style="font-family:'Outfit',sans-serif; font-size: 0.55rem; letter-spacing: 6px; text-transform: uppercase; color: var(--peach);">PANTRY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NANCY ORCHARD -->
+<div class="concept">
+  <div class="concept-header">
+    <span class="concept-number">NEW 04</span>
+    <span class="concept-angle">Whole Universe View / Heritage</span>
+    <span class="risk-tag fruit-tag">FRUIT FAMILY</span>
+    <span class="risk-tag risk-med">TIER 2</span>
+  </div>
+  <h2 style="font-family:'Fraunces',serif; font-size:1.8rem; font-weight:400; margin-bottom:4px;">Nancy Orchard</h2>
+  <p class="concept-desc">The orchard is the WHOLE universe. Each tree = a product family (Lem tree, Berri bush, Avo plant). Waves = harvests. More elevated than Fruit Stand — implies cultivation, care, long-term growth. "Walk through the Nancy Orchard." Heritage meets whimsy.</p>
+  <div class="logos-row">
+    <div class="logo-card" style="background: linear-gradient(180deg, #FFF8EE, #FFF0FA);">
+      <span class="variant-label" style="color: var(--mango);">A — Heritage</span>
+      <div class="logo-text">
+        <div style="font-family:'Outfit',sans-serif; font-size: 0.4rem; letter-spacing: 6px; text-transform: uppercase; color: #bbb;">THE</div>
+        <div class="nancy-word" style="font-size: 2.6rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size: 1.4rem; font-style: italic; color: var(--mango); margin-top: -4px;">Orchard</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: #2D1F0E;">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">B — Earthy</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: var(--lem);">Nancy</div>
+        <div style="font-family:'Outfit',sans-serif; font-size: 0.55rem; letter-spacing: 6px; text-transform: uppercase; color: var(--peach);">ORCHARD</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--lime);">
+      <span class="variant-label" style="color: rgba(0,0,0,0.2);">C — Bright</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Playfair Display',serif; font-size: 1.1rem; font-style: italic; color: var(--pink);">Orchard</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NANCY GREENHOUSE -->
+<div class="concept">
+  <div class="concept-header">
+    <span class="concept-number">NEW 05</span>
+    <span class="concept-angle">Pre-Launch Teasers / Incubation</span>
+    <span class="risk-tag fruit-tag">FRUIT FAMILY</span>
+    <span class="risk-tag risk-high">TIER 1</span>
+  </div>
+  <h2 style="font-family:'Fraunces',serif; font-size:1.8rem; font-weight:400; margin-bottom:4px;">Nancy Greenhouse</h2>
+  <p class="concept-desc">Where new characters incubate before dropping. Sneak peeks, early sketches, "growing" reveals. "Currently in the Greenhouse: Wave 11." Turns the pre-launch hype period into a branded experience. Community votes on what gets "planted" next. Lab vibes but warm, not clinical.</p>
+  <div class="logos-row">
+    <div class="logo-card" style="background: rgba(107,163,104,0.08); border: 1.5px solid rgba(107,163,104,0.15);">
+      <span class="variant-label" style="color: var(--avo);">A — Glass</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.6rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; color: var(--avo);">GREENHOUSE</div>
+        <div style="font-family:'Space Mono',monospace; font-size: 0.35rem; letter-spacing: 2px; color: #bbb; margin-top: 6px;">GROWING SOMETHING NEW</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: #0a1a0a;">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">B — Dark Grow</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.4rem; color: var(--lime); text-shadow: 0 0 20px rgba(204,253,40,0.3);">Nancy</div>
+        <div style="font-family:'Outfit',sans-serif; font-size: 0.55rem; letter-spacing: 6px; text-transform: uppercase; color: var(--avo); text-shadow: 0 0 10px rgba(107,163,104,0.3);">GREENHOUSE</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--cream); border: 2px dashed var(--avo);">
+      <span class="variant-label" style="color: var(--avo);">C — Sketch</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Caveat',cursive; font-size: 1.4rem; color: var(--avo); margin-top: -4px;">Greenhouse</div>
+        <div style="font-family:'Caveat',cursive; font-size: 0.7rem; color: #bbb; margin-top: 2px;">coming soon...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MORE FRUIT FAMILY — COMPACT -->
+<div class="concept" style="background: linear-gradient(180deg, #FFF8EE, var(--cream));">
+  <div class="concept-header">
+    <span class="concept-number">NEW 06-15</span>
+    <span class="concept-angle">More Fruit Stand Family</span>
+    <span class="risk-tag fruit-tag">FRUIT FAMILY</span>
+  </div>
+  <p class="concept-desc">Ten more in the same vein — playful, physical-space, product-family metaphors that lean into the fruit/character DNA.</p>
+
+  <div class="logos-row" style="margin-bottom: 18px;">
+    <div class="logo-card" style="background: var(--peach); min-height: 200px;">
+      <span class="variant-label" style="color: rgba(0,0,0,0.2);">06 · NANCY MARKET</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.2rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Archivo Black',sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--pink);">MARKET</div>
+        <div style="font-size: 0.68rem; color: rgba(0,0,0,0.4); margin-top: 10px; font-style: italic;">"Market Day" = Drop Day. Browse the stalls. Each wave has a market stand.</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--dark); min-height: 200px;">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">07 · NANCY HARVEST</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.2rem; color: var(--lem);">Nancy</div>
+        <div style="font-family:'Playfair Display',serif; font-size: 1.2rem; font-style: italic; color: var(--mango); margin-top: -4px;">Harvest</div>
+        <div style="font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-top: 10px; font-style: italic;">Seasonal drops. "The Spring Harvest." Each season = new characters, new vibes.</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: linear-gradient(135deg, #FFF0FA, #F5F0FF); min-height: 200px;">
+      <span class="variant-label" style="color: var(--grape);">08 · NANCY BASKET</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.2rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Satisfy',cursive; font-size: 1.5rem; color: var(--grape); margin-top: -4px;">Basket</div>
+        <div style="font-size: 0.68rem; color: #999; margin-top: 10px; font-style: italic;">"Build Your Basket." Curated bundles. Gift sets. Picnic energy. Bundle builder.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logos-row" style="margin-bottom: 18px;">
+    <div class="logo-card" style="background: var(--lem); min-height: 200px;">
+      <span class="variant-label" style="color: rgba(0,0,0,0.2);">09 · NANCY GROVE</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.2rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Instrument Serif',serif; font-size: 1.2rem; font-style: italic; color: var(--pink); margin-top: -4px;">Grove</div>
+        <div style="font-size: 0.68rem; color: rgba(0,0,0,0.35); margin-top: 10px; font-style: italic;">Small, intimate curated collections. "The Lem Grove." Boutique within the universe.</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: #1a0a15; min-height: 200px;">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">10 · NANCY PARLOUR</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.2rem; color: var(--pink); text-shadow: 0 0 15px rgba(255,48,204,0.3);">Nancy</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size: 1.2rem; font-style: italic; color: var(--peach); margin-top: -2px;">Parlour</div>
+        <div style="font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-top: 10px; font-style: italic;">Old-world charm. The ice cream parlour meets boudoir. Intimate, classy, slightly cheeky.</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--berri); min-height: 200px;">
+      <span class="variant-label" style="color: rgba(255,255,255,0.3);">11 · NANCY PICNIC</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 2.2rem; color: white;">Nancy</div>
+        <div style="font-family:'Caveat',cursive; font-size: 1.5rem; color: var(--lem); margin-top: -6px;">Picnic</div>
+        <div style="font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 10px; font-style: italic;">Casual, fun, outdoors energy. Seasonal collections. "Pack your picnic."</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+    <div class="logo-card" style="background: var(--cream); border: 1.5px solid var(--mango); min-height: 170px; padding: 24px 14px;">
+      <span class="variant-label" style="color: var(--mango);">12 · NANCY SHELF</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 1.6rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Space Mono',monospace; font-size: 0.55rem; letter-spacing: 3px; color: var(--mango);">SHELF</div>
+        <div style="font-size: 0.58rem; color: #999; margin-top: 8px;">"My Nancy Shelf" — show off your collection</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--dark); min-height: 170px; padding: 24px 14px;">
+      <span class="variant-label" style="color: rgba(255,255,255,0.2);">13 · NANCY WINDOW</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 1.6rem; color: white;">Nancy</div>
+        <div style="font-family:'Outfit',sans-serif; font-size: 0.5rem; letter-spacing: 4px; color: var(--pink);">WINDOW</div>
+        <div style="font-size: 0.58rem; color: rgba(255,255,255,0.3); margin-top: 8px;">New arrivals display. Window shopping.</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: linear-gradient(135deg, var(--lem), var(--peach)); min-height: 170px; padding: 24px 14px;">
+      <span class="variant-label" style="color: rgba(0,0,0,0.2);">14 · NANCY JUICEBAR</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 1.6rem; color: var(--dark);">Nancy</div>
+        <div style="font-family:'Permanent Marker',cursive; font-size: 0.8rem; color: var(--pink);">JUICEBAR</div>
+        <div style="font-size: 0.58rem; color: rgba(0,0,0,0.35); margin-top: 8px;">Fresh, vibrant. "What's your blend?"</div>
+      </div>
+    </div>
+    <div class="logo-card" style="background: var(--avo); min-height: 170px; padding: 24px 14px;">
+      <span class="variant-label" style="color: rgba(255,255,255,0.3);">15 · NANCY PATCH</span>
+      <div class="logo-text">
+        <div class="nancy-word" style="font-size: 1.6rem; color: white;">Nancy</div>
+        <div style="font-family:'Caveat',cursive; font-size: 1.1rem; color: var(--lem);">Patch</div>
+        <div style="font-size: 0.58rem; color: rgba(255,255,255,0.5); margin-top: 8px;">"Visit the Lem Patch." Intimate, small-batch.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ====== RE-RANKED FULL LIST ====== -->
+<div class="ranking">
+  <h2>Full Rankings — All 55 Concepts</h2>
+  <p class="sub">Fruit Stand family integrated with V4. Re-ranked for character-driven universe with wave drops, 130 characters, dual audience (pleasure + collectibles), and fruit-DNA product naming.</p>
+
+  <div class="tier-label" style="color: #ff2d55;">TIER 1 — HIGH RISK / HIGH REWARD</div>
+  <div class="rank-grid">
+    <div class="rank-card" style="background: rgba(255,159,67,0.1); border: 1px solid rgba(255,159,67,0.2);">
+      <div class="rank-num" style="color: var(--mango);">01</div>
+      <div><div class="rank-name">Nancy Fruit Stand</div><div class="rank-angle">Products ARE fruit. Market-day energy. Browse by character, vibe, wave. Zero pretension, maximum charm. The whole universe as a cheerful outdoor market.</div></div>
+      <span class="rank-tag" style="background: rgba(255,159,67,0.15); color: var(--mango);">FRUIT FAMILY</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.15);">
+      <div class="rank-num" style="color: #ff2d55;">02</div>
+      <div><div class="rank-name">Nancy Whispers</div><div class="rank-angle">Anonymous real stories + confessions. Viral by design. Every submission = ad creative. Named after YOUR tagline.</div></div>
+      <span class="rank-tag" style="background: rgba(255,45,85,0.15); color: #ff2d55;">VIRAL ENGINE</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,159,67,0.1); border: 1px solid rgba(255,159,67,0.2);">
+      <div class="rank-num" style="color: var(--mango);">03</div>
+      <div><div class="rank-name">Nancy Greenhouse</div><div class="rank-angle">Where new characters incubate before dropping. Pre-launch hype as a branded experience. Community votes on what gets "planted."</div></div>
+      <span class="rank-tag" style="background: rgba(255,159,67,0.15); color: var(--mango);">FRUIT FAMILY</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.15);">
+      <div class="rank-num" style="color: #ff2d55;">04</div>
+      <div><div class="rank-name">Nancy Passport</div><div class="rank-angle">Gamified collecting. 250 SKUs = 250 stamps. Pokemon meets pleasure. Physical passport = merch.</div></div>
+      <span class="rank-tag" style="background: rgba(255,45,85,0.15); color: #ff2d55;">GAMIFICATION</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,159,67,0.1); border: 1px solid rgba(255,159,67,0.2);">
+      <div class="rank-num" style="color: var(--mango);">05</div>
+      <div><div class="rank-name">Nancy Garden</div><div class="rank-angle">Characters grow in seasons. Drops = planting season. Collections = "your garden." Growth + wellness metaphors.</div></div>
+      <span class="rank-tag" style="background: rgba(255,159,67,0.15); color: var(--mango);">FRUIT FAMILY</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.15);">
+      <div class="rank-num" style="color: #ff2d55;">06</div>
+      <div><div class="rank-name">Nancy Lore</div><div class="rank-angle">130 characters = 130 stories. Serialized world-building. Turns products into IP worth more than products.</div></div>
+      <span class="rank-tag" style="background: rgba(255,45,85,0.15); color: #ff2d55;">IP MOAT</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.15);">
+      <div class="rank-num" style="color: #ff2d55;">07</div>
+      <div><div class="rank-name">Nancy Society</div><div class="rank-angle">Paid membership ($9.99/mo). Early wave access, exclusive characters. 500K × 1% = $600K/yr.</div></div>
+      <span class="rank-tag" style="background: rgba(255,45,85,0.15); color: #ff2d55;">RECURRING $$$</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.15);">
+      <div class="rank-num" style="color: #ff2d55;">08</div>
+      <div><div class="rank-name">Nancy After Dark</div><div class="rank-angle">The mature content wing. "Lem's Guide to First Times." Own the "after 9pm" wellness space.</div></div>
+      <span class="rank-tag" style="background: rgba(255,45,85,0.15); color: #ff2d55;">CONTENT MOAT</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.15);">
+      <div class="rank-num" style="color: #ff2d55;">09</div>
+      <div><div class="rank-name">Nancy Arcade</div><div class="rank-angle">"Which character are you?" quizzes. 130 outcomes. Every result = shareable + product rec.</div></div>
+      <span class="rank-tag" style="background: rgba(255,45,85,0.15); color: #ff2d55;">ENGAGEMENT</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.15);">
+      <div class="rank-num" style="color: #ff2d55;">10</div>
+      <div><div class="rank-name">Nancy Diaries</div><div class="rank-angle">First-person stories from character POV. "Lem's Diary, Day 47." TikTok/IG gold.</div></div>
+      <span class="rank-tag" style="background: rgba(255,45,85,0.15); color: #ff2d55;">SOCIAL CONTENT</span>
+    </div>
+  </div>
+
+  <div class="tier-label" style="color: #ff9900;">TIER 2 — MEDIUM RISK / HIGH REWARD</div>
+  <div class="rank-grid">
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">11</div>
+      <div><div class="rank-name">Nancy Market</div><div class="rank-angle">"Market Day" = Drop Day. Each wave has a market stall. Farmers market energy for product discovery.</div></div>
+      <span class="rank-tag" style="background: rgba(255,159,67,0.15); color: var(--mango);">FRUIT FAMILY</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">12</div>
+      <div><div class="rank-name">Nancy Harvest</div><div class="rank-angle">Seasonal drops = harvests. "The Spring Harvest is here." Natural scarcity + seasonal excitement.</div></div>
+      <span class="rank-tag" style="background: rgba(255,159,67,0.15); color: var(--mango);">FRUIT FAMILY</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">13</div>
+      <div><div class="rank-name">Nancy Gazette</div><div class="rank-angle">In-universe newsletter. Character news, wave previews. Physical zine potential.</div></div>
+      <span class="rank-tag" style="background: rgba(255,153,0,0.12); color: #ff9900;">OWNED MEDIA</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">14</div>
+      <div><div class="rank-name">Nancy Pantry</div><div class="rank-angle">"What's in your Nancy Pantry?" Personal collection. Reorder staples. Subscription-friendly.</div></div>
+      <span class="rank-tag" style="background: rgba(255,159,67,0.15); color: var(--mango);">FRUIT FAMILY</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">15</div>
+      <div><div class="rank-name">Nancy Files</div><div class="rank-angle">Data-driven deep dives. Each File = an advertorial waiting to happen.</div></div>
+      <span class="rank-tag" style="background: rgba(255,153,0,0.12); color: #ff9900;">ADVERTORIAL</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">16</div>
+      <div><div class="rank-name">Nancy Ritual</div><div class="rank-angle">Wellness routines. "The Lem Ritual." Product + mood + playlist + guide. Sellable as kits.</div></div>
+      <span class="rank-tag" style="background: rgba(255,153,0,0.12); color: #ff9900;">PRODUCT BUNDLES</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">17</div>
+      <div><div class="rank-name">Nancy Hour</div><div class="rank-angle">Weekly live content. "Nancy Hour: Every Thursday at 9pm." Appointment viewing.</div></div>
+      <span class="rank-tag" style="background: rgba(255,153,0,0.12); color: #ff9900;">LIVE CONTENT</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">18</div>
+      <div><div class="rank-name">Nancy Orchard</div><div class="rank-angle">Each tree = product family (Lem tree, Berri bush). Elevated, heritage. Walk through the orchard.</div></div>
+      <span class="rank-tag" style="background: rgba(255,159,67,0.15); color: var(--mango);">FRUIT FAMILY</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">19</div>
+      <div><div class="rank-name">Nancy Labs</div><div class="rank-angle">Community co-creation. Vote on Wave 11 themes, name new characters. Free product research.</div></div>
+      <span class="rank-tag" style="background: rgba(255,153,0,0.12); color: #ff9900;">CO-CREATION</span>
+    </div>
+    <div class="rank-card" style="background: rgba(255,153,0,0.06); border: 1px solid rgba(255,153,0,0.12);">
+      <div class="rank-num" style="color: #ff9900;">20</div>
+      <div><div class="rank-name">Nancy Index</div><div class="rank-angle">Universe encyclopedia. 130 character pages. SEO monster — organic traffic machine.</div></div>
+      <span class="rank-tag" style="background: rgba(255,153,0,0.12); color: #ff9900;">SEO ENGINE</span>
+    </div>
+  </div>
+
+  <div class="tier-label" style="color: var(--lime);">TIER 3 — SOLID BETS (21-30)</div>
+  <div class="rank-grid">
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">21</div>
+      <div><div class="rank-name">Nancy Basket</div><div class="rank-angle">"Build Your Basket." Curated bundles. Gift sets. Picnic energy.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">22</div>
+      <div><div class="rank-name">Nancy Parlour</div><div class="rank-angle">Ice cream parlour meets boudoir. Intimate, classy, slightly cheeky.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">23</div>
+      <div><div class="rank-name">Nancy Drops</div><div class="rank-angle">Formalize the wave/drop model. Countdown timers, waitlists, hype builds.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">24</div>
+      <div><div class="rank-name">Nancy Vault</div><div class="rank-angle">Past waves, OG drops, limited rereleases. Scarcity + nostalgia.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">25</div>
+      <div><div class="rank-name">Nancy Orbit</div><div class="rank-angle">Interactive universe map. Click into characters, waves, collections. Spatial navigation.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">26</div>
+      <div><div class="rank-name">Nancy Club</div><div class="rank-angle">Free loyalty tier. Points for reviews, UGC, referrals. Entry-level community.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">27</div>
+      <div><div class="rank-name">Nancy Grove</div><div class="rank-angle">Small curated collections. "The Lem Grove." Boutique within the universe.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">28</div>
+      <div><div class="rank-name">Nancy Missions</div><div class="rank-angle">Gamified tasks. Review = 50 pts. Photo = 100 pts. Points unlock exclusive characters.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">29</div>
+      <div><div class="rank-name">Nancy & Friends</div><div class="rank-angle">Creator collab program. Each collab = a new character. Infinite expansion.</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08);">
+      <div class="rank-num" style="color: var(--lime);">30</div>
+      <div><div class="rank-name">Nancy Tales</div><div class="rank-angle">Short-form character stories. 60-second reads. IG carousel, TikTok, newsletter.</div></div>
+    </div>
+  </div>
+
+  <div class="tier-label" style="color: rgba(255,255,255,0.3);">TIER 4 — NICHE / LONG-TERM (31-55)</div>
+  <div class="rank-grid" style="opacity: 0.6;">
+    <div class="rank-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+      <div class="rank-num" style="color: rgba(255,255,255,0.2);">31-40</div>
+      <div><div class="rank-angle">Nancy Picnic · Nancy Shelf · Nancy Window · Nancy Juicebar · Nancy Patch · Nancy Frequency · Nancy Signal · Nancy Code · Nancy House · Nancy Collective</div></div>
+    </div>
+    <div class="rank-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+      <div class="rank-num" style="color: rgba(255,255,255,0.2);">41-55</div>
+      <div><div class="rank-angle">Nancy Selects · Nancy Noir · Nancy Unboxed · Nancy Academy · Nancy Spectrum · Nancy Pulse · Nancy Glow · Nancy Core · Nancy Wave · Nancy Circle · Nancy Playground · Nancy Daily · Nancy Origins · Nancy Edit · Nancy Bloom</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FRUIT STAND SYSTEM ====== -->
+<div style="padding: 70px 40px; background: linear-gradient(180deg, #1a0a00, var(--black)); color: white; text-align: center;">
+  <h2 style="font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 6px;">The Fruit Stand <span style="color: var(--mango);">Ecosystem</span></h2>
+  <p style="opacity: 0.4; margin-bottom: 36px; font-size: 0.85rem;">If you go all-in on the fruit metaphor, here's how it layers:</p>
+
+  <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; max-width: 1100px; margin: 0 auto;">
+    <div style="background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); border-radius: 10px; padding: 18px 10px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 2px; color: var(--mango); margin-bottom: 8px;">GROW</div>
+      <div class="nancy-word" style="font-size: 0.95rem; color: white;">Greenhouse</div>
+      <div style="font-size: 0.62rem; opacity: 0.35; margin-top: 5px;">Tease → sneak peeks</div>
+    </div>
+    <div style="background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); border-radius: 10px; padding: 18px 10px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 2px; color: var(--mango); margin-bottom: 8px;">HARVEST</div>
+      <div class="nancy-word" style="font-size: 0.95rem; color: white;">Harvest</div>
+      <div style="font-size: 0.62rem; opacity: 0.35; margin-top: 5px;">Drop → seasonal launch</div>
+    </div>
+    <div style="background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); border-radius: 10px; padding: 18px 10px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 2px; color: var(--mango); margin-bottom: 8px;">BROWSE</div>
+      <div class="nancy-word" style="font-size: 0.95rem; color: white;">Fruit Stand</div>
+      <div style="font-size: 0.62rem; opacity: 0.35; margin-top: 5px;">Discover → shop the stand</div>
+    </div>
+    <div style="background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); border-radius: 10px; padding: 18px 10px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 2px; color: var(--mango); margin-bottom: 8px;">COLLECT</div>
+      <div class="nancy-word" style="font-size: 0.95rem; color: white;">Basket</div>
+      <div style="font-size: 0.62rem; opacity: 0.35; margin-top: 5px;">Bundle → build your basket</div>
+    </div>
+    <div style="background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); border-radius: 10px; padding: 18px 10px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 2px; color: var(--mango); margin-bottom: 8px;">STOCK</div>
+      <div class="nancy-word" style="font-size: 0.95rem; color: white;">Pantry</div>
+      <div style="font-size: 0.62rem; opacity: 0.35; margin-top: 5px;">Reorder → always stocked</div>
+    </div>
+    <div style="background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); border-radius: 10px; padding: 18px 10px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 2px; color: var(--mango); margin-bottom: 8px;">SHOW</div>
+      <div class="nancy-word" style="font-size: 0.95rem; color: white;">Shelf</div>
+      <div style="font-size: 0.62rem; opacity: 0.35; margin-top: 5px;">Display → show collection</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 24px; font-size: 0.75rem; opacity: 0.22;">Greenhouse → Harvest → Fruit Stand → Basket → Pantry → Shelf. The full customer lifecycle as a fruit metaphor. It just... works.</div>
+</div>
+
+<!-- ====== THE NANCY STACK (from V4) ====== -->
+<div style="padding: 70px 40px; background: var(--black); color: white; text-align: center;">
+  <h2 style="font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 8px;">The <span style="color: var(--pink);">Nancy</span> Stack</h2>
+  <p style="opacity: 0.4; margin-bottom: 36px; font-size: 0.85rem;">Community/engagement layer. Pairs with or replaces the Fruit Stand system.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; max-width: 1000px; margin: 0 auto;">
+    <div style="background: rgba(255,45,85,0.06); border: 1px solid rgba(255,45,85,0.12); border-radius: 10px; padding: 20px 14px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: #ff2d55; margin-bottom: 8px;">DISCOVER</div>
+      <div class="nancy-word" style="font-size: 1.1rem; color: white;">Nancy Arcade</div>
+      <div style="font-size: 0.7rem; opacity: 0.4; margin-top: 6px;">Quiz → "You're a Lem!" → PDP</div>
+    </div>
+    <div style="background: rgba(255,45,85,0.06); border: 1px solid rgba(255,45,85,0.12); border-radius: 10px; padding: 20px 14px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: #ff2d55; margin-bottom: 8px;">COLLECT</div>
+      <div class="nancy-word" style="font-size: 1.1rem; color: white;">Nancy Passport</div>
+      <div style="font-size: 0.7rem; opacity: 0.4; margin-top: 6px;">Buy → stamp → unlock exclusive</div>
+    </div>
+    <div style="background: rgba(255,45,85,0.06); border: 1px solid rgba(255,45,85,0.12); border-radius: 10px; padding: 20px 14px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: #ff2d55; margin-bottom: 8px;">BELONG</div>
+      <div class="nancy-word" style="font-size: 1.1rem; color: white;">Nancy Society</div>
+      <div style="font-size: 0.7rem; opacity: 0.4; margin-top: 6px;">Upgrade → early drops → events</div>
+    </div>
+    <div style="background: rgba(255,45,85,0.06); border: 1px solid rgba(255,45,85,0.12); border-radius: 10px; padding: 20px 14px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: #ff2d55; margin-bottom: 8px;">SHARE</div>
+      <div class="nancy-word" style="font-size: 1.1rem; color: white;">Nancy Whispers</div>
+      <div style="font-size: 0.7rem; opacity: 0.4; margin-top: 6px;">Submit story → goes viral</div>
+    </div>
+    <div style="background: rgba(255,45,85,0.06); border: 1px solid rgba(255,45,85,0.12); border-radius: 10px; padding: 20px 14px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: #ff2d55; margin-bottom: 8px;">DEEPEN</div>
+      <div class="nancy-word" style="font-size: 1.1rem; color: white;">Nancy Lore</div>
+      <div style="font-size: 0.7rem; opacity: 0.4; margin-top: 6px;">Follow characters → buy merch</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px; font-size: 0.75rem; opacity: 0.25;">Two systems. One universe. The Fruit Stand handles the product journey. The Nancy Stack handles the community journey. Or pick the metaphor that fits and mix both.</div>
+</div>
+
+<!-- ====== MY PICKS ====== -->
+<div style="padding: 60px 40px; background: #0d0015; color: white;">
+  <h2 style="font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 300; margin-bottom: 6px;">My Top 3 <span style="color: var(--pink);">Picks</span></h2>
+  <p style="opacity: 0.35; margin-bottom: 30px; font-size: 0.82rem;">If I'm building three things tomorrow:</p>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px;">
+    <div style="background: rgba(255,159,67,0.08); border: 1px solid rgba(255,159,67,0.15); border-radius: 12px; padding: 24px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: var(--mango); margin-bottom: 8px;">01 · THE STOREFRONT</div>
+      <div class="nancy-word" style="font-size: 1.4rem; color: white; margin-bottom: 6px;">Nancy Fruit Stand</div>
+      <div style="font-size: 0.78rem; opacity: 0.5; line-height: 1.5;">It's RIGHT THERE. Your products are fruit. This name makes the whole brand feel warm, approachable, and physically real. "Welcome to the Fruit Stand." It's your homepage rebrand.</div>
+    </div>
+    <div style="background: rgba(255,45,85,0.06); border: 1px solid rgba(255,45,85,0.12); border-radius: 12px; padding: 24px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: #ff2d55; margin-bottom: 8px;">02 · THE CONTENT ENGINE</div>
+      <div class="nancy-word" style="font-size: 1.4rem; color: white; margin-bottom: 6px;">Nancy Whispers</div>
+      <div style="font-size: 0.78rem; opacity: 0.5; line-height: 1.5;">Free ad creative forever. Every submission = content. Every story = social proof. Viral by design. Named after your own tagline. This prints money.</div>
+    </div>
+    <div style="background: rgba(204,253,40,0.04); border: 1px solid rgba(204,253,40,0.08); border-radius: 12px; padding: 24px;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 2px; color: var(--lime); margin-bottom: 8px;">03 · THE HYPE MACHINE</div>
+      <div class="nancy-word" style="font-size: 1.4rem; color: white; margin-bottom: 6px;">Nancy Greenhouse</div>
+      <div style="font-size: 0.78rem; opacity: 0.5; line-height: 1.5;">You drop 9 waves. Each one needs a pre-launch hype period. "Currently in the Greenhouse" = free hype. Community votes = free market research. Fits the fruit DNA perfectly.</div>
+    </div>
+  </div>
+  <p style="opacity: 0.2; font-size: 0.7rem; margin-top: 24px;">Nancy Fruit Stand (storefront) + Nancy Whispers (content) + Nancy Greenhouse (hype). Three pillars. The whole business covered.</p>
+</div>
+
+</body>
+</html>
