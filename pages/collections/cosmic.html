@@ -45,14 +45,10 @@ fbq('track', 'PageView');
 
     <!-- Hero Banner -->
     <div class="collection-hero" style="background: linear-gradient(135deg, #EDE7F6 0%, #7C4DFF22 100%);">
-      <div class="collection-hero-content">
-        <span style="font-size: 3rem;">🌌</span>
-        <h1 class="collection-hero-title" style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em; font-size: clamp(2rem, 5vw, 3.5rem);">
-          Space & Cosmic <em style="font-family: var(--font-editorial); font-weight: 400;">Collection</em>
-        </h1>
-        <p class="collection-hero-subtitle" style="font-family: var(--font-body); font-size: 1.15rem; color: var(--ink-light); max-width: 500px; margin: 0 auto;">
-          The universe is vast. Your plush collection should be too.
-        </p>
+      <img loading="lazy" decoding="async" src="../../assets/plushies/galaxy/galaxy-hero.webp" alt="Space & Cosmic plush collection" onerror="this.src='../../assets/generated/plush-galaxy.png'" style="opacity: 0.25; object-position: center;">
+      <div class="collection-hero-overlay" style="background: linear-gradient(135deg, rgba(124,77,255,0.35) 0%, rgba(237,231,246,0.6) 100%);">
+        <h1>Space & Cosmic <em style="font-family: var(--font-editorial); font-weight: 400;">Collection</em></h1>
+        <p>The universe is vast. Your plush collection should be too.</p>
       </div>
     </div>
 
@@ -62,7 +58,7 @@ fbq('track', 'PageView');
     </div>
 
     <!-- Product Grid -->
-    <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2rem; padding: 1rem 0 3rem;">
+    <div class="collection-grid">
       
           <a href="../products/plush-nebula.html" class="product-card" data-tilt>
             <div class="product-card-image">
