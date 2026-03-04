@@ -6,19 +6,50 @@
 
   if (!mainImg || !thumbs.length) return;
 
+  // Preload all gallery images on page load
+  thumbs.forEach(btn => {
+    const src = btn.querySelector('img').getAttribute('data-full') ||
+                btn.querySelector('img').src;
+    if (src) {
+      const img = new Image();
+      img.src = src;
+    }
+  });
+
   thumbs.forEach((btn, i) => {
     btn.addEventListener('click', () => {
       const src = btn.querySelector('img').getAttribute('data-full') ||
                   btn.querySelector('img').src;
       const alt = btn.querySelector('img').alt || '';
 
-      // Fade transition
-      mainImg.style.opacity = '0';
-      setTimeout(() => {
-        mainImg.src = src;
-        mainImg.alt = alt;
-        mainImg.style.opacity = '1';
-      }, 200);
+      // Skip if already showing this image
+      if (mainImg.src.endsWith(src.split('/').pop())) return;
+
+      // Preload then crossfade
+      const preload = new Image();
+      preload.src = src;
+
+      const doSwap = () => {
+        mainImg.style.opacity = '0';
+        setTimeout(() => {
+          mainImg.src = src;
+          mainImg.alt = alt;
+          // Wait for paint then fade in
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              mainImg.style.opacity = '1';
+            });
+          });
+        }, 180);
+      };
+
+      if (preload.complete) {
+        doSwap();
+      } else {
+        preload.onload = doSwap;
+        // Fallback if image takes too long
+        setTimeout(() => { if (!preload.complete) doSwap(); }, 500);
+      }
 
       // Update active thumb
       thumbs.forEach(t => t.classList.remove('active'));
