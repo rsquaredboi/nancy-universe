@@ -15,6 +15,336 @@
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Regular.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="https://cdn.shopify.com/s/files/1/0726/3764/5121/files/ESRebondGrotesque-Bold.woff?v=1680075897" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="../../css/style.min.css">
+
+<!-- Comfrt-Inspired Shop All Enhancements -->
+<style>
+  /* ═══ Category Sections ═══ */
+  .shop-section {
+    margin-bottom: 3rem;
+  }
+  .shop-section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .shop-section-title {
+    font-family: var(--font-display, 'DM Sans', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .shop-section-count {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+  }
+  .shop-section-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    margin-left: auto;
+    font-style: italic;
+    font-family: var(--font-editorial, 'Fraunces', serif);
+  }
+
+  /* ═══ Hero Product (Lem) — 2-col span ═══ */
+  .product-card--hero {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,227,80,0.08) 0%, rgba(255,180,50,0.04) 100%);
+    border: 1px solid rgba(255,227,80,0.15);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .product-card--hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(255,227,80,0.12);
+  }
+  .product-card--hero .hero-card-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .product-card--hero .hero-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .product-card--hero:hover .hero-card-image img {
+    transform: scale(1.03);
+  }
+  .product-card--hero .hero-card-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-card-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #FFE350;
+    margin-bottom: 0.75rem;
+  }
+  .hero-card-eyebrow .dot {
+    width: 6px; height: 6px;
+    background: #FFE350;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .hero-card-name {
+    font-family: var(--font-display, 'DM Sans', sans-serif);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  .hero-card-tagline {
+    font-family: var(--font-editorial, 'Fraunces', serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1.25rem;
+  }
+  .hero-card-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-card-stat {
+    text-align: center;
+  }
+  .hero-card-stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .hero-card-stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.15rem;
+  }
+  .hero-card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-card-price .current {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .hero-card-price .compare {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.35);
+    text-decoration: line-through;
+  }
+  .hero-card-price .save-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(34,197,94,0.15);
+    color: #22C55E;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  /* ═══ Inline Color Swatches ═══ */
+  .product-card-swatches {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .swatch:hover {
+    transform: scale(1.2);
+    border-color: rgba(255,255,255,0.5);
+  }
+  .swatch-more {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 600;
+    padding-left: 0.2rem;
+  }
+  /* Hero card swatches — larger */
+  .hero-card-swatches {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-card-swatches .swatch {
+    width: 28px;
+    height: 28px;
+    border-width: 2.5px;
+  }
+  .hero-card-swatches .swatch-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    margin-right: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ═══ Enhanced Badge System ═══ */
+  .badge-bestseller {
+    background: linear-gradient(135deg, #FFE350, #F59E0B) !important;
+    color: #1a1a1a !important;
+    font-weight: 700 !important;
+  }
+  .badge-new {
+    background: linear-gradient(135deg, #A78BFA, #7C3AED) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  .badge-bundle {
+    background: linear-gradient(135deg, #F472B6, #EC4899) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  .badge-drop {
+    background: linear-gradient(135deg, #FB923C, #EA580C) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  .badge-fanfave {
+    background: linear-gradient(135deg, #FB7185, #E11D48) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  .badge-fortwo {
+    background: linear-gradient(135deg, #34D399, #059669) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  .badge-plush {
+    background: rgba(255,255,255,0.1) !important;
+    color: rgba(255,255,255,0.8) !important;
+    font-weight: 600 !important;
+    backdrop-filter: blur(8px);
+  }
+  .badge-fashion {
+    background: linear-gradient(135deg, #F9A8D4, #EC4899) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+
+  /* ═══ Quick-Shop CTA on hover ═══ */
+  .product-card-image {
+    position: relative;
+  }
+  .quick-shop {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .product-card:hover .quick-shop {
+    transform: translateY(0);
+  }
+
+  /* ═══ Responsive hero card ═══ */
+  @media (max-width: 768px) {
+    .product-card--hero {
+      grid-template-columns: 1fr;
+    }
+    .product-card--hero .hero-card-content {
+      padding: 1.5rem;
+    }
+    .hero-card-name {
+      font-size: 1.8rem;
+    }
+    .hero-card-price .current {
+      font-size: 1.6rem;
+    }
+    .hero-card-swatches .swatch {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* ═══ Category Filter Pills ═══ */
+  .category-pills {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .category-pill {
+    padding: 0.5rem 1.1rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .category-pill:hover, .category-pill.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border-color: rgba(255,255,255,0.25);
+  }
+  .category-pill.active {
+    background: var(--pink, #E11D48);
+    border-color: var(--pink, #E11D48);
+    color: #fff;
+  }
+
+  /* Savings callout */
+  .product-card-savings {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #22C55E;
+    margin-top: 0.2rem;
+  }
+</style>
+
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -50,9 +380,19 @@ fbq('track', 'PageView');
       </div>
     </div>
 
+    <!-- Category Filter Pills -->
+    <div class="category-pills">
+      <a href="#" class="category-pill active" data-filter="all">All Products</a>
+      <a href="#" class="category-pill" data-filter="toys">🍋 Pleasure Toys</a>
+      <a href="#" class="category-pill" data-filter="bundles">🎁 Bundles</a>
+      <a href="#" class="category-pill" data-filter="plushies">🧸 Plushies</a>
+      <a href="#" class="category-pill" data-filter="fashion">👕 Fashion</a>
+      <a href="#" class="category-pill" data-filter="drops">⚡ Limited Drops</a>
+    </div>
+
     <!-- Filter Bar -->
     <div class="collection-bar">
-      <span class="collection-count">Showing all 12 products</span>
+      <span class="collection-count">Showing all 14 products</span>
       <div class="collection-sort">
         <label for="sort-select">Sort by:</label>
         <select id="sort-select">
@@ -64,215 +404,390 @@ fbq('track', 'PageView');
       </div>
     </div>
 
-    <!-- Product Grid -->
-    <div class="collection-grid">
+    <!-- ═══════════════════════════════════════
+         SECTION 1: PLEASURE TOYS (Hero + Grid)
+         ═══════════════════════════════════════ -->
+    <div class="shop-section" data-section="toys">
+      <div class="shop-section-header">
+        <span class="shop-section-title">Pleasure Toys</span>
+        <span class="shop-section-count">6 products</span>
+        <span class="shop-section-subtitle">Designed in Hong Kong. Loved in 50+ countries.</span>
+      </div>
 
-      <!-- Lem -->
-      <a href="../../pages/products/lem.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img src="../../assets/products/lem-hero.webp" alt="Lem by Nancy">
-          <span class="product-card-tag">#1 Bestseller</span>
-        </div>
-        <div class="product-card-info">
-          <div class="product-card-badge">
-            <span class="product-card-stars">★★★★★</span>
-            <span class="product-card-reviews">2,847 reviews</span>
-          </div>
-          <h3>Lem</h3>
-          <p class="product-card-tagline">Air-pulse lemon sensation</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$89</span>
-            <span class="product-card-compare">US$149</span>
-          </div>
-        </div>
-      </a>
+      <div class="collection-grid">
 
-      <!-- Berri -->
-      <a href="../../pages/products/berri.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/products/berri-hero.webp" alt="Berri by Nancy" onerror="this.onerror=null;this.src='../../assets/products/berri-hero.png'">
-          <span class="product-card-tag">Bestseller</span>
-        </div>
-        <div class="product-card-info">
-          <div class="product-card-badge">
-            <span class="product-card-stars">★★★★★</span>
-            <span class="product-card-reviews">1,923 reviews</span>
+        <!-- ★ LEM — HERO CARD (spans full width) ★ -->
+        <a href="../../pages/products/lem.html" class="product-card--hero reveal">
+          <div class="hero-card-image">
+            <img src="../../assets/products/lem-hero.webp" alt="Lem by Nancy — #1 Bestseller">
           </div>
-          <h3>Berri</h3>
-          <p class="product-card-tagline">Dual-motor strawberry bliss</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$99</span>
-            <span class="product-card-compare">US$159</span>
+          <div class="hero-card-content">
+            <div class="hero-card-eyebrow">
+              <span class="dot"></span>
+              #1 Best Seller · 500K+ Sold
+            </div>
+            <div class="hero-card-name">Lem</div>
+            <div class="hero-card-tagline">Air-pulse lemon sensation · 12 intensities</div>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat">
+                <div class="hero-card-stat-value">★ 4.9</div>
+                <div class="hero-card-stat-label">Rating</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-stat-value">2,847</div>
+                <div class="hero-card-stat-label">Reviews</div>
+              </div>
+              <div class="hero-card-stat">
+                <div class="hero-card-stat-value">50+</div>
+                <div class="hero-card-stat-label">Countries</div>
+              </div>
+            </div>
+            <div class="hero-card-swatches">
+              <span class="swatch-label">Colors:</span>
+              <span class="swatch" style="background: #FFE350;" title="Lemon Yellow"></span>
+              <span class="swatch" style="background: #F9A8D4;" title="Sakura Pink"></span>
+              <span class="swatch" style="background: #A7F3D0;" title="Mint Green"></span>
+              <span class="swatch" style="background: #C4B5FD;" title="Lavender"></span>
+              <span class="swatch" style="background: #FED7AA;" title="Peach"></span>
+              <span class="swatch" style="background: #E5E7EB;" title="Cloud White"></span>
+            </div>
+            <div class="hero-card-price">
+              <span class="current">US$89</span>
+              <span class="compare">US$149</span>
+              <span class="save-badge">Save 40%</span>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <!-- Avo -->
-      <a href="../../pages/products/avo.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img src="../../assets/products/avo-hero.webp" alt="Avo by Nancy">
-          <span class="product-card-tag" style="background: var(--avo-light); color: var(--avo-dark);">For Two</span>
-        </div>
-        <div class="product-card-info">
-          <div class="product-card-badge">
-            <span class="product-card-stars">★★★★★</span>
-            <span class="product-card-reviews">1,247 reviews</span>
+        <!-- Berri -->
+        <a href="../../pages/products/berri.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/products/berri-hero.webp" alt="Berri by Nancy" onerror="this.onerror=null;this.src='../../assets/products/berri-hero.png'">
+            <span class="product-card-tag badge-bestseller">Best Seller</span>
+            <div class="quick-shop">Quick Shop →</div>
           </div>
-          <h3>Avo</h3>
-          <p class="product-card-tagline">Couples' avocado vibrator</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$79</span>
-            <span class="product-card-compare">US$129</span>
+          <div class="product-card-info">
+            <div class="product-card-badge">
+              <span class="product-card-stars">★★★★★</span>
+              <span class="product-card-reviews">1,923 reviews</span>
+            </div>
+            <h3>Berri</h3>
+            <p class="product-card-tagline">Dual-motor strawberry bliss</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #FCA5A5;" title="Strawberry Red"></span>
+              <span class="swatch" style="background: #F9A8D4;" title="Blush Pink"></span>
+              <span class="swatch" style="background: #93C5FD;" title="Sky Blue"></span>
+              <span class="swatch" style="background: #FDE68A;" title="Sunny Yellow"></span>
+              <span class="swatch-more">+2</span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$99</span>
+              <span class="product-card-compare">US$159</span>
+            </div>
+            <div class="product-card-savings">Save 38%</div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <!-- Pixie -->
-      <a href="../../pages/products/pixie.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/products/pixie-hero.webp" alt="Pixie by Nancy" onerror="this.onerror=null;this.src='../../assets/products/pixie-hero.png'">
-          <span class="product-card-tag" style="background: #F3E8FF; color: #7C3AED;">New</span>
-        </div>
-        <div class="product-card-info">
-          <div class="product-card-badge">
-            <span class="product-card-stars">★★★★★</span>
-            <span class="product-card-reviews">834 reviews</span>
+        <!-- Avo -->
+        <a href="../../pages/products/avo.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img src="../../assets/products/avo-hero.webp" alt="Avo by Nancy">
+            <span class="product-card-tag badge-fortwo">For Two 💚</span>
+            <div class="quick-shop">Quick Shop →</div>
           </div>
-          <h3>Pixie</h3>
-          <p class="product-card-tagline">Tiny but mighty</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$69</span>
-            <span class="product-card-compare">US$109</span>
+          <div class="product-card-info">
+            <div class="product-card-badge">
+              <span class="product-card-stars">★★★★★</span>
+              <span class="product-card-reviews">1,247 reviews</span>
+            </div>
+            <h3>Avo</h3>
+            <p class="product-card-tagline">Couples' avocado vibrator</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #A7F3D0;" title="Avocado Green"></span>
+              <span class="swatch" style="background: #FCA5A5;" title="Rose"></span>
+              <span class="swatch" style="background: #1a1a1a; border-color: rgba(255,255,255,0.3);" title="Midnight Black"></span>
+              <span class="swatch-more">+1</span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$79</span>
+              <span class="product-card-compare">US$129</span>
+            </div>
+            <div class="product-card-savings">Save 39%</div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <!-- Lolly -->
-      <a href="../../pages/products/lolly.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/products/lolly-hero.webp" alt="Lolly by Nancy" onerror="this.onerror=null;this.src='../../assets/products/lolly-hero.png'">
-          <span class="product-card-tag" style="background: #FFF0E0; color: #EA580C;">New</span>
-        </div>
-        <div class="product-card-info">
-          <div class="product-card-badge">
-            <span class="product-card-stars">★★★★★</span>
-            <span class="product-card-reviews">612 reviews</span>
+        <!-- Pixie -->
+        <a href="../../pages/products/pixie.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/products/pixie-hero.webp" alt="Pixie by Nancy" onerror="this.onerror=null;this.src='../../assets/products/pixie-hero.png'">
+            <span class="product-card-tag badge-new">New ✨</span>
+            <div class="quick-shop">Quick Shop →</div>
           </div>
-          <h3>Lolly</h3>
-          <p class="product-card-tagline">Lollipop tongue vibrator</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$59</span>
-            <span class="product-card-compare">US$99</span>
+          <div class="product-card-info">
+            <div class="product-card-badge">
+              <span class="product-card-stars">★★★★★</span>
+              <span class="product-card-reviews">834 reviews</span>
+            </div>
+            <h3>Pixie</h3>
+            <p class="product-card-tagline">Tiny but mighty</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #C4B5FD;" title="Pixie Purple"></span>
+              <span class="swatch" style="background: #F9A8D4;" title="Blush"></span>
+              <span class="swatch" style="background: #E5E7EB;" title="Pearl"></span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$69</span>
+              <span class="product-card-compare">US$109</span>
+            </div>
+            <div class="product-card-savings">Save 37%</div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <!-- Plush Lem -->
-      <a href="../../pages/collections/plushies.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/generated/plush-lem.webp" alt="Lem Plush" onerror="this.onerror=null;this.src='../../assets/generated/plush-lem.png'">
-          <span class="product-card-tag" style="background: var(--lem-light); color: var(--lem-dark);">Plush</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Lem Plush</h3>
-          <p class="product-card-tagline">Huggable lemon friend</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$29</span>
+        <!-- Lolly -->
+        <a href="../../pages/products/lolly.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/products/lolly-hero.webp" alt="Lolly by Nancy" onerror="this.onerror=null;this.src='../../assets/products/lolly-hero.png'">
+            <span class="product-card-tag badge-new">New ✨</span>
+            <div class="quick-shop">Quick Shop →</div>
           </div>
-        </div>
-      </a>
-
-      <!-- Plush Berri -->
-      <a href="../../pages/collections/plushies.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/generated/plush-berri.webp" alt="Berri Plush" onerror="this.onerror=null;this.src='../../assets/generated/plush-berri.png'">
-          <span class="product-card-tag" style="background: var(--berri-light); color: var(--berri-dark);">Plush</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Berri Plush</h3>
-          <p class="product-card-tagline">Cuddly strawberry pal</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$29</span>
+          <div class="product-card-info">
+            <div class="product-card-badge">
+              <span class="product-card-stars">★★★★★</span>
+              <span class="product-card-reviews">612 reviews</span>
+            </div>
+            <h3>Lolly</h3>
+            <p class="product-card-tagline">Lollipop tongue vibrator</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #FB923C;" title="Orange Swirl"></span>
+              <span class="swatch" style="background: #F9A8D4;" title="Cotton Candy"></span>
+              <span class="swatch" style="background: #FCA5A5;" title="Cherry"></span>
+              <span class="swatch" style="background: #A7F3D0;" title="Lime"></span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$59</span>
+              <span class="product-card-compare">US$99</span>
+            </div>
+            <div class="product-card-savings">Save 40%</div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <!-- Plush Avo -->
-      <a href="../../pages/collections/plushies.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/generated/plush-avo.webp" alt="Avo Plush" onerror="this.onerror=null;this.src='../../assets/generated/plush-avo.png'">
-          <span class="product-card-tag" style="background: var(--avo-light); color: var(--avo-dark);">Plush</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Avo Plush</h3>
-          <p class="product-card-tagline">Snuggly avocado buddy</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$29</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2: BUNDLES
+         ═══════════════════════════════════════ -->
+    <div class="shop-section" data-section="bundles">
+      <div class="shop-section-header">
+        <span class="shop-section-title">Bundles</span>
+        <span class="shop-section-count">2 bundles</span>
+        <span class="shop-section-subtitle">More pleasure, bigger savings.</span>
+      </div>
+
+      <div class="collection-grid">
+
+        <!-- Tutti Frutti Bundle -->
+        <a href="../../pages/collections/bundles.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img src="../../assets/products/nancy-products-lineup.jpg" alt="Tutti Frutti Bundle — All 3 toys">
+            <span class="product-card-tag badge-bundle">Bundle · Save 25%</span>
+            <div class="quick-shop">Quick Shop →</div>
           </div>
-        </div>
-      </a>
-
-      <!-- Fashion Tee -->
-      <a href="../../pages/collections/fashion.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/generated/fashion-hero-tee.webp" alt="Fruit Club Tee" onerror="this.onerror=null;this.src='../../assets/generated/fashion-hero-tee.png'">
-          <span class="product-card-tag" style="background: var(--pink-light); color: var(--pink);">Fashion</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Fruit Club Tee</h3>
-          <p class="product-card-tagline">Oversized organic cotton</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$45</span>
+          <div class="product-card-info">
+            <div class="product-card-badge">
+              <span class="product-card-stars">★★★★★</span>
+              <span class="product-card-reviews">Fan Favorite</span>
+            </div>
+            <h3>Tutti Frutti Bundle</h3>
+            <p class="product-card-tagline">Lem + Berri + Avo — The full experience</p>
+            <div class="product-card-price">
+              <span class="product-card-current">US$199</span>
+              <span class="product-card-compare">US$267</span>
+            </div>
+            <div class="product-card-savings">Save US$68</div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <!-- Tutti Frutti Bundle -->
-      <a href="../../pages/collections/bundles.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img src="../../assets/products/nancy-products-lineup.jpg" alt="Tutti Frutti Bundle">
-          <span class="product-card-tag">Save 25%</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Tutti Frutti Bundle</h3>
-          <p class="product-card-tagline">Lem + Berri + Avo</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$199</span>
-            <span class="product-card-compare">US$267</span>
+        <!-- Duo Bundle (new) -->
+        <a href="../../pages/collections/bundles.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/products/lem-hero.webp" alt="Pick Any 2 Bundle">
+            <span class="product-card-tag badge-bundle">Bundle · Save 15%</span>
+            <div class="quick-shop">Quick Shop →</div>
           </div>
-        </div>
-      </a>
-
-      <!-- Drop: Sticker Pack -->
-      <a href="../../pages/collections/drops.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/generated/drop-sticker-pack.webp" alt="Nancy Sticker Pack" onerror="this.onerror=null;this.src='../../assets/generated/drop-sticker-pack.png'">
-          <span class="product-card-tag" style="background: #FFF0E0; color: #EA580C;">Drop</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Sticker Pack</h3>
-          <p class="product-card-tagline">12 fruity vinyl stickers</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$12</span>
+          <div class="product-card-info">
+            <h3>Pick Any 2</h3>
+            <p class="product-card-tagline">Choose your duo — mix & match</p>
+            <div class="product-card-price">
+              <span class="product-card-current">From US$139</span>
+              <span class="product-card-compare">US$168</span>
+            </div>
+            <div class="product-card-savings">Save up to US$29</div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <!-- Drop: Keychain -->
-      <a href="../../pages/collections/drops.html" class="product-card reveal" data-tilt>
-        <div class="product-card-image">
-          <img loading="lazy" decoding="async" src="../../assets/generated/drop-keychain-lem.webp" alt="Lem Keychain" onerror="this.onerror=null;this.src='../../assets/generated/drop-keychain-lem.png'">
-          <span class="product-card-tag" style="background: #FFF0E0; color: #EA580C;">Drop</span>
-        </div>
-        <div class="product-card-info">
-          <h3>Lem Keychain</h3>
-          <p class="product-card-tagline">Silicone squeeze keychain</p>
-          <div class="product-card-price">
-            <span class="product-card-current">US$15</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3: PLUSHIES & COLLECTIBLES
+         ═══════════════════════════════════════ -->
+    <div class="shop-section" data-section="plushies">
+      <div class="shop-section-header">
+        <span class="shop-section-title">Plushies & Collectibles</span>
+        <span class="shop-section-count">3 characters</span>
+        <span class="shop-section-subtitle">Huggable. Giftable. Instagrammable.</span>
+      </div>
+
+      <div class="collection-grid">
+
+        <!-- Plush Lem -->
+        <a href="../../pages/collections/plushies.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/generated/plush-lem.webp" alt="Lem Plush" onerror="this.onerror=null;this.src='../../assets/generated/plush-lem.png'">
+            <span class="product-card-tag badge-plush">🧸 Plush</span>
+            <div class="quick-shop">Quick Shop →</div>
           </div>
-        </div>
-      </a>
+          <div class="product-card-info">
+            <h3>Lem Plush</h3>
+            <p class="product-card-tagline">Huggable lemon friend</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #FFE350;" title="Classic Yellow"></span>
+              <span class="swatch" style="background: #F9A8D4;" title="Pink Edition"></span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$29</span>
+            </div>
+          </div>
+        </a>
 
+        <!-- Plush Berri -->
+        <a href="../../pages/collections/plushies.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/generated/plush-berri.webp" alt="Berri Plush" onerror="this.onerror=null;this.src='../../assets/generated/plush-berri.png'">
+            <span class="product-card-tag badge-plush">🧸 Plush</span>
+            <div class="quick-shop">Quick Shop →</div>
+          </div>
+          <div class="product-card-info">
+            <h3>Berri Plush</h3>
+            <p class="product-card-tagline">Cuddly strawberry pal</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #FCA5A5;" title="Classic Red"></span>
+              <span class="swatch" style="background: #FDE68A;" title="Golden Edition"></span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$29</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Plush Avo -->
+        <a href="../../pages/collections/plushies.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/generated/plush-avo.webp" alt="Avo Plush" onerror="this.onerror=null;this.src='../../assets/generated/plush-avo.png'">
+            <span class="product-card-tag badge-plush">🧸 Plush</span>
+            <div class="quick-shop">Quick Shop →</div>
+          </div>
+          <div class="product-card-info">
+            <h3>Avo Plush</h3>
+            <p class="product-card-tagline">Snuggly avocado buddy</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #A7F3D0;" title="Classic Green"></span>
+              <span class="swatch" style="background: #1a1a1a; border-color: rgba(255,255,255,0.3);" title="Midnight Edition"></span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$29</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4: FASHION
+         ═══════════════════════════════════════ -->
+    <div class="shop-section" data-section="fashion">
+      <div class="shop-section-header">
+        <span class="shop-section-title">Fashion</span>
+        <span class="shop-section-count">1 product</span>
+        <span class="shop-section-subtitle">The kind of merch people actually ask you about.</span>
+      </div>
+
+      <div class="collection-grid">
+
+        <!-- Fruit Club Tee -->
+        <a href="../../pages/collections/fashion.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/generated/fashion-hero-tee.webp" alt="Fruit Club Tee" onerror="this.onerror=null;this.src='../../assets/generated/fashion-hero-tee.png'">
+            <span class="product-card-tag badge-fashion">Fashion 👕</span>
+            <div class="quick-shop">Quick Shop →</div>
+          </div>
+          <div class="product-card-info">
+            <h3>Fruit Club Tee</h3>
+            <p class="product-card-tagline">Oversized organic cotton</p>
+            <div class="product-card-swatches">
+              <span class="swatch" style="background: #1a1a1a; border-color: rgba(255,255,255,0.3);" title="Black"></span>
+              <span class="swatch" style="background: #E5E7EB;" title="White"></span>
+              <span class="swatch" style="background: #FDE68A;" title="Lemon"></span>
+              <span class="swatch" style="background: #FCA5A5;" title="Strawberry"></span>
+              <span class="swatch" style="background: #A7F3D0;" title="Avocado"></span>
+              <span class="swatch-more">+3</span>
+            </div>
+            <div class="product-card-price">
+              <span class="product-card-current">US$45</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5: LIMITED DROPS
+         ═══════════════════════════════════════ -->
+    <div class="shop-section" data-section="drops">
+      <div class="shop-section-header">
+        <span class="shop-section-title">Limited Drops</span>
+        <span class="shop-section-count">2 items</span>
+        <span class="shop-section-subtitle">Limited run. No restocks. You snooze, you lose.</span>
+      </div>
+
+      <div class="collection-grid">
+
+        <!-- Sticker Pack -->
+        <a href="../../pages/collections/drops.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/generated/drop-sticker-pack.webp" alt="Nancy Sticker Pack" onerror="this.onerror=null;this.src='../../assets/generated/drop-sticker-pack.png'">
+            <span class="product-card-tag badge-drop">Just Dropped ⚡</span>
+            <div class="quick-shop">Quick Shop →</div>
+          </div>
+          <div class="product-card-info">
+            <h3>Sticker Pack</h3>
+            <p class="product-card-tagline">12 fruity vinyl stickers</p>
+            <div class="product-card-price">
+              <span class="product-card-current">US$12</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Lem Keychain -->
+        <a href="../../pages/collections/drops.html" class="product-card reveal" data-tilt>
+          <div class="product-card-image">
+            <img loading="lazy" decoding="async" src="../../assets/generated/drop-keychain-lem.webp" alt="Lem Keychain" onerror="this.onerror=null;this.src='../../assets/generated/drop-keychain-lem.png'">
+            <span class="product-card-tag badge-drop">Just Dropped ⚡</span>
+            <div class="quick-shop">Quick Shop →</div>
+          </div>
+          <div class="product-card-info">
+            <h3>Lem Keychain</h3>
+            <p class="product-card-tagline">Silicone squeeze keychain</p>
+            <div class="product-card-price">
+              <span class="product-card-current">US$15</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
     </div>
 
   </div>
@@ -300,5 +815,36 @@ fbq('track', 'PageView');
 <script src="../../js/includes.js"></script>
 <script src="../../js/main.js"></script>
 <script src="../../js/personality.js"></script>
+
+<!-- Category Filter Logic -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const pills = document.querySelectorAll('.category-pill');
+  const sections = document.querySelectorAll('.shop-section');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', function(e) {
+      e.preventDefault();
+      const filter = this.dataset.filter;
+
+      pills.forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+
+      sections.forEach(section => {
+        if (filter === 'all' || section.dataset.section === filter) {
+          section.style.display = '';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // Update count
+      const visible = document.querySelectorAll('.shop-section:not([style*="display: none"]) .product-card, .shop-section:not([style*="display: none"]) .product-card--hero');
+      document.querySelector('.collection-count').textContent = 
+        filter === 'all' ? 'Showing all 14 products' : `Showing ${visible.length} products`;
+    });
+  });
+});
+</script>
 </body>
 </html>
