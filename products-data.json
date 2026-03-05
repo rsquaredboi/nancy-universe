@@ -1,0 +1,2002 @@
+[
+  {
+    "filename": "avo.html",
+    "name": "Avo",
+    "tagline": "Better together.",
+    "price": "US$79",
+    "image": "../../assets/products/avo-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "berri.html",
+    "name": "Berri",
+    "tagline": "Dual-motor strawberry bliss.",
+    "price": "US$99",
+    "image": "../../assets/products/berri-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "berry-set.html",
+    "name": "Berry Set",
+    "tagline": "New territory deserves a gentle guide.",
+    "price": "US$59",
+    "image": "../../assets/products/berry-set-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "cherry.html",
+    "name": "Cherry",
+    "tagline": "Two halves. One connection. Zero distance.",
+    "price": "US$129",
+    "image": "../../assets/products/cherry-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "coconut.html",
+    "name": "Coconut",
+    "tagline": "Your pleasure, your patterns, your rules.",
+    "price": "US$129",
+    "image": "../../assets/products/coconut-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "cozy.html",
+    "name": "Cozy",
+    "tagline": "Cute on the outside. Powerful on the inside. Just like you.",
+    "price": "US$69",
+    "image": "../../assets/products/cozy-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "dragonfruit.html",
+    "name": "Dragonfruit",
+    "tagline": "Stick it. Forget your hands. Remember yourself.",
+    "price": "US$89",
+    "image": "../../assets/products/dragonfruit-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "fashion-404-not-found-tee.html",
+    "name": "404 Not Found Tee",
+    "tagline": "Error: too real.",
+    "price": "US$42",
+    "image": "../../assets/fashion/404-not-found-tee/404-not-found-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-avo-cropped-tank.html",
+    "name": "Avo Cropped Tank",
+    "tagline": "Cool & calm energy.",
+    "price": "US$35",
+    "image": "../../assets/fashion/avo-cropped-tank/avo-cropped-tank-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-avo-hoodie.html",
+    "name": "Avo Hoodie",
+    "tagline": "Cozy avocado vibes.",
+    "price": "US$85",
+    "image": "../../assets/fashion/avo-hoodie/avo-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-axolotl-ear-flap-hat.html",
+    "name": "Axolotl Ear Flap Hat",
+    "tagline": "Gill-ty pleasure.",
+    "price": "US$38",
+    "image": "../../assets/fashion/axolotl-ear-flap-hat/axolotl-ear-flap-hat-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-axolotl-smile-tee.html",
+    "name": "Axolotl Smile Tee",
+    "tagline": "Smile through it.",
+    "price": "US$45",
+    "image": "../../assets/fashion/axolotl-smile-tee/axolotl-smile-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-axolotl-water-bottle.html",
+    "name": "Axolotl Water Bottle",
+    "tagline": "Stay hydrated, stay cute.",
+    "price": "US$32",
+    "image": "../../assets/fashion/axolotl-water-bottle/axolotl-water-bottle-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-berri-crop-top.html",
+    "name": "Berri Crop Top",
+    "tagline": "Sweet & cropped.",
+    "price": "US$38",
+    "image": "../../assets/fashion/berri-crop-top/berri-crop-top-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-boba-airpods-case.html",
+    "name": "Boba Airpods Case",
+    "tagline": "Sip your beats.",
+    "price": "US$18",
+    "image": "../../assets/fashion/boba-airpods-case/boba-airpods-case-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-boba-coaster-set.html",
+    "name": "Boba Coaster Set",
+    "tagline": "Drip protection.",
+    "price": "US$18",
+    "image": "../../assets/fashion/boba-coaster-set/boba-coaster-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-boba-float-skirt.html",
+    "name": "Boba Float Skirt",
+    "tagline": "Pearl power.",
+    "price": "US$48",
+    "image": "../../assets/fashion/boba-float-skirt/boba-float-skirt-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-boba-ringer-tee.html",
+    "name": "Boba Ringer Tee",
+    "tagline": "Retro boba vibes.",
+    "price": "US$45",
+    "image": "../../assets/fashion/boba-ringer-tee/boba-ringer-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-boba-trucker-hat.html",
+    "name": "Boba Trucker Hat",
+    "tagline": "Sip & style.",
+    "price": "US$32",
+    "image": "../../assets/fashion/boba-trucker-hat/boba-trucker-hat-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-capybara-desk-organizer.html",
+    "name": "Capybara Desk Organizer",
+    "tagline": "Organized & unbothered.",
+    "price": "US$32",
+    "image": "../../assets/fashion/capybara-desk-organizer/capybara-desk-organizer-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-capybara-sleep-mask.html",
+    "name": "Capybara Sleep Mask",
+    "tagline": "Sleep unbothered.",
+    "price": "US$18",
+    "image": "../../assets/fashion/capybara-sleep-mask/capybara-sleep-mask-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-capybara-zen-hoodie.html",
+    "name": "Capybara Zen Hoodie",
+    "tagline": "Unbothered.",
+    "price": "US$85",
+    "image": "../../assets/fashion/capybara-zen-hoodie/capybara-zen-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-chaos-bucket-hat.html",
+    "name": "Chaos Bucket Hat",
+    "tagline": "Controlled chaos.",
+    "price": "US$35",
+    "image": "../../assets/fashion/chaos-bucket-hat/chaos-bucket-hat-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-chaos-fairy-tee.html",
+    "name": "Chaos Fairy Tee",
+    "tagline": "Tiny but terrifying.",
+    "price": "US$45",
+    "image": "../../assets/fashion/chaos-fairy-tee/chaos-fairy-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-chaos-fanny-pack.html",
+    "name": "Chaos Fanny Pack",
+    "tagline": "Organized chaos.",
+    "price": "US$38",
+    "image": "../../assets/fashion/chaos-fanny-pack/chaos-fanny-pack-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-chaos-hoodie.html",
+    "name": "Chaos Hoodie",
+    "tagline": "Embrace the chaos.",
+    "price": "US$89",
+    "image": "../../assets/fashion/chaos-hoodie/chaos-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-chaos-scarf.html",
+    "name": "Chaos Scarf",
+    "tagline": "Wrap up the chaos.",
+    "price": "US$35",
+    "image": "../../assets/fashion/chaos-scarf/chaos-scarf-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-chaos-sweats.html",
+    "name": "Chaos Sweats",
+    "tagline": "Chaos from the waist down.",
+    "price": "US$65",
+    "image": "../../assets/fashion/chaos-sweats/chaos-sweats-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-chill-ice-cube-tray.html",
+    "name": "Chill Ice Cube Tray",
+    "tagline": "Keep it chill.",
+    "price": "US$15",
+    "image": "../../assets/fashion/chill-ice-cube-tray/chill-ice-cube-tray-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-cinnamon-roll-tee.html",
+    "name": "Cinnamon Roll Tee",
+    "tagline": "Too pure.",
+    "price": "US$45",
+    "image": "../../assets/fashion/cinnamon-roll-tee/cinnamon-roll-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-cosmic-sweats.html",
+    "name": "Cosmic Sweats",
+    "tagline": "Lost in space.",
+    "price": "US$68",
+    "image": "../../assets/fashion/cosmic-sweats/cosmic-sweats-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-cozy-era-crewneck.html",
+    "name": "Cozy Era Crewneck",
+    "tagline": "Entering my cozy era.",
+    "price": "US$75",
+    "image": "../../assets/fashion/cozy-era-crewneck/cozy-era-crewneck-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-cryptid-club-tee.html",
+    "name": "Cryptid Club Tee",
+    "tagline": "Believe.",
+    "price": "US$48",
+    "image": "../../assets/fashion/cryptid-club-tee/cryptid-club-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-cryptid-crewneck.html",
+    "name": "Cryptid Crewneck",
+    "tagline": "Believers only.",
+    "price": "US$78",
+    "image": "../../assets/fashion/cryptid-crewneck/cryptid-crewneck-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-cryptid-keychain-set.html",
+    "name": "Cryptid Keychain Set",
+    "tagline": "Pocket-sized legends.",
+    "price": "US$18",
+    "image": "../../assets/fashion/cryptid-keychain-set/cryptid-keychain-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-deja-vu-crewneck.html",
+    "name": "Deja Vu Crewneck",
+    "tagline": "Wait, haven't we...",
+    "price": "US$75",
+    "image": "../../assets/fashion/deja-vu-crewneck/deja-vu-crewneck-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-delulu-manifesting-tee.html",
+    "name": "Delulu Manifesting Tee",
+    "tagline": "Manifesting greatness.",
+    "price": "US$42",
+    "image": "../../assets/fashion/delulu-manifesting-tee/delulu-manifesting-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-dragon-enamel-pin-set.html",
+    "name": "Dragon Enamel Pin Set",
+    "tagline": "Five moods.",
+    "price": "US$25",
+    "image": "../../assets/fashion/dragon-enamel-pin-set/dragon-enamel-pin-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-dragon-energy-tee.html",
+    "name": "Dragon Energy Tee",
+    "tagline": "Tiny but mighty.",
+    "price": "US$45",
+    "image": "../../assets/fashion/dragon-energy-tee/dragon-energy-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-dragon-fire-hoodie.html",
+    "name": "Dragon Fire Hoodie",
+    "tagline": "Handle with care.",
+    "price": "US$89",
+    "image": "../../assets/fashion/dragon-fire-hoodie/dragon-fire-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-dragon-horns-beanie.html",
+    "name": "Dragon Horns Beanie",
+    "tagline": "Horns up.",
+    "price": "US$35",
+    "image": "../../assets/fashion/dragon-horns-beanie/dragon-horns-beanie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-dragon-incense-holder.html",
+    "name": "Dragon Incense Holder",
+    "tagline": "Breathe fire & incense.",
+    "price": "US$28",
+    "image": "../../assets/fashion/dragon-incense-holder/dragon-incense-holder-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-dragon-scale-leggings.html",
+    "name": "Dragon Scale Leggings",
+    "tagline": "Scale up.",
+    "price": "US$55",
+    "image": "../../assets/fashion/dragon-scale-leggings/dragon-scale-leggings-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-eclipse-half-zip.html",
+    "name": "Eclipse Half-Zip",
+    "tagline": "Light meets dark.",
+    "price": "US$95",
+    "image": "../../assets/fashion/eclipse-half-zip/eclipse-half-zip-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-eclipse-split-shorts.html",
+    "name": "Eclipse Split Shorts",
+    "tagline": "Light meets dark.",
+    "price": "US$45",
+    "image": "../../assets/fashion/eclipse-split-shorts/eclipse-split-shorts-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-emotional-baggage-duffle.html",
+    "name": "Emotional Baggage Duffle",
+    "tagline": "Pack your feelings.",
+    "price": "US$78",
+    "image": "../../assets/fashion/emotional-baggage-duffle/emotional-baggage-duffle-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-emotional-baggage-hoodie.html",
+    "name": "Emotional Baggage Hoodie",
+    "tagline": "Unpacking feelings.",
+    "price": "US$89",
+    "image": "../../assets/fashion/emotional-baggage-hoodie/emotional-baggage-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-emotional-baggage-tags.html",
+    "name": "Emotional Baggage Tags",
+    "tagline": "Travel with feelings.",
+    "price": "US$18",
+    "image": "../../assets/fashion/emotional-baggage-tags/emotional-baggage-tags-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-emotionally-attached-tee.html",
+    "name": "Emotionally Attached Tee",
+    "tagline": "Wear your feelings.",
+    "price": "US$42",
+    "image": "../../assets/fashion/emotionally-attached-tee/emotionally-attached-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-espresso-shot-glass-set.html",
+    "name": "Espresso Shot Glass Set",
+    "tagline": "47 tabs open.",
+    "price": "US$28",
+    "image": "../../assets/fashion/espresso-shot-glass-set/espresso-shot-glass-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-espresso-yourself-hoodie.html",
+    "name": "Espresso Yourself Hoodie",
+    "tagline": "Caffeinated comfort.",
+    "price": "US$85",
+    "image": "../../assets/fashion/espresso-yourself-hoodie/espresso-yourself-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-feelings-forecast-tee.html",
+    "name": "Feelings Forecast Tee",
+    "tagline": "Today: chaotic.",
+    "price": "US$45",
+    "image": "../../assets/fashion/feelings-forecast-tee/feelings-forecast-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-feral-headband.html",
+    "name": "Feral Headband",
+    "tagline": "Unleashed.",
+    "price": "US$22",
+    "image": "../../assets/fashion/feral-headband/feral-headband-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-feral-hours-clock.html",
+    "name": "Feral Hours Clock",
+    "tagline": "Feral time zone.",
+    "price": "US$35",
+    "image": "../../assets/fashion/feral-hours-clock/feral-hours-clock-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-feral-hours-crewneck.html",
+    "name": "Feral Hours Crewneck",
+    "tagline": "After midnight.",
+    "price": "US$75",
+    "image": "../../assets/fashion/feral-hours-crewneck/feral-hours-crewneck-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-feral-sweatpants.html",
+    "name": "Feral Sweatpants",
+    "tagline": "Do not disturb.",
+    "price": "US$62",
+    "image": "../../assets/fashion/feral-sweatpants/feral-sweatpants-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-fruit-club-tee.html",
+    "name": "Fruit Club Tee",
+    "tagline": "The everyday essential.",
+    "price": "US$45",
+    "image": "../../assets/fashion/fruit-club-tee/fruit-club-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-fruit-tote-bag.html",
+    "name": "Fruit Tote Bag",
+    "tagline": "Carry the squad.",
+    "price": "US$28",
+    "image": "../../assets/fashion/fruit-tote-bag/fruit-tote-bag-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-full-nancy-box.html",
+    "name": "The Full Nancy Box",
+    "tagline": "The ultimate starter kit.",
+    "price": "US$149",
+    "image": "../../assets/fashion/full-nancy-box/full-nancy-box-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-glitch-hoodie.html",
+    "name": "Glitch Hoodie",
+    "tagline": "Not a bug.",
+    "price": "US$89",
+    "image": "../../assets/fashion/glitch-hoodie/glitch-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-glitch-wristband-set.html",
+    "name": "Glitch Wristband Set",
+    "tagline": "System overload.",
+    "price": "US$16",
+    "image": "../../assets/fashion/glitch-wristband-set/glitch-wristband-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-jellyfish-mesh-shorts.html",
+    "name": "Jellyfish Mesh Shorts",
+    "tagline": "Float on.",
+    "price": "US$48",
+    "image": "../../assets/fashion/jellyfish-mesh-shorts/jellyfish-mesh-shorts-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-jellyfish-mesh-top.html",
+    "name": "Jellyfish Mesh Top",
+    "tagline": "Ethereal flow.",
+    "price": "US$55",
+    "image": "../../assets/fashion/jellyfish-mesh-top/jellyfish-mesh-top-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-jellyfish-night-light.html",
+    "name": "Jellyfish Night Light",
+    "tagline": "Glow with the flow.",
+    "price": "US$32",
+    "image": "../../assets/fashion/jellyfish-night-light/jellyfish-night-light-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-jellyfish-phone-case.html",
+    "name": "Jellyfish Phone Case",
+    "tagline": "Glow up your phone.",
+    "price": "US$28",
+    "image": "../../assets/fashion/jellyfish-phone-case/jellyfish-phone-case-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-lem-graphic-tee.html",
+    "name": "Lem Graphic Tee",
+    "tagline": "Bold lemon energy.",
+    "price": "US$45",
+    "image": "../../assets/fashion/lem-graphic-tee/lem-graphic-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-lolly-socks-set.html",
+    "name": "Lolly Socks Set",
+    "tagline": "Sweet feet trio.",
+    "price": "US$22",
+    "image": "../../assets/fashion/lolly-socks-set/lolly-socks-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-main-character-tee.html",
+    "name": "Main Character Tee",
+    "tagline": "Main character energy.",
+    "price": "US$42",
+    "image": "../../assets/fashion/main-character-tee/main-character-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-matcha-state-of-mind.html",
+    "name": "Matcha State of Mind",
+    "tagline": "Calm but caffeinated.",
+    "price": "US$85",
+    "image": "../../assets/fashion/matcha-state-of-mind/matcha-state-of-mind-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-moth-flame-tank.html",
+    "name": "Moth to a Flame Tank",
+    "tagline": "Drawn to your light.",
+    "price": "US$35",
+    "image": "../../assets/fashion/moth-flame-tank/moth-flame-tank-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-mushroom-beret.html",
+    "name": "Mushroom Beret",
+    "tagline": "Fungi fashion.",
+    "price": "US$38",
+    "image": "../../assets/fashion/mushroom-beret/mushroom-beret-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-mushroom-canvas-pouch.html",
+    "name": "Mushroom Canvas Pouch",
+    "tagline": "Tiny treasures.",
+    "price": "US$22",
+    "image": "../../assets/fashion/mushroom-canvas-pouch/mushroom-canvas-pouch-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-mushroom-hoodie.html",
+    "name": "Mushroom Hoodie",
+    "tagline": "Forest floor vibes.",
+    "price": "US$85",
+    "image": "../../assets/fashion/mushroom-hoodie/mushroom-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-mushroom-mug.html",
+    "name": "Mushroom Mug",
+    "tagline": "Sip among the fungi.",
+    "price": "US$22",
+    "image": "../../assets/fashion/mushroom-mug/mushroom-mug-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-mushroom-pajama-pants.html",
+    "name": "Mushroom Pajama Pants",
+    "tagline": "Cottage core bedtime.",
+    "price": "US$42",
+    "image": "../../assets/fashion/mushroom-pajama-pants/mushroom-pajama-pants-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-nancy-logo-cap.html",
+    "name": "Nancy Logo Cap",
+    "tagline": "Classic Nancy.",
+    "price": "US$32",
+    "image": "../../assets/fashion/nancy-logo-cap/nancy-logo-cap-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-nancy-throw-blanket.html",
+    "name": "Nancy Throw Blanket",
+    "tagline": "Wrap up in the whole squad.",
+    "price": "US$55",
+    "image": "../../assets/fashion/nancy-throw-blanket/nancy-throw-blanket-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-nebula-bucket-hat.html",
+    "name": "Nebula Bucket Hat",
+    "tagline": "Cosmic crown.",
+    "price": "US$38",
+    "image": "../../assets/fashion/nebula-bucket-hat/nebula-bucket-hat-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-nebula-hoodie.html",
+    "name": "Nebula Hoodie",
+    "tagline": "Cosmic comfort.",
+    "price": "US$95",
+    "image": "../../assets/fashion/nebula-hoodie/nebula-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-nebula-poster-set.html",
+    "name": "Nebula Poster Set",
+    "tagline": "Gallery-worthy cosmos.",
+    "price": "US$38",
+    "image": "../../assets/fashion/nebula-poster-set/nebula-poster-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-npc-cargo-pants.html",
+    "name": "NPC Cargo Pants",
+    "tagline": "Quest accepted.",
+    "price": "US$72",
+    "image": "../../assets/fashion/npc-cargo-pants/npc-cargo-pants-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-npc-mode-tee.html",
+    "name": "NPC Mode Tee",
+    "tagline": "Activated.",
+    "price": "US$42",
+    "image": "../../assets/fashion/npc-mode-tee/npc-mode-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-npc-name-badge-lanyard.html",
+    "name": "NPC Name Badge Lanyard",
+    "tagline": "Badge equipped.",
+    "price": "US$15",
+    "image": "../../assets/fashion/npc-name-badge-lanyard/npc-name-badge-lanyard-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-nugget-appreciation-tee.html",
+    "name": "Nugget Appreciation Tee",
+    "tagline": "Everyone needs a nugget.",
+    "price": "US$45",
+    "image": "../../assets/fashion/nugget-appreciation-tee/nugget-appreciation-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-phoenix-enamel-pin.html",
+    "name": "Phoenix Enamel Pin",
+    "tagline": "Rise from the ashes.",
+    "price": "US$12",
+    "image": "../../assets/fashion/phoenix-enamel-pin/phoenix-enamel-pin-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-phoenix-rising-crewneck.html",
+    "name": "Phoenix Rising Crewneck",
+    "tagline": "Rise up.",
+    "price": "US$78",
+    "image": "../../assets/fashion/phoenix-rising-crewneck/phoenix-rising-crewneck-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-pixie-bucket-hat.html",
+    "name": "Pixie Bucket Hat",
+    "tagline": "Grape shade.",
+    "price": "US$35",
+    "image": "../../assets/fashion/pixie-bucket-hat/pixie-bucket-hat-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-reverse-crop.html",
+    "name": "Reverse Crop",
+    "tagline": "Inside out & proud.",
+    "price": "US$38",
+    "image": "../../assets/fashion/reverse-crop/reverse-crop-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-rizz-academy-hoodie.html",
+    "name": "Rizz Academy Hoodie",
+    "tagline": "Enrolled.",
+    "price": "US$95",
+    "image": "../../assets/fashion/rizz-academy-hoodie/rizz-academy-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-rizz-mirror-keychain.html",
+    "name": "Rizz Mirror Keychain",
+    "tagline": "Check your rizz.",
+    "price": "US$15",
+    "image": "../../assets/fashion/rizz-mirror-keychain/rizz-mirror-keychain-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-serotonin-dealer-tee.html",
+    "name": "Serotonin Dealer Tee",
+    "tagline": "Your daily dose.",
+    "price": "US$42",
+    "image": "../../assets/fashion/serotonin-dealer-tee/serotonin-dealer-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-serotonin-desk-light.html",
+    "name": "Serotonin Desk Light",
+    "tagline": "Glow from within.",
+    "price": "US$42",
+    "image": "../../assets/fashion/serotonin-desk-light/serotonin-desk-light-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-serotonin-sticker-pack.html",
+    "name": "Serotonin Sticker Pack",
+    "tagline": "Stick your mood.",
+    "price": "US$12",
+    "image": "../../assets/fashion/serotonin-sticker-pack/serotonin-sticker-pack-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-snooze-pillowcase-set.html",
+    "name": "Snooze Pillowcase Set",
+    "tagline": "Do not disturb.",
+    "price": "US$35",
+    "image": "../../assets/fashion/snooze-pillowcase-set/snooze-pillowcase-set-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-space-squad-laptop-sleeve.html",
+    "name": "Space Squad Laptop Sleeve",
+    "tagline": "Protect your portal.",
+    "price": "US$35",
+    "image": "../../assets/fashion/space-squad-laptop-sleeve/space-squad-laptop-sleeve-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-space-squad-tee.html",
+    "name": "Space Squad Tee",
+    "tagline": "Lost in space.",
+    "price": "US$48",
+    "image": "../../assets/fashion/space-squad-tee/space-squad-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-squad-goals-tee.html",
+    "name": "Squad Goals Tee",
+    "tagline": "The whole crew on your chest.",
+    "price": "US$45",
+    "image": "../../assets/fashion/squad-goals-tee/squad-goals-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-squad-sweatshirt.html",
+    "name": "Squad Goals Sweatshirt",
+    "tagline": "The whole crew on your chest.",
+    "price": "US$75",
+    "image": "../../assets/fashion/squad-sweatshirt/squad-sweatshirt-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-static-noise-hoodie.html",
+    "name": "Static Noise Hoodie",
+    "tagline": "White noise.",
+    "price": "US$89",
+    "image": "../../assets/fashion/static-noise-hoodie/static-noise-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-tropical-shorts.html",
+    "name": "Tropical Shorts",
+    "tagline": "Fruit print paradise.",
+    "price": "US$45",
+    "image": "../../assets/fashion/tropical-shorts/tropical-shorts-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-unhinged-thriving-tee.html",
+    "name": "Unhinged & Thriving Tee",
+    "tagline": "No filter. No plan.",
+    "price": "US$42",
+    "image": "../../assets/fashion/unhinged-thriving-tee/unhinged-thriving-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-void-beanie.html",
+    "name": "Void Beanie",
+    "tagline": "Into the void.",
+    "price": "US$28",
+    "image": "../../assets/fashion/void-beanie/void-beanie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-void-candle.html",
+    "name": "Void Candle",
+    "tagline": "Smells like the void.",
+    "price": "US$25",
+    "image": "../../assets/fashion/void-candle/void-candle-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-void-crossbody-bag.html",
+    "name": "Void Crossbody Bag",
+    "tagline": "Dark essentials.",
+    "price": "US$45",
+    "image": "../../assets/fashion/void-crossbody-bag/void-crossbody-bag-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-void-hoodie.html",
+    "name": "Void Hoodie",
+    "tagline": "Disappear into it.",
+    "price": "US$89",
+    "image": "../../assets/fashion/void-hoodie/void-hoodie-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-void-tee.html",
+    "name": "Void Tee",
+    "tagline": "Stare into it.",
+    "price": "US$45",
+    "image": "../../assets/fashion/void-tee/void-tee-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-weather-mood-board.html",
+    "name": "Weather Mood Board",
+    "tagline": "Today's mood: variable.",
+    "price": "US$28",
+    "image": "../../assets/fashion/weather-mood-board/weather-mood-board-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fashion-weather-report-crewneck.html",
+    "name": "Weather Report Crewneck",
+    "tagline": "Today's forecast: cozy.",
+    "price": "US$75",
+    "image": "../../assets/fashion/weather-report-crewneck/weather-report-crewneck-hero.webp",
+    "category": "fashion"
+  },
+  {
+    "filename": "fig.html",
+    "name": "Fig",
+    "tagline": "Grow your strength. Grow your garden.",
+    "price": "US$99",
+    "image": "../../assets/products/fig-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "fizz.html",
+    "name": "Fizz",
+    "tagline": "Dissolve the day. Discover what's inside.",
+    "price": "US$49",
+    "image": "../../assets/products/fizz-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "grape.html",
+    "name": "Grape",
+    "tagline": "Your secret. Anywhere. Anytime.",
+    "price": "US$79",
+    "image": "../../assets/products/grape-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "lem.html",
+    "name": "Lem",
+    "tagline": "The lemon that changed everything.",
+    "price": "US$89",
+    "image": "../../assets/products/lem-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "lolly.html",
+    "name": "Lolly",
+    "tagline": "The sweetest thing you'll ever unwrap.",
+    "price": "US$59",
+    "image": "../../assets/products/lolly-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "mango.html",
+    "name": "Mango",
+    "tagline": "Warmth meets air-pulse. The hug your body's been waiting for.",
+    "price": "US$99",
+    "image": "../../assets/products/mango-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "melon.html",
+    "name": "Melon",
+    "tagline": "Big energy. Small footprint. Warm vibes.",
+    "price": "US$89",
+    "image": "../../assets/products/melon-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "peach.html",
+    "name": "Peach",
+    "tagline": "No buttons. No app. Just squeeze.",
+    "price": "US$99",
+    "image": "../../assets/products/peach-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "pixie.html",
+    "name": "Pixie",
+    "tagline": "Tiny but mighty.",
+    "price": "US$69",
+    "image": "../../assets/products/pixie-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "plum.html",
+    "name": "Plum",
+    "tagline": "For every day of your cycle. Yes, those days too.",
+    "price": "US$89",
+    "image": "../../assets/products/plum-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "plush-404.html",
+    "name": "404",
+    "tagline": "Cannot be found. Does not know where it is. Vibes anyway.",
+    "price": "US$24",
+    "image": "../../assets/plushies/404/404-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-ai.html",
+    "name": "AI",
+    "tagline": "Trained on every emotion. Still can't text back normally.",
+    "price": "US$29",
+    "image": "../../assets/plushies/ai/ai-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-anxious.html",
+    "name": "Anxious",
+    "tagline": "Already worried about tomorrow. And Tuesday. And 2031.",
+    "price": "US$29",
+    "image": "../../assets/plushies/anxious/anxious-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-astro.html",
+    "name": "Astro",
+    "tagline": "Just wants to understand TikTok. Probes are purely medical.",
+    "price": "US$29",
+    "image": "../../assets/plushies/astro/astro-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-avo.html",
+    "name": "Avo",
+    "tagline": "Calm and grounding.",
+    "price": "US$29",
+    "image": "../../assets/plushies/avo/avo-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-axolotl.html",
+    "name": "Axolotl",
+    "tagline": "Permanently smiling. Nobody knows how. An icon.",
+    "price": "US$29",
+    "image": "../../assets/plushies/axolotl/axolotl-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-bandaid.html",
+    "name": "Bandaid",
+    "tagline": "Can't solve everything but will try. Covers your wounds.",
+    "price": "US$18",
+    "image": "../../assets/plushies/bandaid/bandaid-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-bat.html",
+    "name": "Bat",
+    "tagline": "Sees the world differently. Literally hangs upside down.",
+    "price": "US$24",
+    "image": "../../assets/plushies/bat/bat-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-battery.html",
+    "name": "Battery",
+    "tagline": "Fully charged on Monday. Dead by Wednesday. We've all been there.",
+    "price": "US$22",
+    "image": "../../assets/plushies/battery/battery-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-berri.html",
+    "name": "Berri",
+    "tagline": "Sweet and fierce.",
+    "price": "US$29",
+    "image": "../../assets/plushies/berri/berri-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-boba.html",
+    "name": "Boba",
+    "tagline": "Main character energy in a cup. Has 47 playlists.",
+    "price": "US$29",
+    "image": "../../assets/plushies/boba/boba-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-bubble.html",
+    "name": "Bubble",
+    "tagline": "Every day is a reason to celebrate if you're Bubble.",
+    "price": "US$29",
+    "image": "../../assets/plushies/bubble/bubble-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-bulb.html",
+    "name": "Bulb",
+    "tagline": "Has an idea every 3 seconds. Most are terrible. Some are genius.",
+    "price": "US$24",
+    "image": "../../assets/plushies/bulb/bulb-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-cactus.html",
+    "name": "Cactus",
+    "tagline": "Looks cute. Will hurt you. Sets boundaries like a therapist.",
+    "price": "US$22",
+    "image": "../../assets/plushies/cactus/cactus-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-candle.html",
+    "name": "Candle",
+    "tagline": "Will burn itself out for the people it loves. Light responsibly.",
+    "price": "US$24",
+    "image": "../../assets/plushies/candle/candle-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-capybara.html",
+    "name": "Capybara",
+    "tagline": "Gets along with literally everyone. The group chat peacekeeper.",
+    "price": "US$32",
+    "image": "../../assets/plushies/capybara/capybara-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-chaos.html",
+    "name": "Chaos",
+    "tagline": "Your brain at 3am, in plush form. Embrace it.",
+    "price": "US$29",
+    "image": "../../assets/plushies/chaos/chaos-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-cherry.html",
+    "name": "Cherry",
+    "tagline": "Inseparable best friends.",
+    "price": "US$29",
+    "image": "../../assets/plushies/cherry/cherry-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-chill.html",
+    "name": "Chill",
+    "tagline": "Has never stressed about anything. You aspire to be Chill.",
+    "price": "US$24",
+    "image": "../../assets/plushies/chill/chill-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-cinnamon-roll.html",
+    "name": "Cinnamon Roll",
+    "tagline": "Actually too good for this world. Protect at all costs.",
+    "price": "US$24",
+    "image": "../../assets/plushies/cinnamon-roll/cinnamon-roll-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-cloud-cat.html",
+    "name": "Cloud Cat",
+    "tagline": "Part cloud, part cat. Will sit on your face. Lovingly.",
+    "price": "US$29",
+    "image": "../../assets/plushies/cloud-cat/cloud-cat-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-coco.html",
+    "name": "Coco",
+    "tagline": "Tough outside, sweet inside.",
+    "price": "US$29",
+    "image": "../../assets/plushies/coco/coco-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-coconut-water.html",
+    "name": "Coconut Water",
+    "tagline": "More hydrated than you. Judges your water intake. Lovingly.",
+    "price": "US$24",
+    "image": "../../assets/plushies/coconut-water/coconut-water-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-comet.html",
+    "name": "Comet",
+    "tagline": "Shows up once every 76 years but makes it COUNT.",
+    "price": "US$29",
+    "image": "../../assets/plushies/comet/comet-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-coral.html",
+    "name": "Coral",
+    "tagline": "Took 1000 years to get this pretty. Worth the wait.",
+    "price": "US$29",
+    "image": "../../assets/plushies/coral/coral-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-cosmo.html",
+    "name": "Cosmo",
+    "tagline": "Has seen things you wouldn't believe. Still gives great hugs.",
+    "price": "US$32",
+    "image": "../../assets/plushies/cosmo/cosmo-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-croissant.html",
+    "name": "Croissant",
+    "tagline": "Refuses to wake up before 11. Has opinions about butter.",
+    "price": "US$29",
+    "image": "../../assets/plushies/croissant/croissant-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-crush.html",
+    "name": "Crush",
+    "tagline": "Makes your stomach flip. Blushes when you look at it.",
+    "price": "US$29",
+    "image": "../../assets/plushies/crush/crush-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-deja-vu.html",
+    "name": "Deja Vu",
+    "tagline": "Sold as a pair. Because you've been here before.",
+    "price": "US$38",
+    "image": "../../assets/plushies/deja-vu/deja-vu-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-delulu.html",
+    "name": "Delulu",
+    "tagline": "Believes it will happen. Has zero evidence. Will be correct.",
+    "price": "US$24",
+    "image": "../../assets/plushies/delulu/delulu-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-dewdrop.html",
+    "name": "Dewdrop",
+    "tagline": "That first sip of water at 3am. In plush form.",
+    "price": "US$22",
+    "image": "../../assets/plushies/dewdrop/dewdrop-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-dice.html",
+    "name": "Dice",
+    "tagline": "Can't decide? Roll Dice. No backsies.",
+    "price": "US$22",
+    "image": "../../assets/plushies/dice/dice-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-donut.html",
+    "name": "Donut",
+    "tagline": "Has a hole in the middle. Still feels complete. Inspiring.",
+    "price": "US$24",
+    "image": "../../assets/plushies/donut/donut-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-dragon.html",
+    "name": "Dragon",
+    "tagline": "Will burn your ex's stuff. Fits in your backpack.",
+    "price": "US$29",
+    "image": "../../assets/plushies/dragon/dragon-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-drama.html",
+    "name": "Drama",
+    "tagline": "Cried at breakfast. Laughed at funeral. It's a journey.",
+    "price": "US$29",
+    "image": "../../assets/plushies/drama/drama-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-dumpling.html",
+    "name": "Dumpling",
+    "tagline": "Ancient wisdom in a pleated body. Will fix your love life.",
+    "price": "US$29",
+    "image": "../../assets/plushies/dumpling/dumpling-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-eclipse.html",
+    "name": "Eclipse",
+    "tagline": "Two sides. Both valid. Don't look directly at her drama.",
+    "price": "US$29",
+    "image": "../../assets/plushies/eclipse/eclipse-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-eggbert.html",
+    "name": "Eggbert",
+    "tagline": "Annoyingly positive. Even at 6am. You'll love him anyway.",
+    "price": "US$24",
+    "image": "../../assets/plushies/eggbert/eggbert-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-ember.html",
+    "name": "Ember",
+    "tagline": "Almost went out. Didn't. Resilience in a glow.",
+    "price": "US$22",
+    "image": "../../assets/plushies/ember/ember-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-eraser.html",
+    "name": "Eraser",
+    "tagline": "Makes mistakes disappear. Getting smaller every time. Selfless queen.",
+    "price": "US$18",
+    "image": "../../assets/plushies/eraser/eraser-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-error.html",
+    "name": "Error",
+    "tagline": "The feeling when your crush likes your photo from 2019.",
+    "price": "US$24",
+    "image": "../../assets/plushies/error/error-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-espresso.html",
+    "name": "Espresso",
+    "tagline": "Has 47 tabs open. Finished 3 projects. It's 7am.",
+    "price": "US$22",
+    "image": "../../assets/plushies/espresso/espresso-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-feral.html",
+    "name": "Feral",
+    "tagline": "Eats trash. Stays up til 4am. Zero shame. Your spirit animal.",
+    "price": "US$29",
+    "image": "../../assets/plushies/feral/feral-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-figgy.html",
+    "name": "Figgy",
+    "tagline": "Wise and mysterious.",
+    "price": "US$29",
+    "image": "../../assets/plushies/figgy/figgy-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-frost.html",
+    "name": "Frost",
+    "tagline": "Special. Fragile. Will melt if you hold too tight.",
+    "price": "US$22",
+    "image": "../../assets/plushies/frost/frost-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-galaxy.html",
+    "name": "Galaxy",
+    "tagline": "Has been spinning for 13 billion years. Still dizzy.",
+    "price": "US$29",
+    "image": "../../assets/plushies/galaxy/galaxy-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-ghost-plush.html",
+    "name": "Ghost",
+    "tagline": "Seen. Not responded. Will haunt your notifications.",
+    "price": "US$24",
+    "image": "../../assets/plushies/ghost-plush/ghost-plush-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-glitch.html",
+    "name": "Glitch",
+    "tagline": "Not a bug — a feature. Glitch in the matrix, plush in your bed.",
+    "price": "US$32",
+    "image": "../../assets/plushies/glitch/glitch-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-guava.html",
+    "name": "Guava",
+    "tagline": "Vibrant and energetic.",
+    "price": "US$29",
+    "image": "../../assets/plushies/guava/guava-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-gummy-bear.html",
+    "name": "Gummy Bear",
+    "tagline": "You can stretch Gummy Bear. It always bounces back.",
+    "price": "US$22",
+    "image": "../../assets/plushies/gummy-bear/gummy-bear-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-hot-cocoa.html",
+    "name": "Hot Cocoa",
+    "tagline": "Will fix everything. Especially winter. Especially breakups.",
+    "price": "US$29",
+    "image": "../../assets/plushies/hot-cocoa/hot-cocoa-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-hotdog.html",
+    "name": "Hotdog",
+    "tagline": "Takes nothing seriously. 10/10 party guest. 0/10 life advice.",
+    "price": "US$24",
+    "image": "../../assets/plushies/hotdog/hotdog-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-hype.html",
+    "name": "Hype",
+    "tagline": "EVERYTHING IS AMAZING!!! Even Mondays!!! Exhausting but infectious.",
+    "price": "US$24",
+    "image": "../../assets/plushies/hype/hype-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-ice-pop.html",
+    "name": "Ice Pop",
+    "tagline": "Snap in half. Share with your person. That's the whole point.",
+    "price": "US$32",
+    "image": "../../assets/plushies/ice-pop/ice-pop-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-ick.html",
+    "name": "Ick",
+    "tagline": "The ick, personified. Everyone has one. Now yours has a face.",
+    "price": "US$24",
+    "image": "../../assets/plushies/ick/ick-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-jellyfish.html",
+    "name": "Jellyfish",
+    "tagline": "No brain. No heart. No stress. Living the dream.",
+    "price": "US$29",
+    "image": "../../assets/plushies/jellyfish/jellyfish-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-juice-box.html",
+    "name": "Juice Box",
+    "tagline": "Takes you back to when life was simple. Stab straw. Squeeze. Smile.",
+    "price": "US$22",
+    "image": "../../assets/plushies/juice-box/juice-box-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-key.html",
+    "name": "Key",
+    "tagline": "The friend who gets you into everywhere. VIP energy.",
+    "price": "US$22",
+    "image": "../../assets/plushies/key/key-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-kitsune.html",
+    "name": "Kitsune",
+    "tagline": "Will prank you. Will also save your life. Complex.",
+    "price": "US$32",
+    "image": "../../assets/plushies/kitsune/kitsune-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-kiwi.html",
+    "name": "Kiwi",
+    "tagline": "Quirky and surprising.",
+    "price": "US$29",
+    "image": "../../assets/plushies/kiwi/kiwi-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-kombucha.html",
+    "name": "Kombucha",
+    "tagline": "Literally fermenting with personality. An acquired taste.",
+    "price": "US$24",
+    "image": "../../assets/plushies/kombucha/kombucha-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-kraken.html",
+    "name": "Kraken",
+    "tagline": "Has 8 arms and will use every single one to hug you.",
+    "price": "US$32",
+    "image": "../../assets/plushies/kraken/kraken-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-lem.html",
+    "name": "Lem",
+    "tagline": "Your sunshine sidekick.",
+    "price": "US$29",
+    "image": "../../assets/plushies/lem/lem-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-liminal.html",
+    "name": "Liminal",
+    "tagline": "Not here. Not there. Somewhere in between. Oddly comforting.",
+    "price": "US$29",
+    "image": "../../assets/plushies/liminal/liminal-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-lolly.html",
+    "name": "Lolly",
+    "tagline": "Sweet on everyone.",
+    "price": "US$29",
+    "image": "../../assets/plushies/lolly/lolly-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-luna.html",
+    "name": "Luna",
+    "tagline": "Glows brightest when everyone else is asleep.",
+    "price": "US$29",
+    "image": "../../assets/plushies/luna/luna-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-macaron.html",
+    "name": "Macaron",
+    "tagline": "Looks too good to eat. Costs too much. Worth it.",
+    "price": "US$22",
+    "image": "../../assets/plushies/macaron/macaron-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-main-character.html",
+    "name": "Main Character",
+    "tagline": "Believes every room it enters is its stage. Correct.",
+    "price": "US$29",
+    "image": "../../assets/plushies/main-character/main-character-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-mango.html",
+    "name": "Mango",
+    "tagline": "Tropical adventurer.",
+    "price": "US$29",
+    "image": "../../assets/plushies/mango/mango-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-matcha.html",
+    "name": "Matcha",
+    "tagline": "Zen on the outside. Vibrating on the inside.",
+    "price": "US$29",
+    "image": "../../assets/plushies/matcha/matcha-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-melon.html",
+    "name": "Melon",
+    "tagline": "Refreshing and laid-back.",
+    "price": "US$29",
+    "image": "../../assets/plushies/melon/melon-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-meteor.html",
+    "name": "Meteor",
+    "tagline": "Shows up uninvited. Makes an impact. Leaves a crater.",
+    "price": "US$29",
+    "image": "../../assets/plushies/meteor/meteor-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-milky.html",
+    "name": "Milky",
+    "tagline": "Good for your bones. Good for your soul. Expires too fast.",
+    "price": "US$22",
+    "image": "../../assets/plushies/milky/milky-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-mochi.html",
+    "name": "Mochi",
+    "tagline": "So soft it's a lifestyle. Will teach you to let go.",
+    "price": "US$29",
+    "image": "../../assets/plushies/mochi/mochi-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-moss.html",
+    "name": "Moss",
+    "tagline": "Needs almost nothing. Thrives on neglect. Perfect roommate.",
+    "price": "US$22",
+    "image": "../../assets/plushies/moss/moss-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-mothman.html",
+    "name": "Mothman",
+    "tagline": "Follows you around. Concerned about bridges. Good intentions.",
+    "price": "US$29",
+    "image": "../../assets/plushies/mothman/mothman-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-mushroom.html",
+    "name": "Mushroom",
+    "tagline": "Grows in dark places. Comes out glowing. Fairy energy.",
+    "price": "US$24",
+    "image": "../../assets/plushies/mushroom/mushroom-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-nebula.html",
+    "name": "Nebula",
+    "tagline": "Contains multitudes. Literally — there are stars inside her.",
+    "price": "US$29",
+    "image": "../../assets/plushies/nebula/nebula-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-nessie.html",
+    "name": "Nessie",
+    "tagline": "You'll never quite catch Nessie. And that's the appeal.",
+    "price": "US$29",
+    "image": "../../assets/plushies/nessie/nessie-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-npc.html",
+    "name": "NPC",
+    "tagline": "Same route every day. Says the same things. Oddly peaceful.",
+    "price": "US$24",
+    "image": "../../assets/plushies/npc/npc-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-nugget.html",
+    "name": "Nugget",
+    "tagline": "The emotional support nugget you didn't know you needed.",
+    "price": "US$24",
+    "image": "../../assets/plushies/nugget/nugget-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-onigiri.html",
+    "name": "Onigiri",
+    "tagline": "Quiet. Steady. Will hold your hand through anything.",
+    "price": "US$24",
+    "image": "../../assets/plushies/onigiri/onigiri-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-orbit.html",
+    "name": "Orbit",
+    "tagline": "Still figuring things out. Has commitment rings though.",
+    "price": "US$32",
+    "image": "../../assets/plushies/orbit/orbit-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-papaya.html",
+    "name": "Papaya",
+    "tagline": "Exotic and free-spirited.",
+    "price": "US$29",
+    "image": "../../assets/plushies/papaya/papaya-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-paradox.html",
+    "name": "Paradox",
+    "tagline": "Exists and doesn't. Is small but also big. Don't think about it.",
+    "price": "US$29",
+    "image": "../../assets/plushies/paradox/paradox-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-peachy.html",
+    "name": "Peachy",
+    "tagline": "Warm and affectionate.",
+    "price": "US$29",
+    "image": "../../assets/plushies/peachy/peachy-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-pebble.html",
+    "name": "Pebble",
+    "tagline": "Small. Steady. Has been through a lot. Still smooth.",
+    "price": "US$18",
+    "image": "../../assets/plushies/pebble/pebble-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-phoenix.html",
+    "name": "Phoenix",
+    "tagline": "Burns down. Rises up. Repeat. Your most dramatic friend.",
+    "price": "US$29",
+    "image": "../../assets/plushies/phoenix/phoenix-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-pickle.html",
+    "name": "Pickle",
+    "tagline": "You either get it or you don't. There's no in between.",
+    "price": "US$24",
+    "image": "../../assets/plushies/pickle/pickle-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-pixie.html",
+    "name": "Pixie",
+    "tagline": "Tiny but mighty.",
+    "price": "US$29",
+    "image": "../../assets/plushies/pixie/pixie-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-plug.html",
+    "name": "Plug",
+    "tagline": "5% to 100%. That's Plug's whole personality.",
+    "price": "US$24",
+    "image": "../../assets/plushies/plug/plug-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-plummy.html",
+    "name": "Plummy",
+    "tagline": "Elegant and sophisticated.",
+    "price": "US$29",
+    "image": "../../assets/plushies/plummy/plummy-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-pluto.html",
+    "name": "Pluto",
+    "tagline": "Still a planet in our hearts. Small but never forgotten.",
+    "price": "US$22",
+    "image": "../../assets/plushies/pluto/pluto-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-pretzel.html",
+    "name": "Pretzel",
+    "tagline": "Complicated but worth it. Salty when tired.",
+    "price": "US$24",
+    "image": "../../assets/plushies/pretzel/pretzel-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-rage.html",
+    "name": "Rage",
+    "tagline": "4 inches of pure anger. Scream into it. It understands.",
+    "price": "US$18",
+    "image": "../../assets/plushies/rage/rage-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-rainbow.html",
+    "name": "Rainbow",
+    "tagline": "Shows up after the worst day. Proof it gets better.",
+    "price": "US$29",
+    "image": "../../assets/plushies/rainbow/rainbow-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-ramen.html",
+    "name": "Ramen",
+    "tagline": "Looks chill on the surface. Full of layers underneath.",
+    "price": "US$29",
+    "image": "../../assets/plushies/ramen/ramen-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-remote.html",
+    "name": "Remote",
+    "tagline": "Runs the household. Everyone panics when Remote goes missing.",
+    "price": "US$22",
+    "image": "../../assets/plushies/remote/remote-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-reverse.html",
+    "name": "Reverse",
+    "tagline": "Wears its heart on the outside. Literally.",
+    "price": "US$32",
+    "image": "../../assets/plushies/reverse/reverse-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-rizz.html",
+    "name": "Rizz",
+    "tagline": "Effortlessly cool. Was born with it. You cannot learn Rizz.",
+    "price": "US$29",
+    "image": "../../assets/plushies/rizz/rizz-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-rocket.html",
+    "name": "Rocket",
+    "tagline": "Ready before you are. Already left. Will text you from orbit.",
+    "price": "US$29",
+    "image": "../../assets/plushies/rocket/rocket-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-sake.html",
+    "name": "Sake",
+    "tagline": "Only comes out at night. Makes everyone funnier.",
+    "price": "US$29",
+    "image": "../../assets/plushies/sake/sake-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-serotonin.html",
+    "name": "Serotonin",
+    "tagline": "Hold it. Feel better. Science? No. Does it work? Yes.",
+    "price": "US$29",
+    "image": "../../assets/plushies/serotonin/serotonin-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-shadow.html",
+    "name": "Shadow",
+    "tagline": "Everyone has one. Shadow just owns it.",
+    "price": "US$29",
+    "image": "../../assets/plushies/shadow/shadow-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-simp.html",
+    "name": "Simp",
+    "tagline": "Will carry your bags, remember your order, and never complain.",
+    "price": "US$24",
+    "image": "../../assets/plushies/simp/simp-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-slay.html",
+    "name": "Slay",
+    "tagline": "Does nothing halfway. Walks in. Owns it. Leaves.",
+    "price": "US$29",
+    "image": "../../assets/plushies/slay/slay-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-slime.html",
+    "name": "Slime",
+    "tagline": "Takes the shape of whatever you need. Emotionally and literally.",
+    "price": "US$22",
+    "image": "../../assets/plushies/slime/slime-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-smoothie.html",
+    "name": "Smoothie",
+    "tagline": "A little bit of everything. Somehow it works.",
+    "price": "US$29",
+    "image": "../../assets/plushies/smoothie/smoothie-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-snooze.html",
+    "name": "Snooze",
+    "tagline": "Professional napper. Will enable your worst sleep habits.",
+    "price": "US$29",
+    "image": "../../assets/plushies/snooze/snooze-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-sock.html",
+    "name": "Sock",
+    "tagline": "Somewhere, there's another sock. Sock is not giving up hope.",
+    "price": "US$18",
+    "image": "../../assets/plushies/sock/sock-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-solaris.html",
+    "name": "Solaris",
+    "tagline": "Will not let you sit alone at lunch. Literally radiates warmth.",
+    "price": "US$29",
+    "image": "../../assets/plushies/solaris/solaris-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-starla.html",
+    "name": "Starla",
+    "tagline": "Does everything. Glitters while doing it. Exhausting and inspiring.",
+    "price": "US$29",
+    "image": "../../assets/plushies/starla/starla-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-static.html",
+    "name": "Static",
+    "tagline": "Calms your brain. Makes no sense. Perfect background character.",
+    "price": "US$29",
+    "image": "../../assets/plushies/static/static-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-sushi.html",
+    "name": "Sushi",
+    "tagline": "Always dressed well. Judges your leftovers.",
+    "price": "US$29",
+    "image": "../../assets/plushies/sushi/sushi-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-taco.html",
+    "name": "Taco",
+    "tagline": "A lot going on. No regrets. Will spill the tea (and the salsa).",
+    "price": "US$29",
+    "image": "../../assets/plushies/taco/taco-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-teabag.html",
+    "name": "Teabag",
+    "tagline": "Only gets interesting under pressure. Steep expectations.",
+    "price": "US$22",
+    "image": "../../assets/plushies/teabag/teabag-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-thunder.html",
+    "name": "Thunder",
+    "tagline": "Makes an entrance. Everyone hears Thunder coming.",
+    "price": "US$29",
+    "image": "../../assets/plushies/thunder/thunder-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-toasty.html",
+    "name": "Toasty",
+    "tagline": "A little crispy. A little dramatic. Perfectly imperfect.",
+    "price": "US$24",
+    "image": "../../assets/plushies/toasty/toasty-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-tornado.html",
+    "name": "Tornado",
+    "tagline": "Enters a room and rearranges everything. Can't help it.",
+    "price": "US$29",
+    "image": "../../assets/plushies/tornado/tornado-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-tsunami.html",
+    "name": "Tsunami",
+    "tagline": "A LOT of emotions, all at once. But pretty from a distance.",
+    "price": "US$29",
+    "image": "../../assets/plushies/tsunami/tsunami-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-ufo.html",
+    "name": "UFO",
+    "tagline": "Nobody knows where they came from. Best not to ask.",
+    "price": "US$29",
+    "image": "../../assets/plushies/ufo/ufo-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-unhinged.html",
+    "name": "Unhinged",
+    "tagline": "No filter. No plan. No regrets. Do not give Unhinged caffeine.",
+    "price": "US$29",
+    "image": "../../assets/plushies/unhinged/unhinged-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-unicorn.html",
+    "name": "Unicorn",
+    "tagline": "Yes, another unicorn. But with a nose ring and attitude.",
+    "price": "US$29",
+    "image": "../../assets/plushies/unicorn/unicorn-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-vinyl.html",
+    "name": "Vinyl",
+    "tagline": "Was into it before you were. Has opinions about sound quality.",
+    "price": "US$29",
+    "image": "../../assets/plushies/vinyl/vinyl-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-virus.html",
+    "name": "Virus",
+    "tagline": "Once you catch feelings for Virus, everyone around you will too.",
+    "price": "US$24",
+    "image": "../../assets/plushies/virus/virus-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-void.html",
+    "name": "Void",
+    "tagline": "Tell Void your problems. They disappear. (So might your snacks.)",
+    "price": "US$29",
+    "image": "../../assets/plushies/void/void-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-waffles.html",
+    "name": "Waffles",
+    "tagline": "Organizes everything into little squares. Slightly neurotic. Delightful.",
+    "price": "US$29",
+    "image": "../../assets/plushies/waffles/waffles-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-wifi.html",
+    "name": "Wifi",
+    "tagline": "Sometimes strong. Sometimes weak. Always needed.",
+    "price": "US$24",
+    "image": "../../assets/plushies/wifi/wifi-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-yeti.html",
+    "name": "Yeti",
+    "tagline": "Just wants a hug but scares everyone away. Relatable.",
+    "price": "US$32",
+    "image": "../../assets/plushies/yeti/yeti-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "plush-zen.html",
+    "name": "Zen",
+    "tagline": "Has downloaded Calm. Has opened Calm. Has not used Calm.",
+    "price": "US$29",
+    "image": "../../assets/plushies/zen/zen-hero.webp",
+    "category": "plush"
+  },
+  {
+    "filename": "seed.html",
+    "name": "Seed",
+    "tagline": "Try everything. Commit to nothing. (Yet.)",
+    "price": "US$149",
+    "image": "../../assets/products/seed-hero.webp",
+    "category": "pleasure"
+  },
+  {
+    "filename": "stem.html",
+    "name": "Stem",
+    "tagline": "Wear your pleasure. Literally.",
+    "price": "US$79",
+    "image": "../../assets/products/stem-hero.webp",
+    "category": "pleasure"
+  }
+]
