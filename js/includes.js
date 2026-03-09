@@ -10,10 +10,6 @@
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '911407491817897');
   fbq('track', 'PageView');
-  // Also inject noscript fallback
-  (function(){var i=document.createElement('img');i.height=1;i.width=1;i.style.display='none';
-  i.src='https://www.facebook.com/tr?id=911407491817897&ev=PageView&noscript=1';
-  document.body.appendChild(i);})();
 
   const currentScript = document.currentScript || document.querySelector('script[src*="includes.js"]');
   const scriptSrc = currentScript ? currentScript.getAttribute('src') : '';
