@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box System — Nancy Universe Packaging</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #FF6B9D;
+  --pink-soft: #FFB6C1;
+  --dark: #0e0e14;
+  --dark-card: rgba(255,255,255,0.04);
+  --radius: 16px;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--dark); color: white; }
+
+/* ─── Hero ─── */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  background: linear-gradient(180deg, #2a0a1e 0%, #1a0a2e 40%, var(--dark) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255,107,157,0.08) 0%, transparent 60%);
+}
+.hero > * { position: relative; z-index: 1; }
+.back-link {
+  display: inline-block;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: white; }
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero h1 span { color: var(--pink); }
+.hero .subtitle {
+  font-size: 1.05rem;
+  opacity: 0.5;
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+/* Stats strip */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.stat {
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--pink);
+}
+.stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.4;
+  font-weight: 600;
+}
+
+/* ─── System Explainer ─── */
+.explainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem 1rem;
+}
+.explainer-card {
+  background: linear-gradient(135deg, rgba(255,107,157,0.08), rgba(147,51,234,0.06));
+  border: 1px solid rgba(255,107,157,0.15);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+}
+.explainer-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.explainer-card h2 span { color: var(--pink); }
+.explainer-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.step {
+  text-align: center;
+  padding: 1rem;
+}
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.step-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+.step-desc {
+  font-size: 0.78rem;
+  opacity: 0.5;
+  line-height: 1.5;
+}
+
+/* ─── Universal Box ─── */
+.universal-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2rem 1rem;
+}
+.universal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.universal-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+}
+.universal-img img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+  transition: transform 0.3s;
+}
+.universal-img:hover img { transform: scale(1.02); }
+.universal-info h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+.universal-info h2 span { color: var(--pink); }
+.universal-info p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  opacity: 0.6;
+  margin-bottom: 0.8rem;
+}
+.checklist {
+  list-style: none;
+  margin-top: 1rem;
+}
+.checklist li {
+  font-size: 0.82rem;
+  padding: 0.35rem 0;
+  opacity: 0.7;
+}
+.checklist li::before {
+  content: '✓';
+  color: var(--pink);
+  font-weight: 700;
+  margin-right: 0.6rem;
+}
+
+/* ─── Collection Grid ─── */
+.collections-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem 1rem;
+  text-align: center;
+}
+.collections-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.4rem;
+}
+.collections-header h2 span { color: var(--pink); }
+.collections-header p {
+  font-size: 0.88rem;
+  opacity: 0.4;
+}
+
+.collection-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.5rem;
+}
+
+.col-card {
+  background: var(--dark-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.col-card:hover {
+  border-color: rgba(255,107,157,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(255,107,157,0.08);
+}
+.col-card-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+}
+.col-card-body {
+  padding: 1rem 1.2rem 1.2rem;
+}
+.col-card-wave {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--pink);
+  opacity: 0.8;
+  margin-bottom: 0.15rem;
+}
+.col-card-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.col-card-desc {
+  font-size: 0.78rem;
+  opacity: 0.4;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+.col-card-meta {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.col-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.45);
+}
+.col-tag.count { color: var(--pink); background: rgba(255,107,157,0.1); }
+.col-tag.sticker { color: #4FC3F7; background: rgba(79,195,247,0.1); }
+
+/* ─── Sticker Sheet ─── */
+.sticker-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.sticker-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.sticker-img {
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.sticker-img img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+  transition: transform 0.3s;
+}
+.sticker-img:hover img { transform: scale(1.02); }
+.sticker-info h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.sticker-info h2 span { color: var(--pink); }
+.sticker-info p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+.sticker-list {
+  list-style: none;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 1rem;
+}
+.sticker-list li {
+  font-size: 0.75rem;
+  padding: 0.3rem 0;
+  opacity: 0.55;
+  font-weight: 500;
+}
+.sticker-list li::before {
+  content: '●';
+  color: var(--pink);
+  margin-right: 0.4rem;
+  font-size: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ─── Economics ─── */
+.economics {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+}
+.econ-card {
+  background: linear-gradient(135deg, rgba(255,107,157,0.06), rgba(79,195,247,0.04));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+}
+.econ-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+.econ-card h2 span { color: var(--pink); }
+.econ-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.econ-item {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.econ-item .econ-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+.econ-item h4 { font-size: 0.85rem; margin-bottom: 0.2rem; }
+.econ-item p { font-size: 0.72rem; opacity: 0.45; line-height: 1.5; }
+
+/* ─── Lightbox ─── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.lb-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+.lb-info {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lb-nav:hover { background: rgba(255,255,255,0.2); }
+.lb-nav.prev { left: 1.5rem; }
+.lb-nav.next { right: 1.5rem; }
+
+@media (max-width: 768px) {
+  .universal-grid, .sticker-grid { grid-template-columns: 1fr; }
+  .collection-grid { grid-template-columns: 1fr; }
+  .stats { gap: 1rem; }
+  .econ-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="packaging-concepts.html" class="back-link">← All Packaging Concepts</a>
+  <h1>📦 One Box. <span>Every Collection.</span></h1>
+  <p class="subtitle">Universal pink mystery box + customisable collection stickers. Same box, 120+ characters, infinite drops.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Universal Box</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-label">Collection Stickers</div></div>
+    <div class="stat"><div class="stat-num">120+</div><div class="stat-label">Characters</div></div>
+    <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Future Drops</div></div>
+  </div>
+</div>
+
+<!-- System Explainer -->
+<div class="explainer">
+  <div class="explainer-card">
+    <h2>How the <span>Sticker System</span> works</h2>
+    <div class="explainer-steps">
+      <div class="step">
+        <div class="step-icon">📦</div>
+        <div class="step-title">One Pink Box</div>
+        <div class="step-desc">Universal matte dusty pink box with holographic "?" — same for every character</div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🏷️</div>
+        <div class="step-title">Collection Sticker</div>
+        <div class="step-desc">Swappable sticker shows collection name, "1 of X", and silhouette hint icons</div>
+      </div>
+      <div class="step">
+        <div class="step-icon">💖</div>
+        <div class="step-title">"SQUEEZE ME!" Badge</div>
+        <div class="step-desc">Hot pink circular badge stays universal — the Nancy brand marker across all boxes</div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🎉</div>
+        <div class="step-title">Unboxing Reveal</div>
+        <div class="step-desc">Open the box → character pops out. Mystery energy even for known purchases</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Universal Box Template -->
+<div class="universal-section">
+  <div class="universal-grid">
+    <div class="universal-img" onclick="openLB(0)">
+      <img src="assets/packaging-concepts/box-system/universal-template.png" alt="Universal Box Template">
+    </div>
+    <div class="universal-info">
+      <h2>The <span>Universal Box</span></h2>
+      <p>One box mold, one color, one production run. The sticker is the only variable — making every new collection or limited drop a sticker print away, not a new box design.</p>
+      <p>The holographic "?" creates mystery energy even when the customer chose a specific character. The unboxing moment stays magical.</p>
+      <ul class="checklist">
+        <li>Matte dusty pink — on-brand for Nancy</li>
+        <li>Holographic iridescent "?" — premium feel</li>
+        <li>"SQUEEZE ME!" badge — universal brand marker</li>
+        <li>Character pops out the top on open</li>
+        <li>Same box = bulk ordering = lower unit cost</li>
+        <li>New collection = new sticker, not new box</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- All 10 Collections -->
+<div class="collections-header">
+  <h2>Every Collection, <span>One Box</span></h2>
+  <p>Same pink box — just swap the collection sticker</p>
+</div>
+
+<div class="collection-grid" id="grid"></div>
+
+<!-- Sticker Sheet -->
+<div class="sticker-section">
+  <div class="sticker-grid">
+    <div class="sticker-info">
+      <h2>The <span>Sticker Sheet</span></h2>
+      <p>Each collection gets its own sticker design. Printed in bulk sheets, applied during packing. New drop? New sticker. Limited edition? Foil variant.</p>
+      <p>The sticker carries the collection name, count ("1 of X"), and tiny silhouette hint icons at the bottom — so the buyer knows which set it's from without revealing the exact character.</p>
+      <ul class="sticker-list">
+        <li>Forbidden Fruit (5)</li>
+        <li>Food with Attitude (15)</li>
+        <li>Space & Cosmic (15)</li>
+        <li>Feelings & Moods (15)</li>
+        <li>Creatures & Cryptids (15)</li>
+        <li>Everyday Objects (15)</li>
+        <li>Weather & Nature (10)</li>
+        <li>Chaos Collection (15)</li>
+        <li>Drink Squad (10)</li>
+        <li>Sweet Tooth (5)</li>
+      </ul>
+    </div>
+    <div class="sticker-img" onclick="openLB(11)">
+      <img src="assets/packaging-concepts/box-system/sticker-sheet.png" alt="Sticker Sheet Concept">
+    </div>
+  </div>
+</div>
+
+<!-- Economics -->
+<div class="economics">
+  <div class="econ-card">
+    <h2>Why This <span>Scales</span></h2>
+    <div class="econ-grid">
+      <div class="econ-item">
+        <div class="econ-icon">💰</div>
+        <h4>Lower Unit Cost</h4>
+        <p>One box mold = bulk production pricing. No 10 different box designs.</p>
+      </div>
+      <div class="econ-item">
+        <div class="econ-icon">⚡</div>
+        <h4>Instant New Drops</h4>
+        <p>New collection = print a sticker sheet. Ship same week. No lead time on new box artwork.</p>
+      </div>
+      <div class="econ-item">
+        <div class="econ-icon">🎯</div>
+        <h4>Limited Editions</h4>
+        <p>Foil/holographic sticker variant = instant premium tier. Same box, different sticker finish.</p>
+      </div>
+      <div class="econ-item">
+        <div class="econ-icon">📦</div>
+        <h4>Warehouse Simple</h4>
+        <p>One box SKU in stock. Stickers applied during pack. No 120 different box variants sitting in storage.</p>
+      </div>
+      <div class="econ-item">
+        <div class="econ-icon">🌍</div>
+        <h4>Celeb Collabs</h4>
+        <p>NK, future celebs — just another sticker. "CELEB COLLECTION" sticker, same pink box, done.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLB(event)">
+  <button class="lb-close" onclick="closeLB(event)">✕</button>
+  <button class="lb-nav prev" onclick="navLB(-1,event)">‹</button>
+  <img id="lb-img" src="">
+  <button class="lb-nav next" onclick="navLB(1,event)">›</button>
+  <div class="lb-info" id="lb-info"></div>
+</div>
+
+<script>
+const COLLECTIONS = [
+  { slug: "universal-template", wave: "System",  name: "Universal Template", count: "All", desc: "The base box — matte dusty pink, holographic ?, SQUEEZE ME! badge. Same for every character.", tags: ["Universal", "Base Box"] },
+  { slug: "og-five",           wave: "OG",      name: "Forbidden Fruit",    count: 5,     desc: "The original fruit squad — Lem, Berri, Avo, Pixie, Lolly. Where it all started.", tags: ["5 Characters", "OG Sticker"] },
+  { slug: "food-attitude",     wave: "Wave 2",  name: "Food with Attitude",  count: 15,    desc: "Mochi, Boba, Nugget, Sushi, Taco and 10 more. When your comfort food has personality.", tags: ["15 Characters", "Wave 2 Sticker"] },
+  { slug: "space-cosmic",      wave: "Wave 3",  name: "Space & Cosmic",      count: 15,    desc: "Nebula, Cosmo, Luna, Rocket, UFO and 10 more. Explore the universe in plush form.", tags: ["15 Characters", "Wave 3 Sticker"] },
+  { slug: "feelings-moods",    wave: "Wave 4",  name: "Feelings & Moods",    count: 15,    desc: "Serotonin, Rage, Chill, Main Character, Feral and 10 more. Every mood is valid.", tags: ["15 Characters", "Wave 4 Sticker"] },
+  { slug: "creatures-cryptids", wave: "Wave 5", name: "Creatures & Cryptids", count: 15,   desc: "Yeti, Nessie, Axolotl, Dragon, Mothman and 10 more. The cryptid collection goes hard.", tags: ["15 Characters", "Wave 5 Sticker"] },
+  { slug: "everyday-objects",   wave: "Wave 6", name: "Everyday Objects",     count: 15,   desc: "Plug, 404, Wifi, Dice, Cactus, Bandaid and 9 more. The mundane, made adorable.", tags: ["15 Characters", "Wave 6 Sticker"] },
+  { slug: "weather-nature",     wave: "Wave 7", name: "Weather & Nature",     count: 10,   desc: "Thunder, Rainbow, Frost, Tornado, Coral, Ember and 4 more. Forces of nature, pocket-sized.", tags: ["10 Characters", "Wave 7 Sticker"] },
+  { slug: "chaos-collection",   wave: "Wave 8", name: "Chaos Collection",     count: 15,   desc: "Glitch, Virus, Rizz, Slay, NPC, Delulu and 9 more. Internet culture in plush form.", tags: ["15 Characters", "Wave 8 Sticker"] },
+  { slug: "drink-squad",        wave: "Wave 9", name: "Drink Squad",          count: 10,   desc: "Espresso, Matcha, Sake, Kombucha, Boba and 5 more. Your daily beverage lineup.", tags: ["10 Characters", "Wave 9 Sticker"] },
+  { slug: "sweet-tooth",        wave: "Wave 10", name: "Sweet Tooth",         count: 5,    desc: "Macaron, Donut, Cinnamon Roll, Gummy Bear, Ice Pop. Dessert crew, assemble.", tags: ["5 Characters", "Wave 10 Sticker"] },
+];
+
+// Add sticker sheet as last item
+const ALL_IMAGES = COLLECTIONS.map(c => ({
+  src: `assets/packaging-concepts/box-system/${c.slug}.png`,
+  label: c.name
+}));
+ALL_IMAGES.push({ src: 'assets/packaging-concepts/box-system/sticker-sheet.png', label: 'Sticker Sheet' });
+
+// Render grid (skip first item — universal template shown above)
+const grid = document.getElementById('grid');
+COLLECTIONS.slice(1).forEach((c, i) => {
+  const idx = i + 1; // offset for lightbox (0 = universal template)
+  grid.innerHTML += `
+    <div class="col-card" onclick="openLB(${idx})">
+      <img class="col-card-img" src="assets/packaging-concepts/box-system/${c.slug}.png" alt="${c.name}">
+      <div class="col-card-body">
+        <div class="col-card-wave">${c.wave}</div>
+        <div class="col-card-name">${c.name}</div>
+        <div class="col-card-desc">${c.desc}</div>
+        <div class="col-card-meta">
+          <span class="col-tag count">${typeof c.count === 'number' ? c.count + ' characters' : c.count}</span>
+          ${c.tags.map(t => `<span class="col-tag sticker">${t.includes('Sticker') ? t : ''}</span>`).filter(t => t.includes('Sticker')).join('')}
+        </div>
+      </div>
+    </div>`;
+});
+
+// Lightbox
+let lbIdx = 0;
+function openLB(idx) {
+  lbIdx = idx;
+  document.getElementById('lb-img').src = ALL_IMAGES[idx].src;
+  document.getElementById('lb-info').textContent = ALL_IMAGES[idx].label;
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB(e) {
+  if (e.target.tagName === 'IMG' || e.target.classList.contains('lb-nav')) return;
+  document.getElementById('lightbox').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function navLB(dir, e) {
+  e.stopPropagation();
+  lbIdx = (lbIdx + dir + ALL_IMAGES.length) % ALL_IMAGES.length;
+  document.getElementById('lb-img').src = ALL_IMAGES[lbIdx].src;
+  document.getElementById('lb-info').textContent = ALL_IMAGES[lbIdx].label;
+}
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('show')) return;
+  if (e.key === 'Escape') closeLB(e);
+  if (e.key === 'ArrowRight') navLB(1, e);
+  if (e.key === 'ArrowLeft') navLB(-1, e);
+});
+</script>
+</body>
+</html>
